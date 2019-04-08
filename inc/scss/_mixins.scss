@@ -1,0 +1,76 @@
+/*! == MIXINS == */
+
+@mixin headingBrand { 
+    margin: 0;
+    line-height: 1em;
+    font-family: $heading-font;
+    font-weight: 100;
+    letter-spacing: 0.1em;
+}
+ 
+@mixin headingSupporting {
+    margin: 0;
+    line-height: 1em;  
+    font-family: $brand-font ;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+@mixin backgroundCover {
+    background-size: cover !important; /* !important added as result of rule not working inside display:grid */
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+}
+
+@mixin backgroundContain {
+	background-size: contain !important; /* !important added as result of rule not working inside display:grid */
+	background-position: center center !important;
+	background-repeat: no-repeat !important; 
+}
+
+@mixin childOverlay {
+    content:'';
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height:100%;
+}
+
+@mixin opacity {
+    opacity:0;
+    transition:opacity 0.5s ease;
+}
+
+@mixin flexVertAlign {
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;	
+}
+
+@mixin Button {
+	font-family: $body-font;
+	text-transform: uppercase;
+	letter-spacing: 0.2em;
+}
+
+@mixin spanLink {
+    position: absolute;
+    width: 100%;
+    height: 100%;    
+}
+
+@mixin dropShadow { 
+    box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.4);
+}
+
+@mixin blackGrad {
+    background: -moz-linear-gradient(top, hsla(0,0%,0%,0) 0%, hsla(0,0%,0%,1) 100%); 
+    background: -webkit-linear-gradient(top, hsla(0,0%,0%,0) 0%,hsla(0,0%,0%,1) 100%);
+    background: linear-gradient(to bottom, hsla(0,0%,0%,0) 0%,hsla(0,0%,0%,1) 100%);
+}
+
+
+

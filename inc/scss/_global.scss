@@ -1,0 +1,255 @@
+/*! == GLOBAL == */
+html {
+    font-size: 18px;
+    overflow-y: scroll;
+}
+ 
+html,
+body {
+    min-height: 100vh;
+    margin:0;
+    padding: 0;
+}
+
+body {
+    font-family: $body-font;
+    font-size: 1rem;
+    font-weight: 200;
+    background: hsl(0, 0%, 96%);
+    color: hsl(69, 2%, 31%);
+}
+
+main {
+    min-height: 100vh;
+}
+
+p {
+    font-size: 1.2em;
+    font-weight: 200;  
+}
+
+a {
+    display: inline-block;
+    line-height: 1.2em;
+    color: $brand-secondary;
+    transition:color 0.3s ease;
+
+    &:hover {
+        text-decoration: none;
+        color: $brand-dark-grey;
+    }  
+    
+    i {
+        line-height: 1.2em;
+        vertical-align: bottom;
+        transition:all 0.5s ease;
+    }
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.heading {
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em; 
+    color: $brand-secondary;         
+    
+    &__light {
+        color: white;
+    }
+    
+    &__alt-color {
+      color: $brand-dark-grey;
+    }
+    
+    &__xl {
+        font-size: 4em;
+        line-height: 0.75em;
+    }
+    
+    &__lg {      
+        font-size: 2em;
+    }  
+    
+    &__md {
+        font-size: 1.5em;    
+        font-weight: 400;    
+    }   
+    
+    &__sm {
+        font-size: 1.2em; 
+        font-weight: 400;       
+    }
+    
+    &__xs {
+        font-size: 0.75em;        
+    }   
+
+}
+
+/*===========HEADER==========*/
+
+.site-wrapper {
+    position: relative;
+}
+
+header {
+    position: fixed;
+    display: grid;
+    width: 100%;
+    z-index: 1000;
+}
+
+nav {
+    position: fixed;
+    top:0;
+    width: 100%;
+    padding-bottom: 1em;
+    font-family: $supporting-font;
+    z-index: 500;  
+    color: white;
+    transition: background 0.5s ease;
+
+    &:before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 50px;
+        background: hsl(311, 13%, 14%);
+        opacity:0;
+        transition:opacity 0.3s ease;
+    }  
+    
+    .menu-trigger {
+        position: relative;
+        margin-top:1em;  
+        z-index: 1000;
+    }
+    
+    .brand {
+        
+        a {
+            display: block;
+            height: 4em;
+            margin-top: 1em;
+            text-align: center;
+            transition: height 0.5s ease;
+            
+            img {
+                display: inline-block;
+                height: 100%;    
+            }
+        }
+    }
+
+    .cta {
+        margin-top: 1em;
+        text-align: right;
+        text-transform: uppercase;
+        
+        a {
+            color: white;
+            font-size: 1.3em;
+            font-weight: 400;
+            border: 3px solid transparent;
+            padding: 0.25em 1em;
+            transition: all 0.5s ease;
+            
+            &:hover {
+                border-color: white;    
+                background: $brand-primary;
+            }
+        }
+    }
+}
+
+.scrolled nav {
+    background:$brand-primary;
+    
+    .brand a {
+        height: 2em;
+    }
+}
+
+.nav-menu {
+    position: absolute;
+    top:0;
+    left: -100%;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background: $brand-primary;
+    /*opacity:0;*/
+    z-index: 500;
+    transition: left 0.5s ease, opacity 0.7s ease;
+    
+    &.menu-open {
+        left:0;
+        opacity:1;
+    }
+    
+    ul {
+        height:100vh;
+        display: grid;
+        grid-template-rows: auto;
+        align-content: center;
+        justify-content: center;
+        list-style-type: none;
+        margin:0;
+        padding: 0;
+        
+        li {
+            margin-bottom: 1em;
+            text-align: center;
+            
+            a {
+                color: white;
+                text-transform: uppercase;
+                font-size: 2em;
+                transition: all 0.5s ease;
+                border-left: 3px solid hsla(0, 0%, 100%, 0);    
+                border-right: 3px solid hsla(0, 0%, 100%, 0);     
+                               
+                &:hover {
+                    border-color: hsl(0, 0%, 100%); 
+                    padding: 0 .5em;                 
+                }
+            }
+        }
+    }
+
+    .emphasis a {
+        padding: 0.25em 1em;
+        background: $brand-secondary;
+    }
+}
+
+/*===========FOOTER==========*/
+
+.socket {
+    width:100%;
+    padding: 2em;
+    font-size: 0.75em;
+    color: $brand-dark-grey;
+    
+    a {
+        color: $brand-dark-grey;
+    }
+    
+    i {
+      margin-right: 1em;
+    }
+        
+    &__colophon {
+      text-align: right;
+      a {
+        margin-left:0.5em;
+        padding-left:0.5em;
+        border-left: 1px solid hsl(11, 95%, 72%);
+        color: $brand-dark-grey;
+      }
+    }
+  }

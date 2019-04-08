@@ -1,0 +1,240 @@
+/*! == COMPONENTS == */
+
+.button {
+    background: $brand-secondary;
+    border: 0;
+    box-sizing: border-box;
+    padding: 1em 2em;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: $supporting-font;  
+    // Using inset box-shadow instead of border for sizing simplicity
+    box-shadow: inset 0 0 0 2px transparent;
+    color: white;
+    font-size: inherit;
+    // Required, since we're setting absolute on pseudo-elements
+    position: relative;
+    vertical-align: middle;
+    -webkit-appearance: none;
+    transition: color 0.25s;
+
+    &::before,
+    &::after {
+        box-sizing: inherit;
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border: 2px solid transparent;
+        width: 0;
+        height: 0;
+    }
+
+    // This covers the top & right borders (expands right, then down)
+    &::before {
+        top: 0;
+        left: 0;
+    }
+
+    // And this the bottom & left borders (expands left, then up)
+    &::after {
+        bottom: 0;
+        right: 0;
+        top: 0;
+        left: 0;
+    }
+  
+    &:hover {
+        background: white;
+        color: $brand-primary;
+    }
+
+    &:hover::before,
+    &:hover::after {
+        width: 100%;
+        height: 100%;
+    }
+
+    &:hover::before {
+        border-top-color: cyan; // Make borders visible
+        border-right-color: cyan;
+        transition:
+        width 0.25s ease-out, // Width expands first
+        height 0.25s ease-out 0.25s; // And then height
+        border-top-color: $brand-primary;
+        border-right-color: $brand-primary;
+    }
+
+    &:hover::after {
+        border-bottom-color: cyan; // Make borders visible
+        border-left-color: cyan;
+        transition:
+        border-color 0s ease-out 0.5s, // Wait for ::before to finish before showing border
+        width 0.25s ease-out 0.5s, // And then exanding width
+        height 0.25s ease-out 0.75s; // And finally height
+        border-bottom-color: $brand-primary;
+        border-left-color: $brand-primary;
+        transition: // Animate height first, then width
+        height 0.25s ease-out,
+        width 0.25s ease-out 0.25s;
+    }
+
+    span {
+        display: block;
+        font-weight: 200;
+        text-transform: none;
+        font-style: italic;
+        font-size: 1.2em;
+    }
+    
+    &__ghost {
+        background:transparent;
+        box-shadow: inset 0 0 0 2px $brand-secondary;
+        color: $brand-secondary;
+    }
+    
+    &__prompt {
+        position: relative;
+        text-align: left;
+        padding-right: 6em;
+        font-weight: 400;
+        font-size: 1.2em;
+        line-height: 1.5em;
+    
+    i {
+            position: absolute;
+            top: 20px;
+            right: 1em;
+            left:initial;
+            vertical-align: top;
+            font-weight: 600;
+            font-size: 3em;
+    }
+    
+    &:hover i {
+        right:0.75em;
+    }
+        
+    }
+    
+    &__inline-cta {
+    
+        i {
+            vertical-align: sub;
+            line-height: 1.2em;
+            font-size: 1.5em;
+            margin-left: 0.5em;  
+        } 
+    }
+}
+
+.trigger-expand,
+.trigger-collapse {
+    position: relative;
+    transition:$fastEffect;
+    font-family: $supporting-font;
+    text-transform: uppercase;
+    font-size: 0.75em;
+    letter-spacing: 2px;
+    color: $brand-secondary !important;
+
+  &:hover {
+      cursor:pointer;
+  }
+}
+
+a.next-section {
+    position: absolute;
+    bottom: 0;
+    display: block;
+    height: 4em;
+    transform: translateX(-50%);
+    left: 50%;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: white;
+ 
+     &:before {
+        position: absolute;
+        content: '';
+        bottom: 10px;
+        left: 50%;
+        margin-left: -4px;
+        height: 0;
+        width: 5px;
+        background: hsl(0, 0%, 100%);
+        -webkit-transition: height 0.5s ease;
+        -o-transition: height 0.5s ease;
+        transition: height 0.5s ease;
+        border-radius: 50px;
+    }
+    
+    &:after {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        margin-left: -11px;
+        content: '\f054';
+        font-family: 'Font Awesome 5 Free';
+        font-weight: 600;
+        font-size: 26px;  
+        transform:rotate(90deg);
+    } 
+    
+    &:hover:before {
+        height:30px;
+    }
+}
+
+.collapsed-content {
+    max-height: 0;
+    overflow: hidden; 
+    transition:max-height 0.5s ease;
+    
+    &.expand {
+        max-height: 100vh;
+    }
+}
+
+.logo-holder {
+    text-align: center;
+    margin-top: -10px;
+ 
+    #logo {
+        width:80px;
+        height:30px;
+    }
+
+    #ramsbury {
+        opacity:0.6;
+        transition:opacity 0.5s ease-in-out;
+    
+        path {
+            fill:$brand-secondary;
+        }
+    }
+
+    #created {
+        opacity:0;
+        transform: translateY(50px);
+        transition: 1s transform ease, 2s opacity ease;
+
+        path {
+            fill:$brand-secondary;
+        }
+    }
+
+    &:hover {
+        cursor:pointer;
+
+        #ramsbury {
+            opacity:0.8;
+        }
+
+        #created {
+              opacity:0.8;
+              transform: translateY(0);
+        }
+    }
+}
+
