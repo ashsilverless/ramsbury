@@ -46,7 +46,7 @@ wp_add_dashboard_widget('custom_help_widget', 'ramsbury Support', 'custom_dashbo
 function custom_dashboard_help() {
 ?>
 
-<img src="https://silverless.co.uk/wp-content/themes/silverless/images/logo__ramsbury.svg" style="max-width:100%;
+<img src="https://silverless.co.uk/wp-content/themes/silverless/images/logo__silverless.svg" style="max-width:100%;
 height:auto;"/>
 
 <img src="https://silverless.co.uk/wp-content/uploads/2016/10/icon-screen-delete.svg" style=" display: inline-block; width: 60px; margin: 2em calc(50% - 30px) 1em;"/>
