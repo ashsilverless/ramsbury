@@ -156,7 +156,8 @@
 }
 
 .owl-carousel {
-
+    display: block !important;
+    
     .owl-nav {
         position: absolute;
         top:50%;
@@ -219,6 +220,14 @@
             }
         }
     }
+}
+
+.small-carousel {
+    
+    .owl-item {
+        padding:0 3em;
+    }
+
 }
 
 .gallery {

@@ -22,36 +22,21 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 get_header(); ?>
 
+<!-- ******************* Hero Product ******************* -->
 
-<!-- ******************* Hero Content ******************* -->
+<div class="dark-block h100">
 
-<?php $heroImage = get_field('hero_image');?>
+<div class="container">
 
-<div class="wrapper-hero wrapper-hero__shallow mb3" style="background-image: url(<?php echo $heroImage['url']; ?>);">
+<?php get_template_part('template-parts/large', 'carousel');?>
 
-    <div class="container text-center">
-
-        <h1 class="heading heading__xl mb1"><?php the_title();?></h1>         
-
-            <h2 class="heading heading__sm mb1">
-                
-            <?php 
-            if( have_rows('location') ): 
-            while ( have_rows('location') ) : the_row(); ?>                  
-    
-                <span class="location"><?php the_sub_field('locations'); ?></span>            
-            <?php endwhile;
-            endif;?>      
-            
-            </h2>
-
-
-    </div><!--c-->   
 </div>
 
-<!-- ******************* Hero Content END ******************* -->
+</div>
 
+<!-- ******************* Hero Product END ******************* -->
 
+<!--
 <div class="container">
 
     <div class="row">

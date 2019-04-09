@@ -4,4 +4,53 @@
 
 /*===========BODY==========*/
 
+.bottle {
+    position: relative;
+    display: inline-block;
+    width: 100%;   
+      
+    &:before {
+        content: '';
+        position: absolute;
+        width: 251%;
+        height: 7%;
+        background: hsla(0, 0%, 0%, 0.27);
+        bottom: 16px;
+        left: 10%;
+        z-index: -1;
+        border-radius: 50%;
+        transform: rotate(-7deg);
+        filter: blur(7px);
+        background: -moz-linear-gradient(left, rgba(0,0,0,1) 0%, rgba(125,185,232,0) 100%);
+        background: -webkit-linear-gradient(left, hsl(0, 0%, 0%) 0%,hsla(206, 70%, 70%, 0) 100%);
+        background: linear-gradient(to right, hsl(0, 0%, 0%) 0%,hsla(206, 70%, 70%, 0) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#007db9e8',GradientType=1 );
+        opacity: 0.7;
+        width: 200%;
+        transition: width 1s ease;
+    }
+
+}
+
+.product-details {
+    display: grid;
+    height:100%;
+    grid-template-columns: 1fr;
+    grid-auto-rows: minmax(9vh, 30vh) minmax(min-content, min-content) minmax(min-content, min-content);
+    
+    .top {
+        align-self: flex-end;
+    }
+    
+    .detail {
+        align-self: center;
+    }
+    
+    .action {
+        align-self: flex-start;
+    }
+    
+}
+
+
 /*===========FOOTER==========*/
