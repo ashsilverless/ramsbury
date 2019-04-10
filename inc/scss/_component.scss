@@ -238,3 +238,86 @@ a.next-section {
     }
 }
 
+.container-map {
+	max-width: 100%;
+}
+
+#map-contact {
+	width: 100vw;
+	height: 90vh;
+	margin: 200px 20px 20px 20px;
+	
+
+	
+	.marker {
+		background-color: transparent;
+		width: 40px;
+		height: 40px;
+		border: 10px solid white;
+		border-radius: 50%;
+		cursor: pointer;
+		box-shadow: inset 1px 1px 5px 3px rgba(27, 27, 27, 0.32), 1px 1px 5px 3px rgba(27, 27, 27, 0.32);
+	}
+	
+	.mapboxgl-popup {
+		max-width: 200px;
+	}
+	
+	.mapboxgl-popup-content {
+		text-align: left;
+		background-color: #FFFFFF;
+		color: black;
+		padding: 1.1em;
+		
+		.mapboxgl-popup-close-button {
+			display: block;
+			border-color: #000000;
+		}
+		
+		.buttons-popup {
+			width: 100%;
+	        text-align: center;
+		
+			a {
+				line-height: 1.4em;
+				display: inline-block;
+		        width: 100%;
+		        background-color: black;
+		        border: 1px solid white;
+		        color: white;
+		        font-size: 14px;
+			    text-transform: uppercase;
+			    padding: 5px;
+			    margin: 5px 0px;
+			    letter-spacing: 0.1em;
+			    cursor: pointer;
+			}
+		}
+		
+		div {
+			&.name {
+				text-transform: uppercase;
+			    font-size: 1.5em;
+			    letter-spacing: 0.15em;
+			    line-height: 1.3em;
+			    margin-bottom: 1em;
+
+			}
+			
+			&.address {
+				font-size: 1.2em;
+				color: #717171;
+			}
+			
+			&.phone {
+				font-size: 1.3em;
+			    letter-spacing: 0.1em;
+			    margin: 1.5em 0em;
+			}
+		}
+	}
+	
+	.mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip {
+	    border-top-color: #ffffff;
+	}
+}

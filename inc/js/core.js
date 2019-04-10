@@ -47,6 +47,131 @@ jQuery(document).ready(function( $ ) {
         }, 500);
         return false;
     });
+    
+/* LOAD MAP*/
+    
+    $(document).ready(function() {
+	    var points = JSON.parse($("#map-contact").attr("points"));
+	    
+        mapboxgl.accessToken = 'pk.eyJ1IjoiYW5nZWxsYXNpbHZlcmxlc3MiLCJhIjoiY2p1OWpqejNpMjhzaTQ0bnI4OHV1bWxmZiJ9.vley8saF98a3rzT-AsE-YQ';
+        
+		var map = new mapboxgl.Map({
+		    container:  'map-contact',
+		    style:      'mapbox://styles/mapbox/navigation-guidance-day-v2',
+		    center:     [-1.729931, 51.420942],
+		    zoom:       15,
+		    scrollZoom: false
+		});
+		
+		map.addControl(new mapboxgl.NavigationControl(), 'top-right');
+		
+		var geocoder = new MapboxGeocoder({
+			accessToken: mapboxgl.accessToken,
+			marker: {
+				color: 'grey'
+			},
+			countries: 'gb',
+			mapboxgl: mapboxgl
+		});
+		
+		map.addControl(geocoder, 'top-left');
+		
+		var geojson = {
+			type: 'FeatureCollection',
+			features: points
+		};
+		
+		var coorPoints = [];
+		
+		geojson.features.forEach(function(marker) {
+
+			var el = document.createElement('div');
+			el.className = 'marker';
+			
+			new mapboxgl.Marker(el)
+				.setLngLat(marker.geometry.coordinates)
+				.setPopup(new mapboxgl.Popup({ offset: 25 })
+				.setHTML(
+			    	'<div class="name">'    + marker.properties.name     + '</div>' +
+			    	'<div class="address">' + marker.properties.address  + '</div>' +
+			    	'<div class="address">' + marker.properties.postcode + '</div>' +
+			    	'<div class="phone">'   + marker.properties.phone    + '</div>' +
+			    	'<div class="buttons-popup">' +
+				    	'<a target="_blank" href="https://www.google.com/maps/dir//' + 
+				    	marker.properties.directions + '/@' + marker.geometry.coordinates[1] + ',' + marker.geometry.coordinates[0] + ',15z' +
+				    	'">Get Directions</a>' +
+						'<a target="_blank" href="' + marker.properties.website + '">Visit Website</a>' +
+					'</div>'))
+				.addTo(map);
+			
+			el.addEventListener('click', function(e){
+				map.flyTo({
+				    center: marker.geometry.coordinates,
+				    zoom: 15
+			    });
+			});
+			
+			coorPoints.push(new mapboxgl.LngLat(marker.geometry.coordinates[0], marker.geometry.coordinates[1]));
+		});
+		
+		geocoder.on("result", function(e) {
+			var distance = [];
+			var searchPoint = new mapboxgl.LngLat(e.result.geometry.coordinates[0], e.result.geometry.coordinates[1]);
+			
+			coorPoints.forEach(function(markerPoint) {
+				distance.push({
+					'point': markerPoint,
+					'distance': distanceBetweenPoints(searchPoint, markerPoint)
+				});
+			});
+			
+			var minDistance = distance.reduce(function(prev, curr) {
+			    return prev.distance < curr.distance ? prev : curr;
+			});
+			
+			var bounds = new mapboxgl.LngLatBounds();
+
+			bounds.extend(minDistance.point);
+			bounds.extend(searchPoint);
+			
+			map.fitBounds(bounds, { padding: 100 });
+		});
+		
+		$(window).bind('mousewheel DOMMouseScroll', function(event) {
+		    if(event.ctrlKey == true) {
+		        map['scrollZoom'].enable();
+		    }
+		    else {
+		        map['scrollZoom'].disable();
+		    }
+		});
+		
+		function distanceBetweenPoints(point1, point2) {
+			var R = 6371e3; // metres
+			var φ1 = point1.lat.toRadians();
+			var φ2 = point2.lat.toRadians();
+			var Δφ = (point2.lat-point1.lat).toRadians();
+			var Δλ = (point2.lng-point1.lng).toRadians();
+			
+			var a = Math.sin(Δφ/2) * Math.sin(Δφ/2) +
+			        Math.cos(φ1) * Math.cos(φ2) *
+			        Math.sin(Δλ/2) * Math.sin(Δλ/2);
+			var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+			
+			var d = R * c;
+			return d;
+		}
+		
+		function getMiddlePoint(point1, point2) {
+			var lat = (point1.lat + point2.lat) / 2;
+			var lng = (point1.lng + point2.lng) / 2;
+			return [lng, lat];
+		}
+		
+		Number.prototype.toRadians = function() {
+			return this * Math.PI / 180;
+		};
+    });
 
 // ========== Controller for lightbox elements
 

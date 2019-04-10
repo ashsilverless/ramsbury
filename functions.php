@@ -18,6 +18,10 @@ function ramsbury_scripts() {
 
 	wp_enqueue_script( 'ramsbury-core-js', get_template_directory_uri() . '/inc/js/compiled.js', array('jquery'), true); 
 	
+	wp_enqueue_script( 'mapbox-gl', get_template_directory_uri() . '/inc/js/mapbox-gl.js', array(), true );
+	
+	wp_enqueue_script( 'mapbox-gl-geocoder', get_template_directory_uri() . '/inc/js/mapbox-gl-geocoder.min.js', array(), true );
+	
 }
 
 add_action( 'wp_enqueue_scripts', 'ramsbury_scripts' );
