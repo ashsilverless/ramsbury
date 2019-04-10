@@ -24,7 +24,7 @@ get_header(); ?>
 
 <!-- ******************* Hero Product ******************* -->
 
-<div class="dark-block h100">
+<div class="product-hero">
 
 <div class="container">
 

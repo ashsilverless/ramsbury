@@ -41,24 +41,24 @@
 
     <div class="expanding-copy__lead">
     
-        <?php the_field( 'description' );?>
+        <p><?php the_field( 'description' );?></p>
     
     </div>
-    
+
     <?php if( get_field('ingredients') ): ?>
     
-        <a class="trigger-expand">Read More</a>    
+        <a class="trigger-expand mt1">Read More</a>    
     
     <?php endif; ?>
     
-    <div class="expanding-copy__more">
+    <div class="expanding-copy__more mb1">
 
         <?php 
             if( have_rows('ingredients') ): ?>
 
 
             
-            <h4 class="heading heading__xs">Ingredients:</h4>
+            <h4 class="heading heading__xs mt2 mb1">Ingredients:</h4>
             <ul class="inline-list">
             <?php while ( have_rows('ingredients') ) : the_row(); ?>
               <?php $gluten = get_sub_field("contains_gluten"); ?>                
@@ -69,13 +69,30 @@
             </ul>
             
         <?php endif;?>
-          
-        <?php the_field('allergy_information'); ?>              
+
+        <h4 class="heading heading__xs mt2 mb1">Allergy Information:</h4>          
+        <?php the_field('allergy_information'); ?>    
+
+        <h4 class="heading heading__xs mt2 mb1">Available As:</h4> 
+        <ul class="inline-list">
+            <?php 
+        global $woocommerce, $product, $post;
+        if( $product->is_type( 'variable' ) ){
+            foreach ( $product->get_available_variations() as $key => $variation ) {
+                foreach ($variation['attributes'] as $attribute => $term_slug ) {
+                    $taxonmomy = str_replace( 'attribute_', '', $attribute );
+                    $attr_label_name = wc_attribute_label( $taxonmomy );
+                    $term_name = get_term_by( 'slug', $term_slug, $taxonmomy )->name;
+                    echo '<li>' . $term_name . '</li>';
+                }
+            }
+        } ?>
+        </ul>         
     </div>    
     
     <?php if( get_field('ingredients') ): ?>
     
-        <a class="trigger-collapse hide">Read Less</a>    
+        <a class="trigger-collapse hide mb2">Read Less</a>    
     
     <?php endif; ?>
     

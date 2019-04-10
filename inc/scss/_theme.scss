@@ -4,10 +4,15 @@
 
 /*===========BODY==========*/
 
+.product-hero {
+    height: calc(100vh - 10em);
+    padding-top: 10em;
+}
+
 .bottle {
     position: relative;
     display: inline-block;
-    width: 100%;   
+    width: auto;   
       
     &:before {
         content: '';
@@ -52,5 +57,26 @@
     
 }
 
+.inline-list {
+    margin:0;
+    padding: 0;
+    
+    li {
+        display: inline-block;
+        
+        &:after {
+            content:', ';
+        }
+        
+        &:last-of-type:after {
+            content:'.';
+        }
+        
+        &.yes {
+            font-weight: 400;
+        }
+    }
+    
+}
 
 /*===========FOOTER==========*/
