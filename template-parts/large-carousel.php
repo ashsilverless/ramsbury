@@ -1,124 +1,123 @@
-<div class="large-carousel owl-carousel owl-theme"> 
+<?php while ( have_posts() ) : the_post();
     
-	<?php
-		$args = array(
-			'post_type' => 'product',
-			'posts_per_page' => 4
-			);
-		$loop = new WP_Query( $args );
-		if ( $loop->have_posts() ) {
-			while ( $loop->have_posts() ) : $loop->the_post();?>
-			
-    <div class="large-carousel__item">
+    $productColor = get_field('product_colour');?>
 
-<div class="row">
-    
-    <div class="col-3 offset-1">
-
-        <?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $loop->post->ID ), 'single-post-thumbnail' );?>
-
-        <div class="bottle">
-            <img src="<?php  echo $image[0]; ?>" data-id="<?php echo $loop->post->ID; ?>">
-        </div>
-
-    </div><!---3-->
-    
-    <div class="col-6">
-    
-    <div class="product-details">
-        
-        <div class="top">
-        
-        <p class="heading__light mb0"><?php the_field('abv');?></p>
-        <h2 class="heading heading__lg"><?php the_field('strapline');?></h2>
-        
-        </div>
-        
-        <div class="detail">
-        <h2 class="heading heading__sm"><?php the_title();?></h2>
-
-<div class="expanding-copy">
-
-    <div class="expanding-copy__lead">
-    
-        <p><?php the_field( 'description' );?></p>
-    
+<div class="product-nav">
+    <?php if(get_previous_post()) {?>
+    <div class="previous">
+        <?php previous_post_link('%link'); ?>
     </div>
+   <?php }
+    if(get_next_post()) {?>
+    <div class="next">
+        <?php next_post_link('%link'); ?> 
+    </div>
+   <?php }?>    
+</div>               
 
-    <?php if( get_field('ingredients') ): ?>
-    
-        <a class="trigger-expand mt1">Read More</a>    
-    
-    <?php endif; ?>
-    
-    <div class="expanding-copy__more mb1">
-
-        <?php 
-            if( have_rows('ingredients') ): ?>
-
-
-            
-            <h4 class="heading heading__xs mt2 mb1">Ingredients:</h4>
-            <ul class="inline-list">
-            <?php while ( have_rows('ingredients') ) : the_row(); ?>
-              <?php $gluten = get_sub_field("contains_gluten"); ?>                
-            <li class="<?php echo $gluten;?>"><?php the_sub_field( 'ingredient' );?></li>
-
-        <?php endwhile; ?>
+    <div class="row">
         
-            </ul>
+        <div class="col-3 offset-1">
+    
+            <?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $loop->post->ID ), 'single-post-thumbnail' );?>
+    
+            <div class="bottle">
+                
+                <img src="<?php  echo $image[0]; ?>" data-id="<?php echo $loop->post->ID; ?>">
+                
+            </div>
+    
+        </div><!---col-->
+     
+        <div class="col-7">
+        
+            <div class="product-details">
             
-        <?php endif;?>
-
-        <h4 class="heading heading__xs mt2 mb1">Allergy Information:</h4>          
-        <?php the_field('allergy_information'); ?>    
-
-        <h4 class="heading heading__xs mt2 mb1">Available As:</h4> 
-        <ul class="inline-list">
+            <div class="top">
+            
+                <p class="heading heading__alt heading__light mb0"><?php the_field('abv');?>% <span class=" heading heading__body heading__xs heading__light">ABV</span></p>
+                
+                <h2 class="heading heading__xl" style="color: <?php echo $productColor;?>;"><?php the_field('strapline');?></h2>
+            
+            </div>
+            
+            <div class="detail">
+                
+                <h2 class="heading heading__sm heading__alt heading__caps heading__light"><?php the_title();?></h2>
+    
+                <div class="expanding-copy">
+    
+        <div class="expanding-copy__lead">
+        
+            <p><?php the_field( 'description' );?></p>
+        
+        </div>
+    
+        <?php if( get_field('ingredients') ): ?>
+        
+            <a class="trigger-expand mt1" style="color: <?php echo $productColor;?>;">Read More</a>    
+        
+        <?php endif; ?>
+        
+        <div class="expanding-copy__more mb1">
+    
             <?php 
-        global $woocommerce, $product, $post;
-        if( $product->is_type( 'variable' ) ){
-            foreach ( $product->get_available_variations() as $key => $variation ) {
-                foreach ($variation['attributes'] as $attribute => $term_slug ) {
-                    $taxonmomy = str_replace( 'attribute_', '', $attribute );
-                    $attr_label_name = wc_attribute_label( $taxonmomy );
-                    $term_name = get_term_by( 'slug', $term_slug, $taxonmomy )->name;
-                    echo '<li>' . $term_name . '</li>';
+                if( have_rows('ingredients') ): ?>
+    
+    
+                
+                <h4 class="heading heading__body heading__caps heading__xs mt2 mb1">Ingredients:</h4>
+                <ul class="inline-list">
+                <?php while ( have_rows('ingredients') ) : the_row(); ?>
+                  <?php $gluten = get_sub_field("contains_gluten"); ?>                
+                <li class="<?php echo $gluten;?>"><?php the_sub_field( 'ingredient' );?></li>
+    
+            <?php endwhile; ?>
+            
+                </ul>
+                
+            <?php endif;?>
+    
+            <h4 class="heading heading__body heading__caps heading__xs mt2 mb1">Allergy Information:</h4>          
+            <?php the_field('allergy_information'); ?>    
+    
+            <h4 class="heading heading__body heading__caps heading__xs mt2 mb1">Available As:</h4> 
+            <ul class="inline-list">
+                <?php 
+            global $woocommerce, $product, $post;
+            if( $product->is_type( 'variable' ) ){
+                foreach ( $product->get_available_variations() as $key => $variation ) {
+                    foreach ($variation['attributes'] as $attribute => $term_slug ) {
+                        $taxonmomy = str_replace( 'attribute_', '', $attribute );
+                        $attr_label_name = wc_attribute_label( $taxonmomy );
+                        $term_name = get_term_by( 'slug', $term_slug, $taxonmomy )->name;
+                        echo '<li>' . $term_name . '</li>';
+                    }
                 }
-            }
-        } ?>
-        </ul>         
-    </div>    
-    
-    <?php if( get_field('ingredients') ): ?>
-    
-        <a class="trigger-collapse hide mb2">Read Less</a>    
-    
-    <?php endif; ?>
-    
-</div>
-
-
-
-
+            } ?>
+            </ul>         
+        </div>    
         
-        </div>
+        <?php if( get_field('ingredients') ): ?>
         
-        <div class="action">
-        <?php wc_get_template_part( 'content', 'single-product' ); ?>
-        </div>
+            <a class="trigger-collapse hide mb2" style="color: <?php echo $productColor;?>;">Read Less</a>    
+        
+        <?php endif; ?>
         
     </div>
-       
-    </div><!--6-->
     
+            </div>
+            
+            <div class="action">
+                
+                <?php wc_get_template_part( 'content', 'single-product' ); ?>
+            
+            </div>
+            
+        </div>
+           
+        </div><!--col-->
+        
     </div><!--r-->
     
-    </div><!--item-->
-			
-	<?php endwhile;
-		}
-		wp_reset_postdata();?>
-
-</div>
-
+<?php endwhile; // end of the loop. ?>

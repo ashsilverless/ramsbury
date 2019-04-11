@@ -35,14 +35,16 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 			
 				<?php foreach ( $attributes as $attribute_name => $options ) : ?>
 
-						<div class="value">
+						<div class="value"><span>
 							<?php
 								wc_dropdown_variation_attribute_options( array(
 									'options'   => $options,
 									'attribute' => $attribute_name,
 									'product'   => $product,
-								) );
-								echo end( $attribute_keys ) === $attribute_name ? wp_kses_post( apply_filters( 'woocommerce_reset_variations_link', '<a class="reset_variations" href="#">' . esc_html__( 'Clear', 'woocommerce' ) . '</a>' ) ) : '';
+								) );?>
+								</span>
+								<?php
+								echo end( $attribute_keys ) === $attribute_name ? wp_kses_post( apply_filters( 'woocommerce_reset_variations_link', '<a class="reset_variations" href="#">' . esc_html__( 'Clear Selection', 'woocommerce' ) . '</a>' ) ) : '';
 							?>
 
 					</div>
