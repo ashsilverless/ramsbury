@@ -21,11 +21,12 @@
 
 <?php endif;?>
 
-    <div class="container">
+    <div class="container container-map">
     
         <div class="row mb5 w75 font400">
 
-            cdd
+            <?php get_template_part("template-parts/map"); ?>
+            
             <?php
             while ( have_posts() ) : the_post();
                 the_content();
