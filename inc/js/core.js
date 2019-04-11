@@ -26,18 +26,22 @@ jQuery(document).ready(function( $ ) {
         //Use height var to set padding of page content
         $(".content.no-hero").css("padding-top", navHeight);   
     });
-    
-/* ADD CLASS ON SCROLL*/
 
-	$(window).scroll(function() {
+/* ADJUST NAV ON SCROLL*/
+
+$(function() {
+    //caches a jQuery object containing the header element
+    var header = $("nav");
+    $(window).scroll(function() {
         var scroll = $(window).scrollTop();
 
-        if (scroll >= 100) {
-            $("body").addClass("scrolled");
+        if (scroll >= 50) {
+            header.addClass("dark");
         } else {
-            $("body").removeClass("scrolled");
+            header.removeClass("dark");
         }
     });
+});
  
 //Smooth Scroll
 
@@ -372,5 +376,25 @@ if($('#mixitup-posts-from-past').length) {
         }
     });
 }
+
+// ==========Add AJAX functions to quantity buttons on product pages
+
+$(document).on('click', '.plus', function(e) { // replace '.quantity' with document (without single quote)
+    $input = $(this).prev('input.qty');
+    var val = parseInt($input.val());
+    var step = $input.attr('step');
+    step = 'undefined' !== typeof(step) ? parseInt(step) : 1;
+    $input.val( val + step ).change();
+});
+$(document).on('click', '.minus',  // replace '.quantity' with document (without single quote)
+    function(e) {
+    $input = $(this).next('input.qty');
+    var val = parseInt($input.val());
+    var step = $input.attr('step');
+    step = 'undefined' !== typeof(step) ? parseInt(step) : 1;
+    if (val > 0) {
+        $input.val( val - step ).change();
+    }
+});
 
 });//Don't remove ---- end of jQuery wrapper

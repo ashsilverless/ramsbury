@@ -119,8 +119,10 @@
   vertical-align: middle;
   float: none;
   font-weight: 200;
-  padding: 1em 3em;
+  padding: 0.5em 2em;
+  border-radius: 0;
   background: $brand-secondary;
+  font-family: $brand-font;
 }
 
 .quantity input::-webkit-outer-spin-button,
@@ -128,6 +130,7 @@
     display: none;
     margin: 0;
 }
+
 .quantity input.qty {
     appearance: textfield;
     -webkit-appearance: none;
@@ -138,7 +141,7 @@
     width: 2em;
     text-align: center;
     height: 2em;
-    font-size: 1.5em;
+    font-size: 1em;
     border:none;
 }
 
@@ -450,5 +453,19 @@ input#billing_address_1::placeholder {
     cursor: pointer;
 }
 
+.woocommerce div.product form.cart .variations select {
+    max-width: 100%;
+    min-width: 100%;
+  }
 
+.single_variation_wrap {
+    clear: both;
+}
+
+.woocommerce div.product form.cart .reset_variations {
+    border: 1px solid hsl(0, 0%, 55%);
+    padding: 0.5em;
+    margin: 0 2em;
+    color: hsl(0, 0%, 72%);
+}
 
