@@ -241,12 +241,7 @@ add_filter( 'woocommerce_product_single_add_to_cart_text', 'add_to_cart_text' );
 function add_to_cart_text() {
 
     $productColor = get_field('product_colour');?>    
-<style>
-.single_add_to_cart_button {
-    background-color:<?php echo $productColor;?> !important;
-}
 
-</style>
     <i class="fas fa-shopping-basket"></i> Add To My Fridge
 
 <?php }
@@ -255,7 +250,7 @@ function add_content_after_addtocart() {
 
     $productColor = get_field('product_colour');?>
 
-    <button class="button" style="color:white; background-color: <?php echo $productColor;?>;"><i class="fas fa-map-marked-alt"></i> Drink Locally</button>
+    <button class="button" style=""><i class="fas fa-map-marked-alt"></i> Drink Locally</button>
 
 <?php }
 add_action( 'woocommerce_after_add_to_cart_button', 'add_content_after_addtocart' );

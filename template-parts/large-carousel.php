@@ -55,7 +55,7 @@
     
         <?php if( get_field('ingredients') ): ?>
         
-            <a class="trigger-expand mt1" style="color: <?php echo $productColor;?>;">Read More</a>    
+            <a class="trigger-expand mt1" style="color: <?php echo $productColor;?> !important;">Read More</a>    
         
         <?php endif; ?>
         
@@ -100,7 +100,7 @@
         
         <?php if( get_field('ingredients') ): ?>
         
-            <a class="trigger-collapse hide mb2" style="color: <?php echo $productColor;?>;">Read Less</a>    
+            <a class="trigger-collapse hide mb2" style="color: <?php echo $productColor;?> !important;">Read Less</a>    
         
         <?php endif; ?>
         
