@@ -19,12 +19,49 @@ body {
     color: hsl(69, 2%, 31%);
 }
 
+.page-border {
+    content:'';
+    position: fixed;
+    top:0;
+    left: 0;
+    height:100%;
+    width:10px;
+    background-color: white;
+    z-index: 1000;
+    
+    &__left-top {
+        &:before {
+            content:'';
+            position: fixed;
+            width:100%;
+            height:10px;
+            background-color:white;
+        }
+    }
+    
+    &__right-bottom {
+        left:initial;
+        right:0;
+        
+        &:before {
+            content:'';
+            position: fixed;
+            left: 0;
+            bottom:0;
+            width:100%;
+            height:10px;
+            background-color:white;
+        }
+    }
+    
+}
+
 main {
     min-height: 100vh;
 }
 
 p {
-    font-size: 1.02em;
+    font-size: 1em;
     font-weight: 200;  
 }
 
@@ -82,7 +119,7 @@ img {
     }
     
     &__lg {      
-        font-size: 2em;
+        font-size: 3em;
     }  
     
     &__md {
@@ -152,9 +189,9 @@ nav {
   }  
 
 svg {
-  width:200px;
+  width:150px;
   display: block;
-  margin: 0;
+  margin: 0 0 1em;
   transition: all 0.5s ease;
 }
 
@@ -182,7 +219,7 @@ ul {
 
 .dark svg {
   width:100px;
-  margin: 0 auto;
+  margin: 0 auto -1em;
   
   #text {
     display:none;
