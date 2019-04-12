@@ -4,6 +4,10 @@
 
 /*===========BODY==========*/
 
+.bottom-border {
+    border-bottom: 10px solid white;
+}
+
 .inline-list {
     margin:0;
     padding: 0;
@@ -27,8 +31,10 @@
 }
 
 .product-hero {
+    position: relative;
     background: hsl(20, 3%, 19%);
-
+    background: radial-gradient(ellipse at center, hsl(0, 1%, 23%) 0%,hsl(0, 1%, 14%) 100%);
+    
     .bottle {
         height: calc(100vh - 15em);
         margin: 12em 0 3em;
@@ -52,7 +58,7 @@
         position: absolute;
         left: 0;
         width: 7em;
-        padding-left: 3em;
+        padding-left: 3.5em;
         font-family: $brand-font; 
         
         a {
@@ -69,7 +75,7 @@
             background:url(inc/img/arrow-shape.svg);
             transform: rotate(90deg);
             top: 50%;
-            left: 0;
+            left: 10px;
             margin-top: -25px;  
         }
     }
@@ -78,13 +84,13 @@
         left: initial;
         right: 0;
         padding-left: 0;
-        padding-right: 3em;
+        padding-right: 3.5em;
         text-align: right;
         
         &:before {
             transform:rotate(-90deg);
             left:initial;
-            right: 0;
+            right: 10px;
         }
     }
 }
@@ -115,6 +121,30 @@
         transition: width 1s ease;
     }
 
+    &:after {
+        content: '';
+        position: absolute;
+        width: 151%;
+        height: 6%;
+        background: hsla(0, 0%, 0%, 0.27);
+        bottom: 5px;
+        left: 3%;
+        z-index: -1;
+        border-radius: 50%;
+        -webkit-transform: rotate(-7deg);
+        -ms-transform: rotate(-7deg);
+        transform: rotate(-7deg);
+        -webkit-filter: blur(7px);
+        filter: blur(2px);
+        background: -moz-linear-gradient(left, black 0%, rgba(125, 185, 232, 0) 100%);
+        background: -webkit-linear-gradient(left, hsl(0, 0%, 0%) 0%, hsla(206, 70%, 70%, 0) 100%);
+        background: -webkit-gradient(linear, left top, right top, from(hsl(0, 0%, 0%)), to(hsla(206, 70%, 70%, 0)));
+        background: -o-linear-gradient(left, black 0%, rgba(125, 186, 232, 0) 100%);
+        background: linear-gradient(to right, hsl(0, 0%, 0%) 0%, hsla(206, 70%, 70%, 0) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#007db9e8',GradientType=1 );
+        opacity: 0.7; 
+    }
+
 }
 
 .bottle-bg {
@@ -135,12 +165,20 @@
     
     .detail {
         align-self: center;
+        color: white;
     }
     
     .action {
         align-self: flex-start;
     }
     
+}
+
+.product-card {
+    
+    .bottle {
+        width:30%;
+    }
 }
 
 .value select {
@@ -151,6 +189,8 @@
     border-radius: 0;
     border: none;
     padding: 0.25em 1em;
+    font-weight: 100;
+    font-size: 1em;    
 }
 
 .value span {
@@ -159,7 +199,8 @@
     width:50%;
     float: left;
     margin-bottom: 1em;
-
+    z-index: 1;
+    
     &:before {
         content: '';
         position: absolute;
@@ -173,19 +214,18 @@
     &:after {
         font-family: "Font Awesome 5 Free";
         font-weight: 900;
-        content: "\f0dd";
+        content: "\f078";
         position: absolute;
-        width: 1.5em;
         height: 100%;
-        background: hsl(39, 97%, 60%);
+        background: hsl(0, 0%, 62%);
         top: 0;
         right: 0;
         z-index: -1;
         text-align: center;
-        font-size: 2em;
-        line-height: 0;
-        color: hsl(0, 0%, 100%);
-        padding-top: 0.25em;
+        font-size: 1em;
+        line-height: 2em;
+        color: hsl(0, 1%, 21%);
+        padding: 0 1em;
     }
 }
 .quantity {
@@ -197,7 +237,7 @@
 
 span.woocommerce-Price-amount.amount {
     font-size: 1.5em;
-    font-weight: 900;
+    font-weight: 200;
     margin-bottom: 0.5em;
     display: block;
     color: $brand-light-grey;

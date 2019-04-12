@@ -31,6 +31,9 @@
 
 <body <?php body_class(); ?>>
 
+<div class="page-border page-border__left-top"></div>
+<div class="page-border page-border__right-bottom"></div>
+
     <div id="page" class="site-wrapper">
     
         <nav id="nav">

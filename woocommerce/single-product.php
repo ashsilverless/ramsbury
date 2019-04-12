@@ -24,11 +24,11 @@ get_header(); ?>
 
 <!-- ******************* Hero Product ******************* -->
 
-<div class="product-hero">
+<div class="product-hero bottom-border">
 
 <div class="container">
 
-<?php get_template_part('template-parts/large', 'carousel');?>
+<?php get_template_part('template-parts/large', 'product');?>
 
 </div>
 
@@ -36,120 +36,36 @@ get_header(); ?>
 
 <!-- ******************* Hero Product END ******************* -->
 
-<!--
-<div class="container">
+
+<div class="container pt3">
+
+<h2 class="heading heading__lg text-center">Our Range</h2>
 
     <div class="row">
-            
-        <div class="col-6">       
 
-            <h3 class="heading heading__md mb1">Itinerary</h3>
+	<?php
+		$args = array(
+			'post_type' => 'product',
+			'posts_per_page' => -1
+			);
+		$loop = new WP_Query( $args );
+		if ( $loop->have_posts() ) {
+			while ( $loop->have_posts() ) : $loop->the_post();
 
-            <?php 
-            if( have_rows('tour_details') ): 
-            while ( have_rows('tour_details') ) : the_row(); ?>    
+            ?><div class="col-3"><?php
 
-            <p class="font400 mb0"><?php the_sub_field('day'); ?></p>
-            <?php the_sub_field('activity'); ?>
-            
-            <?php endwhile;
-            endif;?>   
-            
-            <a href="/itinerary" class="button button__draw button__meet button__ghost mt1">View Full Itinerary Details</a>
-            
-            <h3 class="heading heading__md mt2 mb1">Details</h3>
-            
-            <?php the_field('tour_description');?>
-            
-        </div>       
+            get_template_part('template-parts/product', 'card');
+?></div><?php
+			endwhile;
+		} else {
+			echo __( 'No products found' );
+		}
+		wp_reset_postdata();
+	?>
 
-        <div class="col-6">      
- 
-            <div class="booking-panel">
-                
-                <div class="dashed-line"></div>
-                
-                <h1 class="heading heading__md font800 mb1"><?php the_title();?></h1>    
-                
-                <div class="dates">
-                    
-                    <h3 class="heading heading__sm">Dates</h3> 
-
-                    <p><?php the_field('date_from'); ?> - <?php the_field('date_to'); ?></p>
-                
-                </div>
-
-                <?php
-                $date_from  = get_field( 'date_from' );
-                $date_to    = get_field( 'date_to' );
-                $date_1     = new DateTime(date('Y-m-d', strtotime($date_from)));
-                $date_2     = new DateTime(date('Y-m-d', strtotime($date_to)));
-                $days       = $date_1->diff($date_2)->days;?>
-            
-                <div class="duration">
-                    
-                    <h3 class="heading heading__sm">Duration </h3>            
-
-                    <p><?php echo $days;?> Days</p>
-
-                </div>
-
-                <?php while ( have_posts() ) : the_post(); ?>
-                <?php wc_get_template_part( 'content', 'single-product' ); ?>
-            
-                <?php endwhile; // end of the loop. ?>            
-            
-            </div>
-
-            <?php if( have_rows('tour_guides') ): ?>
-            
-            <h3 class="heading heading__md mt2 mb1">YOUR GUIDES</h3>            
-            
-            <?php while ( have_rows('tour_guides') ) : the_row(); ?>    
-            <div class="tour-guide">
-                
-                <img src="<?php the_sub_field('guide_image'); ?>"/>
-                <p><?php the_sub_field('guide_name'); ?></p>
-            </div>
-            
-            <?php endwhile;
-            endif;?>              
-
-            <h3 class="heading heading__md mt2 mb1">IMPORTANT DETAILS</h3>
-             
-            <div class="exclusions-list">
-                
-                <?php the_field('exclusions');?>
-            
-            </div>
-            
-            <a href="/terms" class="mt1">Full Terms & Conditions <i class="fas fa-angle-right"></i></a>
-        </div>
 
     </div>
 
-
-
-	<!--<?php
-		/**
-		 * woocommerce_before_main_content hook.
-		 *
-		 * @hooked woocommerce_output_content_wrapper - 10 (outputs opening divs for the content)
-		 * @hooked woocommerce_breadcrumb - 20
-		 */
-		do_action( 'woocommerce_before_main_content' );
-	?>-->
-
-
-
-	<!--<?php
-		/**
-		 * woocommerce_after_main_content hook.
-		 *
-		 * @hooked woocommerce_output_content_wrapper_end - 10 (outputs closing divs for the content)
-		 */
-		do_action( 'woocommerce_after_main_content' );
-	?>-->
 
 </div><!--c-->
 

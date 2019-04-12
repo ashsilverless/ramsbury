@@ -14,20 +14,6 @@
     
             <div class="socket">
     
-                <div class="partner-logos">
-                    
-                    <h4 class="heading heading__md heading__alt-color mb1">Proudly Partnered With</h4>
-                    
-                        <?php 
-                    if( have_rows('partner_logos', 'options') ): 
-                    while ( have_rows('partner_logos', 'options') ) : the_row(); ?>        
-                    
-                    <img src="<?php the_sub_field('image');?>"/>    
-                    
-                    <?php endwhile; endif;?>
-                    
-                </div>
-    
                 <div class="row">
     
                     <div class="col-4 socials">
@@ -56,7 +42,7 @@
     
                     <div class="col-4 socket__colophon">
     
-                        &copy; ramsbury <?php echo date ('Y');?>
+                        &copy; Ramsbury Brewery <?php echo date ('Y');?>
     
                         <a href="">Terms</a>
     
