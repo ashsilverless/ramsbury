@@ -197,11 +197,10 @@ $(function() {
 // GLOBAL OWL CAROUSEL SETTINGS
 
     $('.large-carousel').owlCarousel({
-        animateOut: 'fadeOut',
         loop:true,
         margin:10,
         nav:true,
-    	navClass: ['owl-prev', 'owl-next'],
+    	    navClass: ['owl-prev', 'owl-next'],
         dots:false,
         responsive:{
             0:{
@@ -217,21 +216,19 @@ $(function() {
     });
 
     $('.small-carousel').owlCarousel({
-        animateOut: 'fadeOut',
         loop:true,
         margin:10,
         nav:true,
-    	navClass: ['owl-prev', 'owl-next'],
-        dots:false,
+    	    navClass: ['owl-prev', 'owl-next'],
         responsive:{
             0:{
                 items:1
             },
             600:{
-                items:1
+                items:4
             },
             1000:{
-                items:5
+                items:7
             }
         }
     });

@@ -32,7 +32,7 @@
         <div class="col-7">
         
             <div class="product-details">
-            
+                
                 <div class="top">
                 
                     <p class="heading heading__alt heading__light mb0"><?php the_field('abv');?>% <span class=" heading heading__body heading__xs heading__light">ABV</span></p>
@@ -40,81 +40,79 @@
                     <h2 class="heading heading__xl heading__light" style="color: <?php echo $productColor;?>;"><?php the_field('strapline');?></h2>
                 
                 </div>
-                
+                    
                 <div class="detail">
-                    
-                    <h2 class="heading heading__sm heading__alt heading__caps heading__light"><?php the_title();?></h2>
-        
-                    <div class="expanding-copy mb2">
-        
-            <div class="expanding-copy__lead">
+                        
+                        <h2 class="heading heading__sm heading__alt heading__caps heading__light"><?php the_title();?></h2>
             
-                <p><?php the_field( 'description' );?></p>
+            <div class="expanding-copy mb2">
             
-            </div>
-        
-            <?php if( get_field('ingredients') ): ?>
-            
-                <a class="trigger-expand mt1" style="color: <?php echo $productColor;?>;">Read More</a>    
-            
-            <?php endif; ?>
-            
-            <div class="expanding-copy__more mb1">
-        
-                <?php 
-                    if( have_rows('ingredients') ): ?>
-        
-        
-                    
-                    <h4 class="heading heading__body heading__caps heading__xs mt2 mb1">Ingredients:</h4>
-                    <ul class="inline-list">
-                    <?php while ( have_rows('ingredients') ) : the_row(); ?>
-                      <?php $gluten = get_sub_field("contains_gluten"); ?>                
-                    <li class="<?php echo $gluten;?>"><?php the_sub_field( 'ingredient' );?></li>
-        
-                <?php endwhile; ?>
+                <div class="expanding-copy__lead">
                 
-                    </ul>
-                    
-                <?php endif;?>
-        
-                <h4 class="heading heading__body heading__caps heading__xs mt2 mb1">Allergy Information:</h4>          
-                <?php the_field('allergy_information'); ?>    
-        
-                <h4 class="heading heading__body heading__caps heading__xs mt2 mb1">Available As:</h4> 
-                <ul class="inline-list">
+                    <p><?php the_field( 'description' );?></p>
+                
+                </div>
+            
+                <?php if( get_field('ingredients') ): ?>
+                
+                <a class="trigger-expand mt1" style="color: <?php echo $productColor;?>;">Read More</a>    
+                
+                <?php endif; ?>
+                
+                <div class="expanding-copy__more mb1">
+            
                     <?php 
-                global $woocommerce, $product, $post;
-                if( $product->is_type( 'variable' ) ){
-                    foreach ( $product->get_available_variations() as $key => $variation ) {
-                        foreach ($variation['attributes'] as $attribute => $term_slug ) {
-                            $taxonmomy = str_replace( 'attribute_', '', $attribute );
-                            $attr_label_name = wc_attribute_label( $taxonmomy );
-                            $term_name = get_term_by( 'slug', $term_slug, $taxonmomy )->name;
-                            echo '<li>' . $term_name . '</li>';
+                        if( have_rows('ingredients') ): ?>
+    
+                        <h4 class="heading heading__body heading__caps heading__xs heading__light mt2 mb1">Ingredients:</h4>
+                        <ul class="inline-list">
+                        <?php while ( have_rows('ingredients') ) : the_row(); ?>
+                          <?php $gluten = get_sub_field("contains_gluten"); ?>                
+                        <li class="<?php echo $gluten;?>"><?php the_sub_field( 'ingredient' );?></li>
+            
+                    <?php endwhile; ?>
+                    
+                        </ul>
+                        
+                    <?php endif;?>
+            
+                    <h4 class="heading heading__body heading__caps heading__xs heading__light mt2 mb1">Allergy Information:</h4>          
+                    <?php the_field('allergy_information'); ?>    
+            
+                    <h4 class="heading heading__body heading__caps heading__xs heading__light mt2 mb1">Available As:</h4> 
+                    <ul class="inline-list">
+                        <?php 
+                    global $woocommerce, $product, $post;
+                    if( $product->is_type( 'variable' ) ){
+                        foreach ( $product->get_available_variations() as $key => $variation ) {
+                            foreach ($variation['attributes'] as $attribute => $term_slug ) {
+                                $taxonmomy = str_replace( 'attribute_', '', $attribute );
+                                $attr_label_name = wc_attribute_label( $taxonmomy );
+                                $term_name = get_term_by( 'slug', $term_slug, $taxonmomy )->name;
+                                echo '<li>' . $term_name . '</li>';
+                            }
                         }
-                    }
-                } ?>
-                </ul>         
-            </div>    
-            
-            <?php if( get_field('ingredients') ): ?>
-            
+                    } ?>
+                    </ul>         
+                </div>    
+                
+                <?php if( get_field('ingredients') ): ?>
+                
                 <a class="trigger-collapse hide mb2" style="color: <?php echo $productColor;?>;">Read Less</a>    
-            
-            <?php endif; ?>
+                
+                <?php endif; ?>
+                
+            </div>
             
         </div>
-        
-                </div>
-                
+                    
                 <div class="action pb5">
                     
                     <?php wc_get_template_part( 'content', 'single-product' ); ?>
                 
                 </div>
-            
-        </div>
+                
+            </div>
            
         </div><!--col-->
         

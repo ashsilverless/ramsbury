@@ -50,6 +50,12 @@
     flex-direction: column;	
 }
 
+@mixin gridCenter {
+    display: grid;
+    align-content: center;
+    justify-content: center;
+}
+
 @mixin Button {
 	font-family: $body-font;
 	text-transform: uppercase;
@@ -72,5 +78,7 @@
     background: linear-gradient(to bottom, hsla(0,0%,0%,0) 0%,hsla(0,0%,0%,1) 100%);
 }
 
-
+@mixin darkCircularGradient {
+    background: radial-gradient(ellipse at center, hsl(0, 0%, 60%) 0%,hsl(0, 0%, 19%) 100%);
+}
 
