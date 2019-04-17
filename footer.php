@@ -5,63 +5,70 @@
  */
 ?>
 
-            </main>
-    
-            <footer class="footer">
+</main>
 
+<footer class="footer">
+
+    <div class="details">
     
-        <div class="container">
+        <?php get_template_part('template-parts/ramsbury', 'logo');?>        
+        
+        <p class="mt2"><?php the_field('footer_heading', 'option');?></p>      
+         
+        <p><?php the_field('address', 'option');?></p>             
+        
+        <p><?php the_field('telephone_number', 'option');?></p>          
     
-            <div class="socket">
+        <div class="socials mt1">
+        
+            <?php if( have_rows('social_links', 'option') ): while( have_rows('social_links', 'option') ): the_row(); ?>
+            
+            <a href="<?php the_sub_field('page_link'); ?>"><i class="fab fa-<?php the_sub_field('name'); ?>"></i></a>
+            
+            <?php endwhile; endif; ?>
+        
+        </div>
+
+    </div>
+
+    <div class="container-fluid pl0 pr0">
     
-                <div class="row">
+        <div class="socket">
     
-                    <div class="col-4 socials">
+            <div class="row">
     
-                        <?php if( have_rows('social_links', 'option') ): while( have_rows('social_links', 'option') ): the_row(); ?>
-    
-                        <a href="<?php the_sub_field('page_link'); ?>"><i class="fab fa-<?php the_sub_field('name'); ?>"></i></a>
-    
-                        <?php endwhile; endif; ?>
-    
-                    </div>
-    
-                    <div class="col-4">
+                <div class="col-6">
+                    
+                    &copy; Ramsbury Brewery <?php echo date ('Y');?> | 
+                    
+                    <a href="">Terms & Conditions</a> | 
+                    
+                    <a href="">Privacy Policy</a>
                         
-                        <div class="logo-holder">
-                            
-                            <a href="https://ramsbury.co.uk">
-                                
-                                <?php get_template_part('inc/img/ramsbury', 'logo');?>
-                            
-                            </a>
-                        
-                        </div>
+                </div>
+        
+                <div class="col-6 text-right">
+                    
+                    <a href="">Basket</a> | 
+                    
+                    <a href="">Checkout</a> | 
+                                    
+                    <a href="">My Account</a>                
+        
+                </div>
+        
+            </div><!--row-->
     
-                    </div>
+        </div><!--socket-->
     
-                    <div class="col-4 socket__colophon">
-    
-                        &copy; Ramsbury Brewery <?php echo date ('Y');?>
-    
-                        <a href="">Terms</a>
-    
-                        <a href="">Privacy</a>
-    
-                    </div>
-    
-                </div><!--row-->
-    
-            </div><!--socket-->
-    
-        </div><!--container-->
-    
-    </footer>
-    
-        </div><!-- #page -->
-    
-        <?php wp_footer(); ?>
-    
-    </body>
-    
+    </div><!--container-->
+
+</footer>
+
+</div><!-- #page -->
+
+<?php wp_footer(); ?>
+
+</body>
+
 </html>

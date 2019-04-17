@@ -245,9 +245,10 @@ function add_to_cart_text() {
 function add_content_after_addtocart() {
 
     $productColor = get_field('product_colour');?>
-
+<div class="locally">
+    <span>or</span>
     <button class="button button__ghost"><i class="fas fa-map-marked-alt"></i> Drink Locally</button>
-
+</div>
 <?php }
 add_action( 'woocommerce_after_add_to_cart_button', 'add_content_after_addtocart' );
 

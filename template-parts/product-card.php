@@ -1,3 +1,5 @@
+<?php $productColor = get_field('product_colour');?>
+
 <div class="product-card text-center">
 
         <?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $loop->post->ID ), 'single-post-thumbnail' );?>
@@ -13,6 +15,6 @@
                     <h2 class="heading heading__sm" style="color: <?php echo $productColor;?>;"><?php the_field('strapline');?></h2>
 
 
-<a href="" class="button">Buy Now</a>        
+<a href="<?php the_permalink();?>" class="button" style="background-color: <?php echo $productColor;?>;">Buy Now</a>        
     
 </div>

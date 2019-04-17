@@ -1,23 +1,20 @@
 /*! == COMPONENTS == */
 
-.button {
-    background: $brand-secondary;
-    border: 0;
-    box-sizing: border-box;
-    padding: 1em 2em;
+#page .button {
+    position: relative;
+    display: inline-block;
+    background: $brand-primary;
+    margin: 0;
+    padding: 0 2em;
     text-align: center;
     text-transform: uppercase;
     font-family: $supporting-font;  
-    // Using inset box-shadow instead of border for sizing simplicity
-    box-shadow: inset 0 0 0 2px transparent;
-    color: white;
-    font-size: inherit;
-    // Required, since we're setting absolute on pseudo-elements
-    position: relative;
+    color: $brand-dark-grey;
     vertical-align: middle;
     -webkit-appearance: none;
-    transition: color 0.25s;
-
+    border-radius: 0;
+    letter-spacing: 0.15em;
+    
     span {
         display: block;
         font-weight: 200;
@@ -28,8 +25,7 @@
     
     &__ghost {
         background:transparent;
-        box-shadow: inset 0 0 0 2px $brand-secondary;
-        color: $brand-secondary;
+        color: $brand-light-grey;
     }
     
     &__prompt {
@@ -64,6 +60,11 @@
             font-size: 1.5em;
             margin-left: 0.5em;  
         } 
+    }
+    
+    &__fullwidth {
+        display: block;
+        text-align: center;
     }
 }
 

@@ -8,7 +8,8 @@
 		$loop = new WP_Query( $args );
 		if ( $loop->have_posts() ) {
 			while ( $loop->have_posts() ) : $loop->the_post();?>
-			
+
+<a href="<?php the_permalink();?>">			
     <div class="small-carousel__item">
 
         <?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $loop->post->ID ), 'single-post-thumbnail' );?>
@@ -21,7 +22,7 @@
         
     
     </div>
-			
+</a>
 	<?php endwhile;
 		}
 		wp_reset_postdata();?>
