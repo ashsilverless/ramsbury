@@ -7,6 +7,12 @@
 .dark-block {
     @include darkCircularGradient;
     border-bottom:10px solid white;
+    color: white;
+}
+
+.light-block {
+    background:white;
+    border-bottom:10px solid white;
 }
 
 .bottom-border {
@@ -367,7 +373,11 @@ span.woocommerce-Price-amount.amount {
  
 }
 
-
+.leader__item {
+    @include backgroundCover;
+    @include gridCenter;
+    height:20em;
+}
 
 /*===========FOOTER==========*/
 

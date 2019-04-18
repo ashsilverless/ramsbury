@@ -10,7 +10,7 @@
     if( get_field('hero_type') !== 'slider'):
 ?>
 
-    <div class="hero mb3 <?php the_field( 'hero_height' );?>" style="background-image: url(<?php echo $heroImage['url']; ?>); background-color: <?php echo $heroColor; ?>;">
+    <div class="hero <?php the_field( 'hero_height' );?>" style="background-image: url(<?php echo $heroImage['url']; ?>); background-color: <?php echo $heroColor; ?>;">
 
     <?php 
         if( get_field('hero_type') == 'video'): ?>

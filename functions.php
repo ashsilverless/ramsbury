@@ -258,3 +258,10 @@ function add_content_after_addtocart() {
 <?php }
 add_action( 'woocommerce_after_add_to_cart_button', 'add_content_after_addtocart' );
 
+add_filter('upload_mimes', 'bt_upload_svg');
+
+function bt_upload_svg ( $existing_mimes = array() ) {
+	// add your extension to the array
+	$existing_mimes['svg'] = 'image/svg+xml';
+	return $existing_mimes;
+}
