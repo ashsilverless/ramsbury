@@ -15,9 +15,9 @@
         
         <p class="mt2"><?php the_field('footer_heading', 'option');?></p>      
          
-        <p><?php the_field('address', 'option');?></p>             
+        <p><?php the_field('shop_address', 'option');?></p>             
         
-        <p><?php the_field('telephone_number', 'option');?></p>          
+        <p><?php the_field('shop_telephone', 'option');?></p>          
     
         <div class="socials mt1">
         
