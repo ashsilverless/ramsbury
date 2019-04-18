@@ -39,4 +39,3 @@
 		wp_reset_postdata();?>
 
 </div>
->>>>>>> Ash-Dev
