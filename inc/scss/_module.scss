@@ -17,16 +17,6 @@
         h3 {
             position: relative;
             margin:0.5em 0 1em;
-            
-            &:before {
-                content:'';
-                position: absolute;
-                bottom: -0.5em;
-                left: 0;
-                width:50px;
-                height: 3px;
-                background: $brand-secondary;
-            }
         }
     }
     
@@ -79,6 +69,7 @@
 
 .expanding-copy {
     overflow:hidden;
+    line-height: 2;
     
     &__more {
         max-height: 0;
@@ -94,14 +85,6 @@
         
         .expanding-copy__more {
             max-height: 100vh;
-        }
-        
-        .trigger-expand {
-            display:none;
-        }
-        
-        .trigger-collapse {
-            display: block;
         }
     }
 }
@@ -275,6 +258,15 @@
 
     &__item {
         @include gridCenter;        
+    }
+    
+    h2 {
+		text-transform: uppercase;
+		font-family: $supporting-font;
+		color: $brand-light-grey;
+		font-weight: normal;
+		font-size: 0.9em;
+		padding-top: 1em;
     }
     
     .bottle {
@@ -790,6 +782,11 @@ article.news {
     display: none;
 }
 
+.contact-subtitle {
+	color: $brand-primary;
+	text-transform: uppercase;
+}
+
 /* * * TOUR BOOKING * * */
 
 .tour-booking {
@@ -852,7 +849,7 @@ article.news {
 						text-align: center;
 						font-size: 1em;
 						line-height: 50px;
-						color: #FFFFFF;
+						color: $brand-white;
 						padding: 0 1em;
 					}
 				}
@@ -879,7 +876,7 @@ article.news {
 				input {
 					text-align: center;
 					flex-grow: 1;
-					background-color: #FFFFFF;
+					background-color: $brand-white;
 					padding: 0.7rem 1.5rem;
 					text-transform: uppercase;
 					letter-spacing: 0.1em;
@@ -906,7 +903,7 @@ article.news {
 					padding: 0.7rem 1.5rem;
 					border: none;
 					letter-spacing: 0.1em;
-					color: #FFFFFF;
+					color: $brand-white;
 					outline: none;
 					text-transform: uppercase;
 					cursor: pointer;
@@ -924,13 +921,13 @@ article.news {
 					display: flex;
 					justify-content: center;
 					align-items: center;
-					color: #FFFFFF;
+					color: $brand-white;
 					height: auto;
 				}
 			}
 			
 			.summary {
-				color: #FFFFFF;
+				color: $brand-white;
 				height: 100%;
 				background-color: #828282;
 				text-align: left;
@@ -945,7 +942,7 @@ article.news {
 			}
 			
 			.tour-total {
-				color: #FFFFFF;
+				color: $brand-white;
 				text-align: left;
 				text-transform: uppercase;
 				letter-spacing: 0.2em;
@@ -957,13 +954,13 @@ article.news {
 	
 	.spots-remaining {
 		text-align: left;
-		color: #FFFFFF;
+		color: $brand-white;
 	}
 	
 	.tour-error {
 		display: block;
 		text-align: center;
-		color: #FFFFFF;
+		color: $brand-white;
 		width: 100%;
 	}
 }

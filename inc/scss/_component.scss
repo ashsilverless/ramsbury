@@ -5,11 +5,11 @@
     display: inline-block;
     background: $brand-primary;
     margin: 0;
-    padding: 0 2em;
+    padding: 0.5em 2em;
     text-align: center;
     text-transform: uppercase;
-    font-family: $supporting-font;  
-    color: $brand-dark-grey;
+    font-family: $brand-font;  
+    color: $brand-white;
     vertical-align: middle;
     -webkit-appearance: none;
     border-radius: 0;
@@ -71,7 +71,6 @@
 .trigger-expand,
 .trigger-collapse {
     position: relative;
-    transition:$fastEffect;
     font-family: $supporting-font;
     text-transform: uppercase;
     font-size: 0.75em;
@@ -81,6 +80,20 @@
   &:hover {
       cursor:pointer;
   }
+ }
+  
+.trigger-home {
+	font-family: $brand-font;
+	background-color: $brand-dark;
+	color: $brand-white !important;
+	padding: 0.5rem 4rem;
+	font-size: 1rem;
+	margin-top: 3rem;
+}
+
+.trigger-aboutus {
+    color: $brand-primary !important;
+    font-family: $brand-font;
 }
 
 a.next-section {
@@ -209,7 +222,7 @@ a.next-section {
 	
 	.mapboxgl-popup-content {
 		text-align: left;
-		background-color: #FFFFFF;
+		background-color: $brand-white;
 		color: black;
 		padding: 1.1em;
 		
@@ -262,7 +275,7 @@ a.next-section {
 	}
 	
 	.mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip {
-	    border-top-color: #ffffff;
+	    border-top-color: $brand-white;
 	}
 }
 
@@ -290,7 +303,7 @@ a.next-section {
 		text-align: center;
 		
 		&:before {
-			color: #FFFFFF;
+			color: $brand-white;
 		    content: '\f054';
 		    margin-left: 3px;
 		    font-family: "Font Awesome 5 Free";
@@ -324,7 +337,7 @@ a.next-section {
 	.ui-datepicker-title {
 		text-align: center;
 		text-transform: uppercase;
-		color: #FFFFFF;
+		color: $brand-white;
 		font-size: 1.5em;
 		letter-spacing: 4px;
 		text-indent: 4px;

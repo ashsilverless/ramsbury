@@ -8,7 +8,7 @@
     
     <?php if( get_sub_field('text_block_text_more') ): ?>
     
-        <a class="trigger-expand">Read More</a>    
+        <a class="trigger-expand trigger-aboutus">Read More</a>    
     
     <?php endif; ?>
     
@@ -20,7 +20,7 @@
     
     <?php if( get_sub_field('text_block_text_more') ): ?>
     
-        <a class="trigger-collapse hide">Read Less</a>    
+        <a class="trigger-collapse trigger-aboutus hide">Read Less</a>    
     
     <?php endif; ?>
 

@@ -32,6 +32,17 @@ jQuery(document).ready(function( $ ) {
 $(function() {
     //caches a jQuery object containing the header element
     var header = $("nav");
+    
+    $(document).ready(function( $ ) {
+		var scroll = $(window).scrollTop();
+		
+		if (scroll >= 50) {
+			header.addClass("dark");
+		} else {
+			header.removeClass("dark");
+		}
+    });
+    
     $(window).scroll(function() {
         var scroll = $(window).scrollTop();
 
@@ -544,11 +555,18 @@ $(function() {
 
 
     $(".trigger-expand").click(function(event) {
+	    $(this).closest('.expanding-copy').find('.trigger-expand').hide()
         $(this).closest('.expanding-copy').addClass("expand");
+	    $(this).closest('.expanding-copy').find('.trigger-collapse').show()
     });
 
     $(".trigger-collapse").click(function(event) {
+	    var that = this;
         $(this).closest('.expanding-copy').removeClass("expand");
+        setTimeout(function() {
+	        $(that).closest('.expanding-copy').find('.trigger-collapse').hide()
+	        $(that).closest('.expanding-copy').find('.trigger-expand').show();
+	    }, 500);
     });
 
     $(".toggle").click(function() {   
