@@ -60,8 +60,8 @@ get_header();?>
 
 <!-- ******************* Map Section ******************* -->
 
-<div style="height:50vh; background:darkgrey">
-    MAP BLOCK
+<div style="height:50vh;">
+    <?php get_template_part("template-parts/map"); ?>
 </div>
 
 <!-- ******************* Map Section END ******************* -->

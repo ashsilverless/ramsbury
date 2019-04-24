@@ -135,9 +135,9 @@ get_header();?>
 <!-- ******************* Slider Section END ******************* -->
 
 <!-- ******************* Map Section ******************* -->
-
-<div style="height:75vh; background:darkgrey">
-    MAP BLOCK
+	
+<div style="height:75vh;">
+    <?php get_template_part("template-parts/map"); ?>
 </div>
 
 <!-- ******************* Map Section END ******************* -->
