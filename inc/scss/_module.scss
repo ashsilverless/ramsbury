@@ -703,3 +703,193 @@ article.news {
     display: none;
 }
 
+/* * * TOUR BOOKING * * */
+
+.tour-container {
+	background-color: #333333;
+	min-height: 100vh;
+	text-align: center;
+	
+	.container {
+		display: inline-block;
+		width: 70%;
+		
+		.calendar {
+			margin: 1em;
+		}
+		
+		.h1, .description {
+			color: #FFFFFF;
+			text-align: center;
+		}
+		
+		.wrapper-info {
+			display: flex;
+			flex-wrap: wrap;
+			align-items: start;
+		
+			.pick-info {
+				padding: 1em;
+				flex: 50%;
+				
+				.input-tour {
+					flex: 50%;
+					text-align: left;
+					display: flex;
+					flex-wrap: wrap;
+					
+					&:not(:last-child) {
+						padding-bottom: 1rem;
+					}
+					
+					&:last-child {
+						padding-top: 0.5rem;
+					}
+					
+					span {
+						flex-grow: 1;
+						position: relative;
+						display: block;
+						width: 100%;
+						z-index: 1;
+						border-radius: 0;
+						
+						&:before {
+							content: '';
+							position: absolute;
+							top: 0;
+							width: 100%;
+							height: 100%;
+							background: white;
+							z-index: -2;
+						}
+						
+						&:after {
+							font-family: "Font Awesome 5 Free";
+							font-weight: 900;
+							content: "\f078";
+							position: absolute;
+							height: 100%;
+							background: #828282;
+							top: 0;
+							right: 0;
+							z-index: -1;
+							text-align: center;
+							font-size: 1em;
+							line-height: 50px;
+							color: #FFFFFF;
+							padding: 0 1em;
+						}
+					}
+					
+					select {
+						cursor: pointer;
+						width: 100%;
+						border-radius: 0;
+						text-transform: uppercase;
+						letter-spacing: 0.1em;
+						color: #5a5a5a;
+						outline: none;
+						background: transparent;
+						appearance: none;
+						-webkit-appearance: none;
+						-moz-appearance: none;
+						border-radius: 0;
+						border: none;
+						padding: 0.7rem 1.5rem;
+						font-weight: 100;
+						font-size: 1em;
+					}
+					
+					input {
+						text-align: center;
+						flex-grow: 1;
+						background-color: #FFFFFF;
+						padding: 0.7rem 1.5rem;
+						text-transform: uppercase;
+						letter-spacing: 0.1em;
+						color: #5a5a5a;
+						outline: none;
+						font-weight: 100;
+						border: none;
+						
+						&::placeholder {
+							color: #5a5a5a;
+						}
+						
+						&::-webkit-inner-spin-button, &::-webkit-outer-spin-button {
+							display: none;
+							margin: 0;
+						}
+					}
+					
+					
+					.book-tour {
+						flex: 100%;
+						width: 100%;
+						background-color: #FA9917;
+						padding: 0.7rem 1.5rem;
+						border: none;
+						letter-spacing: 0.1em;
+						color: #FFFFFF;
+						outline: none;
+						text-transform: uppercase;
+						cursor: pointer;
+						transition: background-color 0.3s ease;
+						
+						&:hover {
+							background-color: #e08a15;
+						}
+					}
+					
+					.plus, .minus {
+						cursor: pointer;
+						background: #828282;
+						padding: 0 1em;
+						display: flex;
+						justify-content: center;
+						align-items: center;
+						color: #FFFFFF;
+					}
+				}
+				
+				.summary {
+					color: #FFFFFF;
+					height: 100%;
+					background-color: #828282;
+					text-align: left;
+					text-transform: uppercase;
+					letter-spacing: 0.2em;
+					padding: 1em 1em 0 2em;
+					font-size: 1rem;
+					
+					p {
+						font-size: 1rem;
+					}
+				}
+				
+				.tour-total {
+					color: #FFFFFF;
+					text-align: left;
+					text-transform: uppercase;
+					letter-spacing: 0.2em;
+					padding: 0.5em 1em 0 2em;
+					font-size: 1rem;
+				}
+			}
+		}
+		
+		.spots-remaining {
+			text-align: left;
+			color: #FFFFFF;
+		}
+		
+		.tour-error {
+			display: block;
+			text-align: center;
+			color: #FFFFFF;
+			width: 100%;
+		}
+	}
+	
+}

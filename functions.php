@@ -16,15 +16,32 @@ function ramsbury_scripts() {
 	
 	wp_enqueue_style( 'ramsbury-style', get_stylesheet_uri() );
 
-	wp_enqueue_script( 'ramsbury-core-js', get_template_directory_uri() . '/inc/js/compiled.js', array('jquery'), true); 
+	wp_enqueue_script( 'ramsbury-core-js', get_template_directory_uri() . '/inc/js/compiled.js', array('jquery', 'jquery-ui-datepicker'), true); 
 	
 	wp_enqueue_script( 'mapbox-gl', get_template_directory_uri() . '/inc/js/mapbox-gl.js', array(), true );
 	
 	wp_enqueue_script( 'mapbox-gl-geocoder', get_template_directory_uri() . '/inc/js/mapbox-gl-geocoder.min.js', array(), true );
 	
+    wp_localize_script('ramsbury-core-js', 'ajax_object', array(
+		
+		'ajax_url' => admin_url( 'admin-ajax.php' ),
+		
+		'checkout_url' => get_permalink( wc_get_page_id( 'cart' ) )
+		
+	));
+	
 }
 
 add_action( 'wp_enqueue_scripts', 'ramsbury_scripts' );
+
+add_action( 'wp_ajax_get_availability', 'availability_calendar' );
+
+add_action( 'wp_ajax_available_dates', 'available_dates' );
+
+add_action( 'wp_ajax_available_hours', 'available_hours' );
+
+add_action( 'wp_ajax_add_to_cart', 'add_to_cart' );
+
 
 /**= Add Menus =**/
 
@@ -278,3 +295,36 @@ function ramsbury_social_sharing_buttons($content) {
 	}
 };
 //add_filter( 'the_content', 'ramsbury_social_sharing_buttons');
+
+
+/**= Get Availability Calendar =**/
+
+function availability_calendar() {
+	
+	require_once("functions-calendar.php");
+	
+	get_availability();
+	
+}
+
+function available_dates() {
+	
+	require_once("functions-calendar.php");
+	
+	get_available_dates();
+}
+
+function available_hours() {
+	
+	require_once("functions-calendar.php");
+	
+	get_hours();
+}
+
+function add_to_cart() {
+	
+	require_once("functions-calendar.php");
+	
+	add_product_to_cart();
+
+}
