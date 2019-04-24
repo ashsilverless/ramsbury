@@ -261,3 +261,117 @@ a.next-section {
 	    border-top-color: #ffffff;
 	}
 }
+
+#tour-datepicker {
+	
+	display: none;
+	
+	.ui-datepicker-header {
+		width: 100%;
+		height: 24px;
+		line-height: 24px;
+		color: #5ed1cc;
+		margin-bottom: 20px;
+	}
+	
+	.ui-datepicker-prev, .ui-datepicker-next {
+		width: 30px;
+		height: 30px;
+		line-height: 24px;
+		border-radius: 100%;
+		cursor: pointer;
+		overflow: hidden;
+		transition: border-color 0.3s ease;
+		position: relative;
+		text-align: center;
+		
+		&:before {
+			color: #FFFFFF;
+		    content: '\f054';
+		    margin-left: 3px;
+		    font-family: "Font Awesome 5 Free";
+		    font-style: normal;
+		    font-weight: 900;
+		    line-height: 30px;
+		    transition: color 0.3s ease;
+		}
+		
+		&:hover, &:hover:before {
+			border-color: #aeaeae;
+			color: #aeaeae;
+		}
+		
+		span {
+			display: none;
+		}
+			
+	}
+	
+	.ui-datepicker-prev {
+		float: left;
+		transform: rotate(180deg);
+	}
+	
+	.ui-datepicker-next {
+		float: right;
+		margin-left: 12px;
+	}
+	
+	.ui-datepicker-title {
+		text-align: center;
+		text-transform: uppercase;
+		color: #FFFFFF;
+		font-size: 1.5em;
+		letter-spacing: 4px;
+		text-indent: 4px;
+	}
+	
+	.ui-datepicker-calendar {
+		width: 100%;
+		text-align: center;
+		
+			thead tr th span {
+				margin-bottom: 10px;
+				display: block;
+				color: #adadad;
+				text-transform: uppercase;
+				font-weight: normal;
+			}
+	}
+	
+	.ui-state-default {
+		margin: 5px;
+		height: 50px;
+		background-color: white;
+		display: block;
+		text-decoration: none;
+		color: white;
+		border: 2px solid transparent;
+		line-height: 50px;
+		font-size: 20px;
+		letter-spacing: 4px;
+		text-indent: 4px;
+		background: #828282;
+		transition: background-color 0.3s ease;
+		cursor: pointer;
+		
+		&:hover {
+			background-color: #5F5F5F;
+		}
+	}
+	
+	.ui-state-active {
+		background-color: #FA9917;
+		
+		&:hover {
+			background-color: #FA9917;
+		}
+	}
+	
+	.ui-datepicker-unselectable .ui-state-default {
+		color: grey;
+		cursor: default;
+		background-color: white;
+		border: 2px solid transparent;
+	}
+}

@@ -12,13 +12,11 @@ get_header();?>
 
 <!-- ******************* Hero END ******************* -->
 
-<!-- ******************* Map Section ******************* -->
+<!-- ******************* Tour Section ******************* -->
 
-<div style="height:75vh; background:darkgrey">
-    TOUR BLOCK
-</div>
+<?php get_template_part('template-parts/tour-booking');?>
 
-<!-- ******************* Map Section END ******************* -->
+<!-- ******************* Tour Section END ******************* -->
 
 <!-- ******************* Gallery Section ******************* -->
 

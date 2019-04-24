@@ -21,19 +21,13 @@
 
 <?php endif;?>
 
-    <div class="container container-map">
-    
-        <div class="row mb5 w75 font400">
-
-            <?php get_template_part("template-parts/map"); ?>
-            
-            <?php
-            while ( have_posts() ) : the_post();
-                the_content();
-            endwhile;
-            ?>
-    
-        </div>
+    <div class="container pt10">
+	    
+	    <?php if ( have_posts() ) : while ( have_posts() ) : the_post();
+		    
+			the_content();
+			
+		endwhile; endif; ?>
       
     </div><!--c-->
 
