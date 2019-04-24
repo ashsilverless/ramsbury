@@ -39,7 +39,9 @@
         <nav id="nav">
     
         <div class="container">
-        
+            
+            <a href="/cart" class="cart"><i class="fas fa-shopping-basket"></i></a>
+            
             <div class="row">
             
                 <div class="brand">
