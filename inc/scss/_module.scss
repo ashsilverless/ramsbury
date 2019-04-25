@@ -663,9 +663,9 @@ article.news {
     &__item {
         position: relative;
         display: grid;
-        grid-template-columns: 30% 70%;
+        grid-template-columns: 30% 68%;
         grid-template-rows: repeat(4, min-content);
-        grid-column-gap: 2em;
+        grid-column-gap: 2%;
         border-bottom: 3px solid $brand-light-grey;
         padding-bottom: 1em;
         margin-bottom: 1em;
@@ -675,6 +675,7 @@ article.news {
         }
         
         .post-image {
+            @include backgroundContain;
             grid-row-start:1;
             grid-row-end: 5;
             } 

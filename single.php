@@ -16,7 +16,7 @@ get_header();
 
 <?php $heroImage = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full' ); ?>
 
-<div class="wrapper-hero mb3" style="background-image: url(<?php echo $heroImage[0]; ?>);">
+<div class="hero h50 mb3" style="background-image: url(<?php echo $heroImage[0]; ?>);">
 
     <div class="container">
     
@@ -50,49 +50,32 @@ get_header();
 
 <!-- ******************* Hero Content END ******************* -->
  
-<div class="container">
+<div class="container pb3">
 
     <div class="row">
         
         <div class="col-8">
     
-            <article class="news mt2">
+            <article class="news">
         
-    			<?php the_content();
+    			<?php the_content();  
+                endwhile; // End of the loop.
+            ?>
     
-    			the_post_navigation();
-    
-    		endwhile; // End of the loop.
-    		?>
-    
-    </article>
+            </article>
     
         </div>
         
         <div class="col-4">
         
-            <?php $ctaImage = get_field('image', 'options');?>
-        
-            <div class="sidebar-cta" style="background-image: url(<?php echo $ctaImage['url']; ?>);">
-            
-            <h3 class="heading heading__lg heading__light font300 mb0"><?php the_field('headline', 'options');?></h3>
-            
-            <p class="heading__md heading__light font300 mb0"><?php the_field('copy', 'options');?></p>
-            
-            <a href="<?php the_field('target', 'options');?>" type="button" class="button mt1 mb1">
-                
-                <?php the_field( 'button_text', 'options' );?>
-                
-            </a>
-            
+            <?php get_template_part('template-parts/blog', 'sidebar');?>
+          
         </div>
     
-        </div>
-        
     </div>
 
-<a href="/news" class="button mb3">Back To News</a>
-
+    <a href="/news" class="button mb3">Back To News</a>
+        
 </div><!--c-->
 
 <?php get_footer();

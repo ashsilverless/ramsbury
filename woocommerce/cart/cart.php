@@ -35,9 +35,9 @@ defined( 'ABSPATH' ) || exit;?>
 			<tr>
 				<th class="product-remove"><p class="heading heading__sm heading__alt-color mb0">Delete</p></th>
 				<!--<th class="product-thumbnail">&nbsp;</th>-->
-				<th class="product-name"><p class="heading heading__sm heading__alt-color mb0"><?php esc_html_e( 'Tour', 'woocommerce' ); ?></p></th>
-				<th class="product-price"><p class="heading heading__sm heading__alt-color mb0"><?php esc_html_e( 'Deposit Price', 'woocommerce' ); ?></p></th>
-				<th class="product-quantity"><p class="heading heading__sm heading__alt-color mb0"><?php esc_html_e( 'Places', 'woocommerce' ); ?></p></th>
+				<th class="product-name"><p class="heading heading__sm heading__alt-color mb0"><?php esc_html_e( 'Product', 'woocommerce' ); ?></p></th>
+				<th class="product-price"><p class="heading heading__sm heading__alt-color mb0"><?php esc_html_e( 'Price', 'woocommerce' ); ?></p></th>
+				<th class="product-quantity"><p class="heading heading__sm heading__alt-color mb0"><?php esc_html_e( 'Qty', 'woocommerce' ); ?></p></th>
 				<th class="product-subtotal"><p class="heading heading__sm heading__alt-color mb0"><?php esc_html_e( 'Total', 'woocommerce' ); ?></p></th>
 			</tr>
 		</thead>
@@ -141,12 +141,12 @@ defined( 'ABSPATH' ) || exit;?>
 
 					<?php if ( wc_coupons_enabled() ) { ?>
 						<div class="coupon">
-							<!--<label for="coupon_code"><p class="heading heading__xs heading__alt-color font200 mb0"><?php esc_html_e( 'Coupon:', 'woocommerce' ); ?></p></label>--> <input type="text" name="coupon_code" class="input-text" id="coupon_code" value="" placeholder="<?php esc_attr_e( 'Coupon code', 'woocommerce' ); ?>" /> <button type="submit" class="button button__ghost" name="apply_coupon" value="<?php esc_attr_e( 'Apply coupon', 'woocommerce' ); ?>"><?php esc_attr_e( 'Apply coupon', 'woocommerce' ); ?></button>
+							<!--<label for="coupon_code"><p class="heading heading__xs heading__alt-color font200 mb0"><?php esc_html_e( 'Coupon:', 'woocommerce' ); ?></p></label>--> <input type="text" name="coupon_code" class="input-text" id="coupon_code" value="" placeholder="<?php esc_attr_e( 'Discount Code', 'woocommerce' ); ?>" /> <button type="submit" class="button button__subdued" name="apply_coupon" value="<?php esc_attr_e( 'Apply Discount', 'woocommerce' ); ?>"><?php esc_attr_e( 'Apply Discount', 'woocommerce' ); ?></button>
 							<?php do_action( 'woocommerce_cart_coupon' ); ?>
 						</div>
 					<?php } ?>
 
-					<button type="submit" class="button button__ghost" name="update_cart" value="<?php esc_attr_e( 'Update cart', 'woocommerce' ); ?>"><?php esc_html_e( 'Update cart', 'woocommerce' ); ?></button>
+					<button type="submit" class="button button__subdued update-button" name="update_cart" value="<?php esc_attr_e( 'Update cart', 'woocommerce' ); ?>"><?php esc_html_e( 'Update cart', 'woocommerce' ); ?></button>
 
 					<?php do_action( 'woocommerce_cart_actions' ); ?>
 

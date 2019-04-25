@@ -25,14 +25,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	<?php do_action( 'woocommerce_before_cart_totals' ); ?>
 
-	<h2 class="heading heading__xs heading__alt-color font200 text-right mt3 mb0"><?php _e( 'Deposit to Secure Places', 'woocommerce' ); ?></h2>
-
 	<table cellspacing="0" class="shop_table shop_table_responsive">
 
-		<!--<tr class="cart-subtotal">
+		<tr class="cart-subtotal">
 			<th><p class="heading heading__sm heading__alt-color font300 text-right"><?php _e( 'Subtotal', 'woocommerce' ); ?></p></th>
 			<td data-title="<?php esc_attr_e( 'Subtotal', 'woocommerce' ); ?>"><?php wc_cart_totals_subtotal_html(); ?></td>
-		</tr>-->
+		</tr>
 
 		<?php foreach ( WC()->cart->get_coupons() as $code => $coupon ) : ?>
 			<tr class="cart-discount coupon-<?php echo esc_attr( sanitize_title( $code ) ); ?>">
