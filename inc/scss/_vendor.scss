@@ -107,7 +107,7 @@
 
 .related.products,
 .woocommerce-notices-wrapper {
-    display: none;
+
 }
 
 .woocommerce #content div.product div.summary, .woocommerce div.product div.summary, .woocommerce-page #content div.product div.summary, .woocommerce-page div.product div.summary {
@@ -181,7 +181,7 @@
 .product-price,
 .product-quantity,
 .product-subtotal {
-    text-align: center;
+    text-align: left;
     padding-bottom: 1em;
     border-bottom: 1px solid hsl(0, 0%, 77%);
 }
@@ -205,6 +205,7 @@
     grid-template-columns: auto auto auto;
     width: 50%;
     float: left;    
+    margin-top: 1em;
     align-items: center;
 }
 
@@ -217,9 +218,14 @@
 }
 
 #coupon_code {
-    font-size: 1.5em;
-    margin: 0 1em 0 0;
+    margin: 0;
     text-align: center;
+    width: auto;
+    padding: 0;
+    float: none;
+    line-height: 1.5em;
+    font-size: 1.25em;
+    border: 2px solid hsl(0, 0%, 100%);
 }
 
 #coupon_code::placeholder {
@@ -427,12 +433,20 @@ input#billing_address_1::placeholder {
 
 .woocommerce-error {
     color: hsl(0, 0%, 100%);
-    font-size: 1.5em;
+    font-size: 1em;
     list-style: none;
     margin: 0 0 1em;
-    padding: 0;
-    background: hsl(0, 100%, 50%);
+    padding: 0.5em;
+    background: hsl(357, 30%, 46%);
     text-align: center;
+    
+    &:before {
+        display: none;
+    }
+}
+
+.woocommerce table.shop_table {
+    border:none;
 }
 
 .woocommerce-invalid span.woocommerce-input-wrapper {
@@ -485,6 +499,19 @@ input#billing_address_1::placeholder {
     }
 }
 
+.woocommerce form .form-row-first, .woocommerce form .form-row-last, .woocommerce-page form .form-row-first, .woocommerce-page form .form-row-last {
+  width: auto;
+  overflow: visible;
+}
 
+.woocommerce table.shop_table td,
+th.product-total {
+  text-align: right;
+}
+
+.woocommerce table td.product-name,
+.woocommerce table th.product-name {
+    text-align: left;
+}
 
 

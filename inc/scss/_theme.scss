@@ -2,10 +2,10 @@
 
 /*===========HEADER==========*/
 
-.cart {
+.cart-button {
     position: absolute;
 	right: 0;
-	bottom: 0;
+	top: 0;
     
     i {
         color: white;
@@ -262,11 +262,16 @@
 }
 
 span.woocommerce-Price-amount.amount {
-    font-size: 1.5em;
+    font-size: 1em;
     font-weight: 200;
     margin-bottom: 0.5em;
     display: block;
-    color: $brand-light-grey;
+    color: hsl(0, 0%, 13%);
+}
+
+#page .button.update-button {
+    margin-top: 1em;    
+    background:$brand-primary;
 }
 
 .woocommerce div.product form.cart .reset_variations {
@@ -409,6 +414,17 @@ span.woocommerce-Price-amount.amount {
     h2 {
 	    font-size: 2.5em;
     }
+}
+
+.woocommerce a.remove {
+  font-size: 1em;
+  height: 1em;
+  color: hsl(0, 0%, 50%)!important;
+  
+  &:hover {
+      color: hsl(0, 100%, 50%) !important;
+      background: transparent !important;
+  }
 }
 
 /*===========FOOTER==========*/

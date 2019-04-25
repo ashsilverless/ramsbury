@@ -40,7 +40,7 @@
     
         <div class="container">
             
-            <a href="/cart" class="cart"><i class="fas fa-shopping-basket"></i></a>
+            <a href="/cart" class="cart-button"><i class="fas fa-shopping-basket"></i></a>
             
             <div class="row">
             

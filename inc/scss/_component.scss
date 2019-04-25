@@ -27,6 +27,11 @@
         background:transparent;
         color: $brand-light-grey;
     }
+
+    &__subdued {
+        background:grey;
+        color: white;
+    }
     
     &__prompt {
         position: relative;
