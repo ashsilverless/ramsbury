@@ -27,12 +27,18 @@ get_header();?>
             <div class="col-6">
 
                 <div class="leader__item mb5" style="background-image: url(<?php echo $leaderImage['url']; ?>);">
+	                
+	                <div class="overlay"></div>
 
                    <h2 class="heading heading__md heading__light"> <?php the_sub_field('image_heading');?></h2>
                    
-                   <?php the_sub_field('image_copy');?>
+                   <div><?php the_sub_field('image_copy');?></div>
                     
-                    <a href="<?php the_sub_field( 'button_target' );?>" type="button" class="button"><?php the_sub_field( 'button_text' );?></a>
+                    <div class="align-center">
+	                    
+	                    <a href="<?php the_sub_field( 'button_target' );?>" type="button" class="button"><?php the_sub_field( 'button_text' );?></a>
+	                    
+                	</div>
                
                 </div><!--leader item-->
                
@@ -135,9 +141,9 @@ get_header();?>
 <!-- ******************* Slider Section END ******************* -->
 
 <!-- ******************* Map Section ******************* -->
-
-<div style="height:75vh; background:darkgrey">
-    MAP BLOCK
+	
+<div style="height:75vh;">
+    <?php get_template_part("template-parts/map"); ?>
 </div>
 
 <!-- ******************* Map Section END ******************* -->

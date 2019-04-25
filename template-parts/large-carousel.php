@@ -7,7 +7,9 @@
 			);
 		$loop = new WP_Query( $args );
 		if ( $loop->have_posts() ) {
-			while ( $loop->have_posts() ) : $loop->the_post();?>
+			while ( $loop->have_posts() ) : $loop->the_post();
+				if( $loop->post->ID != 1745):
+			?>
 	<?php $productColor = get_field('product_colour');?>		
     <div class="large-carousel__item">
 
@@ -34,7 +36,9 @@
     
     </div>
 			
-	<?php endwhile;
+	<?php 
+			endif;
+		endwhile;
 		}
 		wp_reset_postdata();?>
 

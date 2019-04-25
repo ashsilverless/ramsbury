@@ -5,11 +5,11 @@
     display: inline-block;
     background: $brand-primary;
     margin: 0;
-    padding: 0 2em;
+    padding: 0.5em 2em;
     text-align: center;
     text-transform: uppercase;
-    font-family: $supporting-font;  
-    color: $brand-dark-grey;
+    font-family: $brand-font;  
+    color: $brand-white;
     vertical-align: middle;
     -webkit-appearance: none;
     border-radius: 0;
@@ -71,7 +71,6 @@
 .trigger-expand,
 .trigger-collapse {
     position: relative;
-    transition:$fastEffect;
     font-family: $supporting-font;
     text-transform: uppercase;
     font-size: 0.75em;
@@ -81,6 +80,20 @@
   &:hover {
       cursor:pointer;
   }
+ }
+  
+.trigger-home {
+	font-family: $brand-font;
+	background-color: $brand-dark;
+	color: $brand-white !important;
+	padding: 0.5rem 4rem;
+	font-size: 1rem;
+	margin-top: 3rem;
+}
+
+.trigger-aboutus {
+    color: $brand-primary !important;
+    font-family: $brand-font;
 }
 
 a.next-section {
@@ -178,16 +191,16 @@ a.next-section {
     }
 }
 
-.container-map {
-	max-width: 100%;
+.map-wrapper {
+	padding: 0 10px;
+	border-bottom: 10px solid white;
+	width: 100%;
+	height: 100%;
 }
 
 #map-contact {
-	width: 100vw;
-	height: 90vh;
-	margin: 200px 20px 20px 20px;
-	
-
+	width: 100%;
+	height: 100%;
 	
 	.marker {
 		background-color: transparent;
@@ -199,13 +212,17 @@ a.next-section {
 		box-shadow: inset 1px 1px 5px 3px rgba(27, 27, 27, 0.32), 1px 1px 5px 3px rgba(27, 27, 27, 0.32);
 	}
 	
+	.mapboxgl-ctrl-top-left {
+		width: 25em;
+	}
+	
 	.mapboxgl-popup {
 		max-width: 200px;
 	}
 	
 	.mapboxgl-popup-content {
 		text-align: left;
-		background-color: #FFFFFF;
+		background-color: $brand-white;
 		color: black;
 		padding: 1.1em;
 		
@@ -258,6 +275,120 @@ a.next-section {
 	}
 	
 	.mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip {
-	    border-top-color: #ffffff;
+	    border-top-color: $brand-white;
+	}
+}
+
+#tour-datepicker {
+	
+	display: none;
+	
+	.ui-datepicker-header {
+		width: 100%;
+		height: 24px;
+		line-height: 24px;
+		color: #5ed1cc;
+		margin-bottom: 20px;
+	}
+	
+	.ui-datepicker-prev, .ui-datepicker-next {
+		width: 30px;
+		height: 30px;
+		line-height: 24px;
+		border-radius: 100%;
+		cursor: pointer;
+		overflow: hidden;
+		transition: border-color 0.3s ease;
+		position: relative;
+		text-align: center;
+		
+		&:before {
+			color: $brand-white;
+		    content: '\f054';
+		    margin-left: 3px;
+		    font-family: "Font Awesome 5 Free";
+		    font-style: normal;
+		    font-weight: 900;
+		    line-height: 30px;
+		    transition: color 0.3s ease;
+		}
+		
+		&:hover, &:hover:before {
+			border-color: #aeaeae;
+			color: #aeaeae;
+		}
+		
+		span {
+			display: none;
+		}
+			
+	}
+	
+	.ui-datepicker-prev {
+		float: left;
+		transform: rotate(180deg);
+	}
+	
+	.ui-datepicker-next {
+		float: right;
+		margin-left: 12px;
+	}
+	
+	.ui-datepicker-title {
+		text-align: center;
+		text-transform: uppercase;
+		color: $brand-white;
+		font-size: 1.5em;
+		letter-spacing: 4px;
+		text-indent: 4px;
+	}
+	
+	.ui-datepicker-calendar {
+		width: 100%;
+		text-align: center;
+		
+			thead tr th span {
+				margin-bottom: 10px;
+				display: block;
+				color: #adadad;
+				text-transform: uppercase;
+				font-weight: normal;
+			}
+	}
+	
+	.ui-state-default {
+		margin: 5px;
+		height: 50px;
+		background-color: white;
+		display: block;
+		text-decoration: none;
+		color: white;
+		border: 2px solid transparent;
+		line-height: 50px;
+		font-size: 20px;
+		letter-spacing: 4px;
+		text-indent: 4px;
+		background: #828282;
+		transition: background-color 0.3s ease;
+		cursor: pointer;
+		
+		&:hover {
+			background-color: #5F5F5F;
+		}
+	}
+	
+	.ui-state-active {
+		background-color: #FA9917;
+		
+		&:hover {
+			background-color: #FA9917;
+		}
+	}
+	
+	.ui-datepicker-unselectable .ui-state-default {
+		color: grey;
+		cursor: default;
+		background-color: white;
+		border: 2px solid transparent;
 	}
 }

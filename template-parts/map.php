@@ -1,8 +1,8 @@
-<?php if( have_rows('location') ):
+<?php if( have_rows('location', 'option') ):
 	
 	$points = array();
 	
-	while ( have_rows('location') ) : the_row();
+	while ( have_rows('location', 'option') ) : the_row();
 	
 		$json_string = file_get_contents ('https://api.postcodes.io/postcodes/'.get_sub_field('postcode'));
 		
@@ -48,4 +48,6 @@
 		
 endif;?>
 
-<div id='map-contact' points='<?php echo json_encode($points);?>'></div>
+<div class="map-wrapper">
+	<div id='map-contact' points='<?php echo json_encode($points);?>'></div>
+</div>

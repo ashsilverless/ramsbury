@@ -18,12 +18,12 @@ get_header();?>
             
             <p class="heading heading__alt heading__caps heading__light mt2"><?php the_field('footer_heading', 'option');?></p>      
             
-            <h2 class="heading heading__sm">Shop</h2>
+            <h2 class="heading heading__sm contact-subtitle">Shop</h2>
             <p><?php the_field('shop_address', 'option');?></p>             
             <p><?php the_field('shop_telephone', 'option');?></p>  
             <p><?php the_field('shop_email', 'option');?></p>  
             
-            <h2 class="heading heading__sm mt2">Estate Office</h2>
+            <h2 class="heading heading__sm mt2 contact-subtitle">Estate Office</h2>
             <p><?php the_field('estate_address', 'option');?></p>             
             <p><?php the_field('estate_telephone', 'option');?></p>  
             <p><?php the_field('estate_email', 'option');?></p>              
@@ -60,8 +60,8 @@ get_header();?>
 
 <!-- ******************* Map Section ******************* -->
 
-<div style="height:50vh; background:darkgrey">
-    MAP BLOCK
+<div style="height:50vh;">
+    <?php get_template_part("template-parts/map"); ?>
 </div>
 
 <!-- ******************* Map Section END ******************* -->

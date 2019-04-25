@@ -22,11 +22,13 @@ get_header();?>
 		$loop = new WP_Query( $args );
 		if ( $loop->have_posts() ) {
 			while ( $loop->have_posts() ) : $loop->the_post();
+				if ( $loop->post->ID != 1745 ):
 
-            ?><div class="col-3">
-                <?php get_template_part('template-parts/product', 'card');
-?>
-            </div><?php
+	            ?><div class="col-3">
+	                <?php get_template_part('template-parts/product', 'card');
+	?>
+	            </div><?php
+		        endif;
 			endwhile;
 		} else {
 			echo __( 'No products found' );

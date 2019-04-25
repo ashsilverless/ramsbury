@@ -44,7 +44,7 @@ get_header();?>
         
         <?php if( get_field('text_block_text_more') ): ?>
         
-            <a class="trigger-expand">Read More</a>    
+            <a class="trigger-home trigger-expand">Read More</a>    
         
         <?php endif; ?>
         
@@ -56,7 +56,7 @@ get_header();?>
     
     <?php if( get_field('text_block_text_more') ): ?>
     
-        <a class="trigger-collapse hide">Read Less</a>    
+        <a class="trigger-home trigger-collapse hide">Read Less</a>    
     
     <?php endif; ?>
 

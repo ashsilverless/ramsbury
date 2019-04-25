@@ -6,11 +6,16 @@
     
 <div class="toggle mb2">
 
-  <div class="toggle__question" role="tab">    
+  <div class="toggle__question heading__caps" role="tab">    
+	  
       <p class="headingSupporting headingSupporting__sm">
+	      
         <span class="headingSupporting__lightWeight">Q<?php echo $i; ?></span>
+        
         <?php the_sub_field('question'); ?>
+        
         <i class="fas fa-times close-toggle"></i>
+        
       </p>
   </div>
 
