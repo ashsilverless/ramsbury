@@ -52,7 +52,7 @@ get_header();?>
     
         <h2 class="heading heading__lg"><?php  the_field('find_headline', 'options');?></h2>
         
-        <a href="/stockists" class="button">Search Stockists</a>        
+        <a href="<?php  the_field('find_target', 'options');?>" class="button">Search Stockists</a>        
     
      </div>
 
