@@ -84,7 +84,7 @@ get_header();?>
                 <p class="mb2"><?php  the_field('brewery_copy', 'options');?></p>
             </div>
             <div>
-                <a href="" class="button"><?php  the_field('brewery_button_text', 'options');?></a>        
+                <a href="<?php  the_field('brewery_target', 'options');?>" class="button"><?php  the_field('brewery_button_text', 'options');?></a>        
             
             </div>
             
@@ -107,7 +107,7 @@ get_header();?>
                 <p class="mb2"><?php  the_field('tour_copy', 'options');?></p>
                    </div>
                    <div>
-                <a href="" class="button"><?php  the_field('tour_button_text', 'options');?></a>  
+                <a href="<?php  the_field('tour_target', 'options');?>" class="button"><?php  the_field('tour_button_text', 'options');?></a>  
                    </div>      
             
          
