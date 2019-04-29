@@ -46,7 +46,9 @@ function get_availability() {
 			
 			$avail_array["quantity"]    = $number;
 			
-			$avail_array["description"] = $number . " places remaining";
+			$description = $number > 1 ? " places remaining" : " place remaining";
+			
+			$avail_array["description"] = $number . $description;
 			
 			$cost = $product->get_regular_price();
 			

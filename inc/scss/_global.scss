@@ -2,6 +2,10 @@
 html {
     font-size: 18px;
     overflow-y: scroll;
+    
+    &.no-scroll {
+	    overflow-y: hidden;
+    }
 }
  
 html,
@@ -248,6 +252,22 @@ body.page-template-beer-summary {
 		
 		ul li a {
 			color: #333333;
+		}
+	}
+}
+
+.mainMenu {
+	width: 100%;
+	text-align: center;
+}
+
+.page-template-home {
+	
+	.hero {
+		align-items: center;
+		
+		h3 {
+			text-align: center;
 		}
 	}
 }

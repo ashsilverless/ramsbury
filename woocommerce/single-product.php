@@ -40,7 +40,7 @@ get_header(); ?>
 
 <div class="container pt3">
 
-    <h2 class="heading heading__lg text-center">Our Range</h2>
+    <h2 class="heading heading__lg text-center mb1">Our Range</h2>
 
     <div class="row">
 
@@ -52,11 +52,13 @@ get_header(); ?>
 		$loop = new WP_Query( $args );
 		if ( $loop->have_posts() ) {
 			while ( $loop->have_posts() ) : $loop->the_post();
+				if( $loop->post->ID != 1745):
 
-            ?><div class="col-3">
+            ?><div class="col-3 mb3">
                 <?php get_template_part('template-parts/product', 'card');
 ?>
             </div><?php
+	            endif;
 			endwhile;
 		} else {
 			echo __( 'No products found' );

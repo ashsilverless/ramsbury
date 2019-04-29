@@ -38,32 +38,43 @@
     
         <nav id="nav">
     
-        <div class="container">
-            
-            <a href="/cart" class="cart-button"><i class="fas fa-shopping-basket"></i></a>
-            
-            <div class="row">
-            
-                <div class="brand">
-            
-                    <a href="<?php echo home_url(); ?>" alt="<?php wp_title(''); ?>" title="<?php wp_title(''); ?>">
-                    
-                    <?php get_template_part('template-parts/ramsbury', 'logo');?>
-                    
-                    </a>
-            
-                </div>                    
-            
-                <?php
-                    wp_nav_menu( array(
-                    'theme_location' => 'main-menu',
-                    'container_class' => 'mainMenu' ) );
-                ?>
-            
-            </div><!--r-->
-        
-        </div><!--c-->
+	        <div class="container">
+	            
+	            <a href="/cart" class="cart-button"><i class="fas fa-shopping-basket"></i></a>
+	            
+	            <div class="row">
+	            
+	                <div class="brand">
+	            
+	                    <a href="<?php echo home_url(); ?>" alt="<?php wp_title(''); ?>" title="<?php wp_title(''); ?>">
+	                    
+	                    <?php get_template_part('template-parts/ramsbury', 'logo');?>
+	                    
+	                    </a>
+	            
+	                </div>                    
+	            
+	                <?php
+	                    wp_nav_menu( array(
+	                    'theme_location' => 'main-menu',
+	                    'container_class' => 'mainMenu' ) );
+	                ?>
+	            
+	            </div><!--r-->
+	        
+	        </div><!--c-->
+	    
+	    </nav>
     
-    </nav>
+    
+    <?php if(is_front_page()): ?>
+    
+    <!-- Modal Video -->
+    
+	<?php get_template_part('template-parts/modal');?>
+	
+	<!-- Modal Video END -->
+	
+	<?php endif; ?>
 
-<main><!--closes in footer.php-->
+	<main><!--closes in footer.php-->

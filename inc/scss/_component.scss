@@ -111,6 +111,7 @@ a.next-section {
     text-transform: uppercase;
     letter-spacing: 1px;
     color: white;
+    margin-bottom: 1em;
  
      &:before {
         position: absolute;
@@ -292,8 +293,7 @@ a.next-section {
 		width: 100%;
 		height: 24px;
 		line-height: 24px;
-		color: #5ed1cc;
-		margin-bottom: 20px;
+		margin-bottom: 1em;
 	}
 	
 	.ui-datepicker-prev, .ui-datepicker-next {
@@ -319,8 +319,8 @@ a.next-section {
 		}
 		
 		&:hover, &:hover:before {
-			border-color: #aeaeae;
-			color: #aeaeae;
+			border-color: $brand-light-grey;
+			color: $brand-light-grey;
 		}
 		
 		span {
@@ -346,16 +346,18 @@ a.next-section {
 		font-size: 1.5em;
 		letter-spacing: 4px;
 		text-indent: 4px;
+		font-family: $brand-font;
 	}
 	
 	.ui-datepicker-calendar {
 		width: 100%;
 		text-align: center;
+		margin: 3em 0;
 		
 			thead tr th span {
 				margin-bottom: 10px;
 				display: block;
-				color: #adadad;
+				color: $brand-light-grey;;
 				text-transform: uppercase;
 				font-weight: normal;
 			}
@@ -373,20 +375,20 @@ a.next-section {
 		font-size: 20px;
 		letter-spacing: 4px;
 		text-indent: 4px;
-		background: #828282;
+		background: #848484;
 		transition: background-color 0.3s ease;
 		cursor: pointer;
 		
 		&:hover {
-			background-color: #5F5F5F;
+			background-color: rgba(93, 93, 93, 1);
 		}
 	}
 	
 	.ui-state-active {
-		background-color: #FA9917;
+		background-color: $brand-primary;
 		
 		&:hover {
-			background-color: #FA9917;
+			background-color: $brand-primary;
 		}
 	}
 	
@@ -395,5 +397,121 @@ a.next-section {
 		cursor: default;
 		background-color: white;
 		border: 2px solid transparent;
+	}
+}
+
+.modal {
+    position: absolute;
+    z-index: 10000;
+    top: 0;
+    left: 0;
+    visibility: hidden;
+    width: 100%;
+    height: 100%;
+    display: block;
+    
+    &.is-visible {
+	    visibility: visible;
+	    
+	    .modal-overlay {
+			opacity: 1;
+			visibility: visible;
+			transition-delay: 0s;
+		}
+		
+		.modal-transition {
+			transform: translateY(0) translateX(50%);
+			opacity: 1;
+		}
+	}
+	
+	.modal-overlay {
+		position: fixed;
+		z-index: 10;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: hsla(0, 0%, 0%, 0.6);
+		visibility: hidden;
+		opacity: 0;
+		transition: visibility 0s linear 0.3s, opacity 0.3s;
+	}
+	
+	.modal-wrapper {
+		border-radius: 0.3rem;
+		position: absolute;
+		z-index: 9999;
+		top: 6em;
+		right: 50%;
+		width: 90vw;
+		margin-left: -16em;
+		background-color: #fff;
+		box-shadow: 0 0 1.5em hsla(0, 0%, 0%, 0.35);
+
+		.modal-header {
+			background-color: $brand-primary;
+			padding: 1em;
+			position: relative;
+			box-shadow: 0 1px 2px hsla(0, 0%, 0%, 0.06);
+			border-bottom: 1px solid #e8e8e8;
+			
+			.modal-close {
+				position: absolute;
+				top: 0;
+				right: 0;
+				padding: 1em;
+				color: $brand-white;
+				background: none;
+				border: 0;
+				outline: none;
+				cursor: pointer;
+  
+				i {
+					font-size: 1.3em;
+				}
+  
+				&:focus {
+					outline: none;
+				}
+				
+				&:hover {
+					color: $brand-light-grey;
+				}
+			}
+			
+			.modal-heading {
+				font-size: 1.125em;
+				margin: 0;
+				color: $brand-white;
+				font-family: $body-font;
+				font-weight: 200;
+				text-transform: uppercase;
+			}
+
+		}
+		
+		.modal-content {
+			padding: 1em;
+		
+			video {
+				position: relative;
+				width: 100%;
+			}
+			
+			& > *:first-child {
+				margin-top: 0;
+			}
+			
+			& > *:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+	
+	.modal-transition {
+		transition: all 0.3s 0.12s;
+		transform: translateY(-10%) translateX(50%);
+		opacity: 0;
 	}
 }

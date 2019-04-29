@@ -32,6 +32,19 @@
     </div>
 
     <div class="container-fluid pl0 pr0">
+	    
+	    <?php
+		    global $woocommerce;
+		    
+		    $myaccount_page_id = get_option( 'woocommerce_myaccount_page_id' );
+			
+			$account_url = $myaccount_page_id ? get_permalink( $myaccount_page_id ) : "";
+			
+			$cart_url = $woocommerce->cart->get_cart_url();
+		    
+		    $checkout_url = $woocommerce->cart->get_checkout_url();
+		    
+		?>
     
         <div class="socket">
     
@@ -49,11 +62,11 @@
         
                 <div class="col-6 text-right">
                     
-                    <a href="">Basket</a> | 
+                    <a href="<?php echo $cart_url; ?>">Basket</a> | 
                     
-                    <a href="">Checkout</a> | 
+                    <a href="<?php echo $checkout_url; ?>">Checkout</a> | 
                                     
-                    <a href="">My Account</a>                
+                    <a href="<?php echo $account_url; ?>">My Account</a>                
         
                 </div>
         

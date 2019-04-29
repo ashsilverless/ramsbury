@@ -20,9 +20,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 ?>
-</div><!--wc-->
-</div><!--r-->
-</div><!--c-->
+
+<h2 class="heading heading__lg mb1">Order Received</h2>
 
 <div class="container">
     
@@ -91,3 +90,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<?php endif; ?>
 
 </div>
+
+</div><!--wc-->
+</div><!--r-->
+</div><!--c-->

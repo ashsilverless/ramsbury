@@ -1,4 +1,8 @@
-<div class="tour-booking">
+<div class="tour-booking dark-block">
+	
+	<h2 class="heading heading__lg heading__light mb2"><?php the_field("subtitle"); ?></h2>
+	
+	<div class="tour-description mb5"><?php the_field("description"); ?></div>
 
 	<div id="tour-datepicker" class="calendar"></div>
 		

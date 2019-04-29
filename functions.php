@@ -34,6 +34,8 @@ function ramsbury_scripts() {
 
 add_action( 'wp_enqueue_scripts', 'ramsbury_scripts' );
 
+/**= Actions AJAX calls =**/
+
 add_action( 'wp_ajax_get_availability', 'availability_calendar' );
 
 add_action( 'wp_ajax_available_dates', 'available_dates' );
@@ -41,6 +43,14 @@ add_action( 'wp_ajax_available_dates', 'available_dates' );
 add_action( 'wp_ajax_available_hours', 'available_hours' );
 
 add_action( 'wp_ajax_add_to_cart', 'add_to_cart' );
+
+add_action( 'wp_ajax_nopriv_get_availability', 'availability_calendar' );
+
+add_action( 'wp_ajax_nopriv_available_dates', 'available_dates' );
+
+add_action( 'wp_ajax_nopriv_available_hours', 'available_hours' );
+
+add_action( 'wp_ajax_nopriv_add_to_cart', 'add_to_cart' );
 
 
 /**= Add Menus =**/

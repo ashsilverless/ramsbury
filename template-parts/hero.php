@@ -33,25 +33,50 @@
                 <h3 class="heading heading__xl heading__light"><?php the_field( 'hero_heading' );?></h3>
                 <h2 class="heading heading__sm heading__light"><?php the_field( 'hero_copy' );?></h2>
 
-                <?php 
-                    if( have_rows('button') ): 
-                    while ( have_rows('button') ) : the_row(); ?>
+                <?php
+	                
+                    if( have_rows('button') ): $count = 0; ?>
                     
-                <a href="<?php the_sub_field( 'button_target' );?>" type="button" class="button">
+                    <div class="wrapper-buttons">
                     
-                    <?php the_sub_field( 'button_text' );?>
-                
-                </a>
-                
-                <?php endwhile; endif;?>
-                
+                    <?php
+                    while ( have_rows('button') ) : the_row();
+                    
+	                    $class = "";
+	                    
+	                    if($count == 0) {
+		                    $url = get_permalink( get_page_by_path('our-beers') );
+		                    $count++;
+	                    } else if($count == 1) {
+		                    $url = "#";
+		                    $class = "modal-toggle";
+	                    }
+	                    
+	                	?>
+	                    
+		                <a href="<?php echo $url; ?>" type="button" class="button <?php echo $class; ?>" data-context="one">
+		                    
+		                    <?php the_sub_field( 'button_text' );?>
+		                
+		                </a>
+
+					<?php endwhile; ?>
+	                
+                    </div>
+	                
+	            <?php endif; ?>
+                                
             </div>       
                 
         </div>
     
     </div>
 
-    <!--Scroll To Next Section <a href="" class="next-section">Learn More</a>-->
+	<?php if(is_front_page()): ?>
+    
+    <a href="#home-our-beers" class="next-section"></a>
+    
+    <?php endif; ?>
     
 </div><!--hero-->
 

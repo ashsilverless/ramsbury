@@ -18,6 +18,55 @@
             position: relative;
             margin:0.5em 0 1em;
         }
+        
+        .wrapper-buttons {
+	        text-align: center;
+	        
+	        a {
+				text-transform: none !important;
+				font-size: 1.5em;
+				background: none !important;
+				border: 1px solid $brand-primary;
+				
+				&:first-of-type {
+					text-align: right !important;
+					padding: 0.5em 0.5em 0.5em 2.5em !important;
+					margin-right: 1em !important;
+					
+					&:before {
+						content: "\f053";
+						left: 0;
+						padding-left: 0.2em;
+					}
+				}
+				
+				&:last-of-type {
+					text-align: left !important;
+					padding: 0.5em 2.5em 0.5em 0.5em !important;
+					
+					&:before {
+						content: "\f054";
+						right: 0;
+						padding-right: 0.2em;
+					}
+				}
+				
+				&:before {
+					font-family: "Font Awesome 5 Free";
+					font-weight: 600;
+					position: absolute;
+					top: 50%;
+					transform: translateY(-50%);
+					font-size: 2em;
+				}
+				
+				span {
+					text-transform: none;
+					font-size: 2em !important;
+					margin: 0.2em 0;
+				}
+	        }
+        }
     }
     
     &__carousel {
@@ -706,13 +755,19 @@ article.news {
         width: 100%;
         border: none;
         font-size: 1.2em;
-        font-family: $supporting-font;
-        padding: 0.25em 0.5em;
+        font-family: $body-font;
+        padding: 0.25em 1em;
         margin-bottom: 1em;
+        background-color: $brand-light-grey;
     }
     
-    textarea {
-        height:5em;
+    input[type=checkbox] {
+	    width: auto;
+	    margin-right: 0.5em;
+    }
+    
+    span.wpcf7-list-item {
+	    margin: 0;
     }
     
     label {
@@ -721,15 +776,9 @@ article.news {
         text-transform: none;
         margin: 0;
         font-size: 1em;
-        font-family: $supporting-font;
+        font-family: $body-font;
         letter-spacing: 0.1em;
         text-transform: uppercase;
-        
-        span{
-            position: absolute;
-            right:0;
-            color: $brand-dark-grey;
-        }
     }
     
     .extra-fields {
@@ -746,18 +795,19 @@ article.news {
         padding: 1em 3em;
         text-transform: uppercase;
         text-align: center;
-        font-family: $supporting-font;
+        font-family: $brand-font;
         font-weight: 600;
         font-size: 0.75em;
         background: $brand-secondary;
-        color: white;
+        color: $brand-white;
     }
     
     ::placeholder {
-        font-family: $supporting-font;
-        font-style: italic;
-        font-size: 0.75em;
-        color: grey;
+        font-family: $body-font;
+        font-weight: 200;
+        font-size: 0.8em;
+        text-transform: uppercase;
+        color: $brand-dark-grey;
     }
 }
 
@@ -791,10 +841,13 @@ article.news {
 /* * * TOUR BOOKING * * */
 
 .tour-booking {
-	background-color: #333333;
 	text-align: center;
 	padding: 5em 10em;
 	border-bottom: 10px solid white;
+	
+	.tour-description {
+		text-align: justify;
+	}
 		
 	.wrapper-info {
 		display: flex;
@@ -843,7 +896,7 @@ article.news {
 						content: "\f078";
 						position: absolute;
 						height: 100%;
-						background: #828282;
+						background: #848484;
 						top: 0;
 						right: 0;
 						z-index: -1;
@@ -881,7 +934,7 @@ article.news {
 					padding: 0.7rem 1.5rem;
 					text-transform: uppercase;
 					letter-spacing: 0.1em;
-					color: #5a5a5a;
+					color: #848484;
 					outline: none;
 					font-weight: 100;
 					border: none;
@@ -900,7 +953,7 @@ article.news {
 				.book-tour {
 					flex: 100%;
 					width: 100%;
-					background-color: #FA9917;
+					background-color: $brand-primary;
 					padding: 0.7rem 1.5rem;
 					border: none;
 					letter-spacing: 0.1em;
@@ -909,6 +962,7 @@ article.news {
 					text-transform: uppercase;
 					cursor: pointer;
 					transition: background-color 0.3s ease;
+					font-family: $brand-font;
 					
 					&:hover {
 						background-color: #e08a15;
@@ -917,7 +971,7 @@ article.news {
 				
 				.plus-custom, .minus-custom {
 					cursor: pointer;
-					background: #828282;
+					background: #848484;
 					padding: 0 1em;
 					display: flex;
 					justify-content: center;
@@ -930,7 +984,7 @@ article.news {
 			.summary {
 				color: $brand-white;
 				height: 100%;
-				background-color: #828282;
+				background-color: #848484;
 				text-align: left;
 				text-transform: uppercase;
 				letter-spacing: 0.2em;

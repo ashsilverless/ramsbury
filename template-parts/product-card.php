@@ -10,7 +10,7 @@
 
                     <p class="heading heading__body heading__xs font400 mb1"><?php the_field('abv');?>% ABV</p>
 
-                    <h2 class="heading heading__sm heading__alt heading__caps"><?php the_title();?></h2>
+                    <h2 class="beer-title heading heading__sm heading__alt heading__caps"><?php the_title();?></h2>
 
                     <h2 class="heading heading__sm" style="color: <?php echo $productColor;?>;"><?php the_field('strapline');?></h2>
 

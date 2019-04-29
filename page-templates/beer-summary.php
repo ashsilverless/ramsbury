@@ -10,7 +10,7 @@ get_header();?>
 
 <div class="container pt10">
 
-    <h2 class="heading heading__lg text-center">Our Beers</h2>
+    <h2 class="heading heading__lg text-center mb1">Our Beers</h2>
 
     <div class="row">
 
@@ -24,7 +24,7 @@ get_header();?>
 			while ( $loop->have_posts() ) : $loop->the_post();
 				if ( $loop->post->ID != 1745 ):
 
-	            ?><div class="col-3">
+	            ?><div class="col-3 mb3">
 	                <?php get_template_part('template-parts/product', 'card');
 	?>
 	            </div><?php

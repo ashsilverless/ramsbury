@@ -57,10 +57,12 @@ $(function() {
 //Smooth Scroll
 
     $('nav a, a.button, a.next-section').click(function(){
-        $('html, body').animate({
-            scrollTop: $( $(this).attr('href') ).offset().top -100
-        }, 500);
-        return false;
+	    if($(this).attr('href') != "#") {
+	        $('html, body').animate({
+	            scrollTop: $( $(this).attr('href') ).offset().top -100
+	        }, 500);
+	        return false;
+	    }
     });
     
 /* Tour Booking Control */
@@ -316,7 +318,7 @@ $(function() {
 	});
 
     
-/* LOAD MAP*/
+/* LOAD MAP */
     
     $(document).ready(function() {
 			
@@ -445,6 +447,17 @@ $(function() {
 		}
 		
     });
+
+/* LOAD VIDEO HOME */
+	
+	$(document).ready(function() {
+		
+		$(".modal-toggle").on("click", function() {
+			$('.modal').toggleClass('is-visible');
+			$('html').toggleClass('no-scroll');
+		});
+	});
+
 
 // ========== Controller for lightbox elements
 

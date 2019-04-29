@@ -14,7 +14,7 @@ get_header();?>
 
 <!-- ******************* Slider Section ******************* -->
 
-<div class="dark-block text-center pt3 pb2">
+<div id="home-our-beers" class="dark-block text-center pt3 pb2">
 
 <h2 class="heading heading__xl heading__light mb1">Our Beers</h2>
 

@@ -43,7 +43,7 @@ get_header();?>
         </div><!--col-->
 
         <div class="col-7">
-            CONTACT FORM
+            <?php echo do_shortcode('[contact-form-7 id="1325" title="Contact Form"]'); ?>
         </div><!--col-->
         
     </div><!--r-->

@@ -197,9 +197,18 @@
 }
 
 .product-card {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
     
     .bottle {
         width:30%;
+    }
+    
+    .beer-title {
+	    flex-grow: 1;
     }
 }
 
