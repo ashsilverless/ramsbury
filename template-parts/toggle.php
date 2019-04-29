@@ -14,7 +14,7 @@
         
         <?php the_sub_field('question'); ?>
         
-        <i class="fas fa-times close-toggle"></i>
+        <!--<i class="fas fa-times close-toggle"></i>-->
         
       </p>
   </div>
