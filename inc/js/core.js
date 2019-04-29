@@ -335,7 +335,7 @@ $(function() {
 			    scrollZoom: false
 			});
 			
-			map.addControl(new mapboxgl.NavigationControl(), 'top-right');
+			map.addControl(new mapboxgl.NavigationControl(), 'bottom-right');
 			
 			var geocoder = new MapboxGeocoder({
 				accessToken: mapboxgl.accessToken,
@@ -347,7 +347,7 @@ $(function() {
 				flyTo: false
 			});
 			
-			map.addControl(geocoder, 'top-left');
+			map.addControl(geocoder, 'bottom-left');
 			
 			var geojson = {
 				type: 'FeatureCollection',
@@ -378,8 +378,9 @@ $(function() {
 					.addTo(map);
 				
 				el.addEventListener('click', function(e){
+					position = marker.geometry.coordinates[1] + 0.0030;
 					map.flyTo({
-					    center: marker.geometry.coordinates,
+					    center: [marker.geometry.coordinates[0], position],
 					    zoom: 15
 				    });
 				});
