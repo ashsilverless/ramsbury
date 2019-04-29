@@ -220,6 +220,12 @@ body .hamburger-inner span {
   grid-template-rows: auto auto;
 }
 
+.small-carousel .bottle:after {
+	width: 30%;
+	bottom: 10px;
+	left: 55%;
+}
+
 
 
 /*---FOOTER---*/
