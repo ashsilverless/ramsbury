@@ -515,3 +515,15 @@ a.next-section {
 		opacity: 0;
 	}
 }
+
+
+.wpcf7-not-valid-tip {
+	color: lighten($brand-primary, 10%) !important;
+	margin-top: -1em;
+	text-shadow: 1px 1px 1px #565656;
+}
+
+.wpcf7-response-output {
+	border: 2px solid $brand-primary !important;
+	background-color: $brand-dark-grey !important;
+}
