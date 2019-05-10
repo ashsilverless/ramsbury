@@ -287,7 +287,7 @@ function add_content_after_addtocart() {
 
 <div class="locally">
     <span>or</span>
-    <button class="button button__ghost"><i class="fas fa-map-marked-alt"></i> Drink Locally</button>
+    <button class="button">Drink Locally<i class="fas fa-map-marked-alt"></i></button>
 </div>
 
 <?php }

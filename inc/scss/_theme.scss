@@ -53,8 +53,7 @@
 }
 
 .product-hero {
-    background: hsl(20, 3%, 19%);
-    @include darkCircularGradient;
+    background: hsl(0, 0%, 96%);
     position: relative;
     
     .bottle {
@@ -62,8 +61,8 @@
         margin: 12em 0 3em;
         
         img {
-            height: 100%;
-            min-height: 100%;
+            height: auto;
+            max-height: 100%;
             width: auto;
         }
     }
@@ -187,7 +186,7 @@
     
     .detail {
         align-self: center;
-        color: white;
+        color: $brand-dark-grey;
     }
     
     .action {
@@ -219,7 +218,7 @@
     -moz-appearance: none;
     border-radius: 0;
     border: none;
-    padding: 0.25em 1em;
+    padding: 0.75em 1em;
     font-weight: 100;
     font-size: 1em;    
 }
@@ -248,25 +247,29 @@
         content: "\f078";
         position: absolute;
         height: 100%;
-        background: hsl(0, 0%, 62%);
+        background: hsl(0, 0%, 20%);
         top: 0;
         right: 0;
         z-index: -1;
         text-align: center;
         font-size: 1em;
         line-height: 2em;
-        color: hsl(0, 1%, 21%);
-        padding: 0 1em;
+        color: white;
+        padding: 0.5em 1em;
     }
 }
-.quantity {
+body.woocommerce #page .quantity {
+    width:100%;
+    margin-bottom: 1em;
+    
     .plus,
     .minus {
-        background: hsl(0, 0%, 62%); 
+        background: hsl(0, 0%, 20%); 
         height: 2em;
         margin: 0;
         padding: 0 1em;
         float: left;        
+        color: white;
     }
 }
 
@@ -287,6 +290,7 @@ span.woocommerce-Price-amount.amount {
     width: 45%;
     float: left;
     text-align: center;
+    line-height: calc(3em - 2px);
 }
 
 .locally {
@@ -296,9 +300,10 @@ span.woocommerce-Price-amount.amount {
     span {
         display: block;
         width: 100%;
-        margin-bottom: 1em;
-        text-align: center;
-        color: white;
+        margin-bottom: 1.25em;
+        padding-left: 1em;
+        text-align: left;
+        color: hsl(0, 0%, 65%);
     }
     
     .button {
@@ -325,6 +330,12 @@ span.woocommerce-Price-amount.amount {
         display: none !important;
     }
 
+}
+
+html body.woocommerce #page button.single_add_to_cart_button.button.alt {
+  width: 50%;
+  display: block;
+  float: none;
 }
 
 .find-cta {

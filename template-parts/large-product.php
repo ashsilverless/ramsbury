@@ -34,17 +34,19 @@
             <div class="product-details">
                 
                 <div class="top">
-                
-                    <p class="heading heading__alt heading__light mb0"><?php the_field('abv');?>% <span class=" heading heading__body heading__xs heading__light">ABV</span></p>
+
                     
-                    <h2 class="heading heading__xl heading__light" style="color: <?php echo $productColor;?>;"><?php the_field('strapline');?></h2>
+                    <h2 class="heading heading__xl" style="color: <?php echo $productColor;?>;"><?php the_field('strapline');?></h2>
                 
                 </div>
                     
                 <div class="detail">
                         
-                        <h2 class="heading heading__sm heading__alt heading__caps heading__light"><?php the_title();?></h2>
-            
+                        <h2 class="heading heading__sm heading__alt heading__caps"><?php the_title();?></h2>
+
+                
+                    <p class="heading heading__body heading__xs font400 mb2"><?php the_field('abv');?>% ABV</p>
+                                
             <div class="expanding-copy mb2">
             
                 <div class="expanding-copy__lead">
@@ -64,7 +66,7 @@
                     <?php 
                         if( have_rows('ingredients') ): ?>
     
-                        <h4 class="heading heading__body heading__caps heading__xs heading__light mt2 mb1">Ingredients:</h4>
+                        <h4 class="heading heading__body heading__xs mt2 mb1">Ingredients:</h4>
                         <ul class="inline-list">
                         <?php while ( have_rows('ingredients') ) : the_row(); ?>
                           <?php $gluten = get_sub_field("contains_gluten"); ?>                
@@ -76,10 +78,10 @@
                         
                     <?php endif;?>
             
-                    <h4 class="heading heading__body heading__caps heading__xs heading__light mt2 mb1">Allergy Information:</h4>          
+                    <h4 class="heading heading__body heading__xs mt2 mb1">Allergy Information:</h4>          
                     <?php the_field('allergy_information'); ?>    
             
-                    <h4 class="heading heading__body heading__caps heading__xs heading__light mt2 mb1">Available As:</h4> 
+                    <h4 class="heading heading__body heading__xs mt2 mb1">Available As:</h4> 
                     <ul class="inline-list">
                         <?php 
                     global $woocommerce, $product, $post;

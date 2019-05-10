@@ -17,7 +17,7 @@ body {
 
 body {
     font-family: $body-font;
-    font-size: 1rem;
+    font-size: 16px;
     font-weight: 200;
     background: hsl(0, 0%, 96%);
     color: hsl(69, 2%, 31%);
@@ -117,7 +117,7 @@ img {
     }
     
     &__xl {
-        font-size: 4em;
+        font-size: 5em;
         line-height: 1.4em;
     }
     
@@ -131,10 +131,12 @@ img {
     
     &__sm {
         font-size: 1.2em;   
+        letter-spacing: 2px;
     }
     
     &__xs {
         font-size: 0.75em;        
+        color: $brand-mid-grey;
     }   
 
 }
@@ -204,6 +206,11 @@ nav {
 		display: block;
 		margin: 0 0 1em;
 		transition: all 0.5s ease;
+		
+		#head path,
+		#text path {
+    		fill:$brand-dark-grey;
+		}
 	}
 
 	ul {
@@ -221,7 +228,7 @@ nav {
 			color: white;
 		
 			a {
-				color: white;
+				color: $brand-dark-grey;
 				transition: color 0.5 ease;
 			}
 		}
