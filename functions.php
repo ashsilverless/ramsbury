@@ -286,7 +286,6 @@ function add_content_after_addtocart() {
     $productColor = get_field('product_colour');?>
 
 <div class="locally">
-    <span>or</span>
     <button class="button">Drink Locally<i class="fas fa-map-marked-alt"></i></button>
 </div>
 

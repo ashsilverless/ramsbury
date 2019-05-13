@@ -29,35 +29,19 @@
                 
             <div class="hero__content">       
                 
-                <h1 class="heading heading__sm heading__light font800"><?php the_field( 'hero_sub_heading' );?></h1>            
-                <h3 class="heading heading__xl heading__light"><?php the_field( 'hero_heading' );?></h3>
-                <h2 class="heading heading__sm heading__light"><?php the_field( 'hero_copy' );?></h2>
+                <h1 class="heading heading__xl heading__light mt2"><?php the_field( 'hero_heading' );?></h1>
 
                 <?php
 	                
-                    if( have_rows('button') ): $count = 0; ?>
+                    if( have_rows('button') ):?>
                     
                     <div class="wrapper-buttons">
                     
-                    <?php
-                    while ( have_rows('button') ) : the_row();
-                    
-	                    $class = "";
+                    <?php while ( have_rows('button') ) : the_row(); ?>
 	                    
-	                    if($count == 0) {
-		                    $url = get_permalink( get_page_by_path('our-beers') );
-		                    $count++;
-	                    } else if($count == 1) {
-		                    $url = "#";
-		                    $class = "modal-toggle";
-	                    }
-	                    
-	                	?>
-	                    
-		                <a href="<?php echo $url; ?>" type="button" class="button <?php echo $class; ?>" data-context="one">
-		                    
-		                    <?php the_sub_field( 'button_text' );?>
-		                
+		                <a href="#" type="button" class="button button__video modal-toggle" data-context="one">
+		                    <i class="fab fa-youtube"></i>
+		                    <span><?php the_sub_field( 'button_text' );?></span>		                
 		                </a>
 
 					<?php endwhile; ?>
@@ -74,7 +58,7 @@
 
 	<?php if(is_front_page()): ?>
     
-    <a href="#home-our-beers" class="next-section"></a>
+    <a href="#home-our-beers" class="next-section">See Our Range</a>
     
     <?php endif; ?>
     

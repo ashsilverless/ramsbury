@@ -1,20 +1,25 @@
-<?php $productColor = get_field('product_colour');?>
+<?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $loop->post->ID ), 'single-post-thumbnail' );?>
 
-<div class="product-card text-center">
+<div class="product-card">
 
-        <?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $loop->post->ID ), 'single-post-thumbnail' );?>
-
-        <div class="bottle mb2">
+    <div class="product-card__image">
+        
+        <div class="bottle-wrapper">
             <img src="<?php  echo $image[0]; ?>" data-id="<?php echo $loop->post->ID; ?>">
         </div>
+        
+    </div>
 
-                    <p class="heading heading__body heading__xs font400 mb1"><?php the_field('abv');?>% ABV</p>
+    <div class="product-card__content">
 
-                    <h2 class="beer-title heading heading__sm heading__alt heading__caps"><?php the_title();?></h2>
+       <h2 class="heading strapline"><?php the_field('strapline');?></h2>
 
-                    <h2 class="heading heading__sm" style="color: <?php echo $productColor;?>;"><?php the_field('strapline');?></h2>
+        <h2 class="beer-title heading heading__alt heading__caps"><?php the_title();?></h2>
 
+        <p class="heading heading__body heading__xs font400 mb1"><?php the_field('abv');?>% ABV</p> 
 
-<a href="<?php the_permalink();?>" class="button" style="background-color: <?php echo $productColor;?>;">Buy Now</a>        
+    </div>
+
+    <a href="<?php the_permalink();?>" class="button" style="background-color: <?php echo $productColor;?>;">Buy Now</a>        
     
 </div>

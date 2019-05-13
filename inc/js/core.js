@@ -457,6 +457,7 @@ $(function() {
 			$('.modal').toggleClass('is-visible');
 			$('html').toggleClass('no-scroll');
 		});
+		
 	});
 
 

@@ -10,7 +10,7 @@ get_header();?>
 
 <div class="container pt10">
 
-    <h2 class="heading heading__lg text-center mb1">Our Beers</h2>
+    <h2 class="heading heading__lg text-center mt1 mb1">Our Beers</h2>
 
     <div class="row">
 
@@ -44,81 +44,13 @@ get_header();?>
 
 <!-- ******************* Find A Pint CTA ******************* -->
 
-<?php $findCTAImage = get_field('find_image', 'options');?>
-
-<div class="find-cta" style="background-image: url(<?php echo $findCTAImage['url']; ?>); ">
- 
-    <div class="content">   
-    
-        <h2 class="heading heading__lg"><?php  the_field('find_headline', 'options');?></h2>
-        
-        <a href="<?php  the_field('find_target', 'options');?>" class="button">Search Stockists</a>        
-    
-     </div>
-
-    <?php for ($x = 0; $x <= 5; $x++) {
-        get_template_part('template-parts/beer', 'glass');
-    } ?>
-
-</div>
+<?php get_template_part('template-parts/find', 'beer');?>
 
 <!-- ******************* Find A Pint CTA END******************* -->
 
 <!-- ******************* Brewsery and Tours CTA ******************* -->
 
-<div class="container-fluid pl0 pr0">
-    <div class="row no-gutters">
-        
-        <div class="col-6">
-            
-            <?php $breweryCTAImage = get_field('brewery_image', 'options');?>
-            
-            <div class="inline-cta" style="background-image: url(<?php echo $breweryCTAImage['url']; ?>); ">
-            
-                <?php get_template_part('template-parts/ramsbury', 'logo');?>    
-            
-            <div class="content">
-            
-                <h2 class="heading heading__lg heading__light"><?php  the_field('brewery_headline', 'options');?></h2>
-                
-                <p class="mb2"><?php  the_field('brewery_copy', 'options');?></p>
-            </div>
-            <div>
-                <a href="<?php  the_field('brewery_target', 'options');?>" class="button"><?php  the_field('brewery_button_text', 'options');?></a>        
-            
-            </div>
-            
-            </div>            
-        
-        </div><!--col-->
-
-        <div class="col-6">
-
-            <?php $tourCTAImage = get_field('tour_image', 'options');?>
-
-            <div class="inline-cta" style="background-image: url(<?php echo $tourCTAImage['url']; ?>); ">
-
-                <?php get_template_part('template-parts/ramsbury', 'logo');?>    
-            
-            <div class="content">
-            
-                <h2 class="heading heading__lg heading__light"><?php  the_field('tour_headline', 'options');?></h2>
-                
-                <p class="mb2"><?php  the_field('tour_copy', 'options');?></p>
-                   </div>
-                   <div>
-                <a href="<?php  the_field('tour_target', 'options');?>" class="button"><?php  the_field('tour_button_text', 'options');?></a>  
-                   </div>      
-            
-         
-            
-            </div>  
-
-        </div><!--col-->        
-        
-    </div>
-    
-</div>
+<?php get_template_part('template-parts/brewery', 'tours');?>
 
 <!-- ******************* Brewsery and Tours CTA END******************* -->
 

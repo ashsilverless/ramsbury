@@ -37,13 +37,8 @@
     <div id="page" class="site-wrapper">
     
         <nav id="nav">
-    
-	        <div class="container">
-	            
-	            <a href="/cart" class="cart-button"><i class="fas fa-shopping-basket"></i></a>
-	            
-	            <div class="row">
-	            
+    	            
+	            <a href="/cart" class="cart-button"><i class="fas fa-shopping-basket"></i></a>	            
 	                <div class="brand">
 	            
 	                    <a href="<?php echo home_url(); ?>" alt="<?php wp_title(''); ?>" title="<?php wp_title(''); ?>">
@@ -59,10 +54,6 @@
 	                    'theme_location' => 'main-menu',
 	                    'container_class' => 'mainMenu' ) );
 	                ?>
-	            
-	            </div><!--r-->
-	        
-	        </div><!--c-->
 	    
 	    </nav>
     

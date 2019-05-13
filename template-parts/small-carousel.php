@@ -10,12 +10,13 @@
 			while ( $loop->have_posts() ) : $loop->the_post();
 				if( $loop->post->ID != 1745): ?>
 
-<a href="<?php the_permalink();?>">			
-    <div class="small-carousel__item">
+<a href="<?php the_permalink();?>">		
+    	
+    <div class="product-card">
 
         <?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $loop->post->ID ), 'single-post-thumbnail' );?>
 
-        <div class="bottle">
+        <div class="bottle-wrapper">
             <img src="<?php  echo $image[0]; ?>" data-id="<?php echo $loop->post->ID; ?>">
         </div>
 
@@ -23,6 +24,7 @@
         
     
     </div>
+
 </a>
 	<?php endif;
 		endwhile;

@@ -8,6 +8,7 @@
     padding: 0.5em 1em;
     text-align: left;
     font-family: $body-font;  
+    font-weight: 400;
     color: $brand-white;
     vertical-align: middle;
     -webkit-appearance: none;
@@ -48,20 +49,40 @@
         font-size: 1.2em;
         line-height: 1.5em;
     
-    i {
-            position: absolute;
-            top: 20px;
-            right: 1em;
-            left:initial;
-            vertical-align: top;
-            font-weight: 600;
-            font-size: 3em;
-    }
+        i {
+                position: absolute;
+                top: 20px;
+                right: 1em;
+                left:initial;
+                vertical-align: top;
+                font-weight: 600;
+                font-size: 3em;
+        }
     
-    &:hover i {
-        right:0.75em;
+        &:hover i {
+            right:0.75em;
+        }
+            
     }
+     
+    &__video {
+        display: block;
+        font-size: 3em;
+        text-align: center;
+        background: transparent;
+        border:none;
         
+        span {
+           font-size: 0.25em;
+           font-style: normal; 
+           line-height: 1em;
+        }
+        
+        i {
+            position: relative;
+            right: 0;
+            top: 0;
+        }
     }
     
     &__inline-cta {
@@ -116,7 +137,7 @@ a.next-section {
     height: 4em;
     transform: translateX(-50%);
     left: 50%;
-    text-transform: uppercase;
+    font-family:$supporting-font;
     letter-spacing: 1px;
     color: white;
     margin-bottom: 1em;
@@ -124,32 +145,20 @@ a.next-section {
      &:before {
         position: absolute;
         content: '';
-        bottom: 10px;
+        bottom: -1em;
         left: 50%;
-        margin-left: -4px;
-        height: 0;
-        width: 5px;
-        background: hsl(0, 0%, 100%);
-        -webkit-transition: height 0.5s ease;
-        -o-transition: height 0.5s ease;
-        transition: height 0.5s ease;
+        margin-left: -25px;
+        width:50px;
+        height:50px;
+        background:url(inc/img/arrow-shape.svg);
+        background-size: contain;
+        background-repeat: no-repeat;
+        transition: bottom 0.5s ease;
         border-radius: 50px;
     }
     
-    &:after {
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        margin-left: -11px;
-        content: '\f054';
-        font-family: 'Font Awesome 5 Free';
-        font-weight: 600;
-        font-size: 26px;  
-        transform:rotate(90deg);
-    } 
-    
     &:hover:before {
-        height:30px;
+        bottom:-10px;
     }
 }
 
@@ -450,26 +459,22 @@ a.next-section {
 		border-radius: 0.3rem;
 		position: absolute;
 		z-index: 9999;
-		top: 6em;
 		right: 50%;
 		width: 90vw;
 		margin-left: -16em;
-		background-color: #fff;
-		box-shadow: 0 0 1.5em hsla(0, 0%, 0%, 0.35);
 
 		.modal-header {
-			background-color: $brand-primary;
-			padding: 1em;
-			position: relative;
-			box-shadow: 0 1px 2px hsla(0, 0%, 0%, 0.06);
-			border-bottom: 1px solid #e8e8e8;
+            position: absolute;
+            top: 2em;
+            right: 2em;
+            z-index: 999999;
 			
 			.modal-close {
 				position: absolute;
 				top: 0;
 				right: 0;
 				padding: 1em;
-				color: $brand-white;
+				color: white;
 				background: none;
 				border: 0;
 				outline: none;
@@ -505,6 +510,10 @@ a.next-section {
 			video {
 				position: relative;
 				width: 100%;
+				height: 75vh;
+				&:focus {
+    				outline:none;
+				}
 			}
 			
 			& > *:first-child {

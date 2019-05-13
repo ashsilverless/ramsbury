@@ -1,6 +1,4 @@
-<?php while ( have_posts() ) : the_post();
-    
-    $productColor = get_field('product_colour');?>
+<?php while ( have_posts() ) : the_post();?>
 
 <div class="product-nav">
     <?php if(get_previous_post()) {?>
@@ -15,39 +13,27 @@
    <?php }?>    
 </div>               
 
-    <div class="row">
-        
-        <div class="col-3 offset-1">
+<div class="product-wrapper">
     
-            <?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $loop->post->ID ), 'single-post-thumbnail' );?>
-    
-            <div class="bottle">
-                
-                <img src="<?php  echo $image[0]; ?>" data-id="<?php echo $loop->post->ID; ?>">
-                
-            </div>
-    
-        </div><!---col-->
-     
-        <div class="col-7">
-        
-            <div class="product-details">
-                
-                <div class="top">
+    <div class="product-wrapper__image">
 
-                    
-                    <h2 class="heading heading__xl" style="color: <?php echo $productColor;?>;"><?php the_field('strapline');?></h2>
-                
-                </div>
-                    
-                <div class="detail">
-                        
-                        <h2 class="heading heading__sm heading__alt heading__caps"><?php the_title();?></h2>
+        <?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $loop->post->ID ), 'single-post-thumbnail' );?>
+        
+        <div class="bottle-wrapper">    
+            <img src="<?php  echo $image[0]; ?>" data-id="<?php echo $loop->post->ID; ?>">
+        </div>
+        
+    </div><!--image-->
+    
+    <div class="product-wrapper__details">
 
-                
+                    <h2 class="heading heading__xl"><?php the_field('strapline');?></h2>
+
+<h2 class="heading heading__sm heading__alt heading__caps"><?php the_title();?></h2>
+       
                     <p class="heading heading__body heading__xs font400 mb2"><?php the_field('abv');?>% ABV</p>
-                                
-            <div class="expanding-copy mb2">
+
+<div class="expanding-copy mb2">
             
                 <div class="expanding-copy__lead">
                 
@@ -57,7 +43,7 @@
             
                 <?php if( get_field('ingredients') ): ?>
                 
-                <a class="trigger-expand mt1" style="color: <?php echo $productColor;?>;">Read More</a>    
+                <a class="trigger-expand" style="color: <?php echo $productColor;?>;">Read More</a>    
                 
                 <?php endif; ?>
                 
@@ -66,7 +52,7 @@
                     <?php 
                         if( have_rows('ingredients') ): ?>
     
-                        <h4 class="heading heading__body heading__xs mt2 mb1">Ingredients:</h4>
+                        <p class="font400 mt1 mb0">Ingredients:</p>
                         <ul class="inline-list">
                         <?php while ( have_rows('ingredients') ) : the_row(); ?>
                           <?php $gluten = get_sub_field("contains_gluten"); ?>                
@@ -78,10 +64,10 @@
                         
                     <?php endif;?>
             
-                    <h4 class="heading heading__body heading__xs mt2 mb1">Allergy Information:</h4>          
-                    <?php the_field('allergy_information'); ?>    
+                    <p class="font400 mt1 mb0">Allergy Information:        
+                    <span class="font200"><?php the_field('allergy_information'); ?></span></p>  
             
-                    <h4 class="heading heading__body heading__xs mt2 mb1">Available As:</h4> 
+                    <p class="font400 mt1 mb0">Available As:</p> 
                     <ul class="inline-list">
                         <?php 
                     global $woocommerce, $product, $post;
@@ -105,19 +91,14 @@
                 <?php endif; ?>
                 
             </div>
-            
-        </div>
-                    
-                <div class="action pb5">
-                    
-                    <?php wc_get_template_part( 'content', 'single-product' ); ?>
-                
-                </div>
-                
-            </div>
-           
-        </div><!--col-->
+
+<?php wc_get_template_part( 'content', 'single-product' ); ?>
         
-    </div><!--r-->
+    </div><!--details-->    
+   
+</div>
+
+
+
     
 <?php endwhile; // end of the loop. ?>

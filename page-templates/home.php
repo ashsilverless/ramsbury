@@ -14,9 +14,9 @@ get_header();?>
 
 <!-- ******************* Slider Section ******************* -->
 
-<div id="home-our-beers" class="dark-block text-center pt3 pb2">
+<div id="home-our-beers" class="text-center pt5 pb5">
 
-<h2 class="heading heading__xl heading__light mb1">Our Beers</h2>
+<h2 class="heading heading__xl mb1">Our Beers</h2>
 
 <?php get_template_part('template-parts/small', 'carousel');?>
 
@@ -72,59 +72,7 @@ get_header();?>
 
 <!-- ******************* Brewsery and Tours CTA ******************* -->
 
-<div class="container-fluid pl0 pr0">
-    <div class="row no-gutters">
-        
-        <div class="col-6">
-            
-            <?php $breweryCTAImage = get_field('brewery_image', 'options');?>
-            
-            <div class="inline-cta" style="background-image: url(<?php echo $breweryCTAImage['url']; ?>); ">
-            
-                <?php get_template_part('template-parts/ramsbury', 'logo');?>    
-            
-            <div class="content">
-            
-                <h2 class="heading heading__lg heading__light"><?php  the_field('brewery_headline', 'options');?></h2>
-                
-                <p class="mb2"><?php  the_field('brewery_copy', 'options');?></p>
-            </div>
-            <div>
-                <a href="" class="button"><?php  the_field('brewery_button_text', 'options');?></a>        
-            
-            </div>
-            
-            </div>            
-        
-        </div><!--col-->
-
-        <div class="col-6">
-
-            <?php $tourCTAImage = get_field('tour_image', 'options');?>
-
-            <div class="inline-cta" style="background-image: url(<?php echo $tourCTAImage['url']; ?>); ">
-
-                <?php get_template_part('template-parts/ramsbury', 'logo');?>    
-            
-            <div class="content">
-            
-                <h2 class="heading heading__lg heading__light"><?php  the_field('tour_headline', 'options');?></h2>
-                
-                <p class="mb2"><?php  the_field('tour_copy', 'options');?></p>
-                   </div>
-                   <div>
-                <a href="" class="button"><?php  the_field('tour_button_text', 'options');?></a>  
-                   </div>      
-            
-         
-            
-            </div>  
-
-        </div><!--col-->        
-        
-    </div>
-    
-</div>
+<?php get_template_part('template-parts/brewery', 'tours');?>
 
 <!-- ******************* Brewsery and Tours CTA END******************* -->
 

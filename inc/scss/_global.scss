@@ -67,6 +67,7 @@ main {
 p {
     font-size: 1em;
     font-weight: 200;  
+    line-height: 1.5em
 }
 
 a {
@@ -188,39 +189,46 @@ nav {
 	&:before {
 		content:'';
 		position: absolute;
-		top:-100%;
+		top:0;
 		left:0;
 		width:100%;
 		height:100%;
-        background: hsla(0, 1%, 14%, 0.5);
+        background-image: linear-gradient(hsla(0, 0%, 20%, 0.75), hsla(0, 0%, 0%, 0));
 		z-index: -1;
-		transition:top 0.5s ease;
+		transition:all 1s ease;
 	}
   
-	&.dark:before {
-		top:0;
+	&:after {
+        @include childOverlay;
+        top:-100%;
+        background: hsla(0, 1%, 14%, 0.75);
+        transition: top 1s ease;
 	}  
 
+    &.dark:after {
+        top:0;
+    }
 	svg {
 		width:150px;
 		display: block;
 		margin: 0 0 1em;
-		transition: all 0.5s ease;
+		transition: all 1s ease;
 		
 		#head path,
 		#text path {
-    		fill:$brand-dark-grey;
+    		fill:white;
 		}
 	}
 
 	ul {
 		list-style: none;
-		margin:0;
+		margin:7em 0 1em;
 		padding:0;
-		font-family:serif;
+		font-family:$supporting-font;
 		font-weight:100;
 		letter-spacing:2px;
 		text-transform:uppercase;
+		transition:margin 1s ease;
 	
 		li {
 			display:inline-block;
@@ -228,63 +236,51 @@ nav {
 			color: white;
 		
 			a {
-				color: $brand-dark-grey;
-				transition: color 0.5 ease;
+				color: white;
+				transition: color 1s ease;
 			}
 		}
 	}
   
+    &.dark ul {
+        margin-top:4em;
+    }
 }
 
 .dark svg {
 	width:100px;
 	margin: 0 auto -1em;
-	
+
+	#head path,
+	#text path {
+		fill:white;
+	}
+
 	#text {
-		display:none;
+		display: none;
 	}
 }
 
+nav.dark ul li a {
+    color: white;
+}
+
 .brand {
+    position: absolute;
+    top:2em;
     width:100%;
     text-align: center;
+    z-index: 10;
     
     .st2 {
         display: none;
     }
 }
 
-body.page-template-beer-summary {
-	
-	#nav:not(.dark) {
-		.st0 {
-			fill: #333333;
-		}
-		
-		ul li a {
-			color: #333333;
-		}
-	}
-}
-
-body.page-template-stockists {
-	
-	#nav:not(.dark) {
-		
-		&:after {
-			content: '';
-			position: absolute;
-			width: 100%;
-			height: 100%;
-			background: hsla(0, 0%, 0%, 0.35);
-			z-index: -1;
-		}
-	}
-}
-
 .mainMenu {
 	width: 100%;
 	text-align: center;
+	z-index: 50;
 }
 
 .page-template-home {

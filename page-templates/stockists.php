@@ -8,7 +8,7 @@ get_header();?>
 
 <!-- ******************* Map Section ******************* -->
 
-<div style="height:75vh;">
+<div style="height:100vh;">
     <?php get_template_part("template-parts/map"); ?>
 </div>
 

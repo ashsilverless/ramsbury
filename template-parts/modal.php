@@ -8,15 +8,13 @@
 			
 			<button class="modal-close modal-toggle"><i class="fas fa-times"></i></button>
 			
-			<h2 class="modal-heading"><?php the_field("video_description"); ?></h2>
-			
 		</div>
 	
 		<div class="modal-body">
 			
 			<div class="modal-content">
 				
-				<video autoplay muted loop>
+				<video autoplay controls class="video">
         
 					<source src="<?php the_field('video_file');?>" type="video/mp4">
 				
