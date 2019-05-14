@@ -1010,16 +1010,16 @@ article.news {
 				.book-tour {
 					flex: 100%;
 					width: 100%;
-					background-color: black;
+					background-color: hsl(0, 1%, 15%);
 					padding: 0.7rem 1.5rem;
 					border: none;
 					letter-spacing: 0.1em;
 					color: $brand-white;
 					outline: none;
-					text-transform: uppercase;
+					text-transform: lowercase;
 					cursor: pointer;
 					transition: background-color 0.3s ease;
-					font-family: $brand-font;
+					font-family: $body-font;
 					
 					&:hover {
 						background-color: #e08a15;
