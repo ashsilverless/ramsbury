@@ -29,7 +29,7 @@
 /*===========BODY==========*/
 
 .dark-block {
-    @include darkCircularGradient;
+    background: hsl(0, 0%, 20%);
     border-bottom:10px solid white;
     color: white;
 }
@@ -522,7 +522,14 @@ html body.woocommerce #page button.single_add_to_cart_button.button.alt {
         
         .content {
             padding-left: 50px;
-                
+            
+            .heading span {
+                margin-left: 1em;
+                padding-left: 1em;
+                border-left: 1px solid white;
+                font-weight: 200;
+            }    
+            
             img {
                 position: absolute;
                 top:0;
@@ -532,6 +539,16 @@ html body.woocommerce #page button.single_add_to_cart_button.button.alt {
         }
     }
     
+}
+
+.wpcf7-form-control {
+    background: hsl(0, 1%, 14%);
+}
+
+.month-archives {
+    a {
+        color: white;
+    }
 }
 
 /*===========FOOTER==========*/

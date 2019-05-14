@@ -407,7 +407,7 @@
     a {
         @include backgroundCover;
         flex: auto;
-        height: 15em;
+        height: 20em;
         min-width: 200px;
         margin: 0; /* Some gutter */   
         box-shadow: inset 0 0 0px 5px white;
@@ -953,7 +953,7 @@ article.news {
 						content: "\f078";
 						position: absolute;
 						height: 100%;
-						background: hsl(0, 0%, 20%);
+						background: hsl(0, 0%, 52%);
 						top: 0;
 						right: 0;
 						z-index: -1;
@@ -1010,7 +1010,7 @@ article.news {
 				.book-tour {
 					flex: 100%;
 					width: 100%;
-					background-color: $brand-primary;
+					background-color: black;
 					padding: 0.7rem 1.5rem;
 					border: none;
 					letter-spacing: 0.1em;
@@ -1028,7 +1028,7 @@ article.news {
 				
 				.plus-custom, .minus-custom {
 					cursor: pointer;
-					background: hsl(0, 0%, 20%);
+					background: hsl(0, 0%, 52%);
 					padding: 0 1em;
 					display: flex;
 					justify-content: center;

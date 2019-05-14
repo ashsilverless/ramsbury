@@ -130,10 +130,10 @@
 }
 
 .trigger-aboutus {
-    color: $brand-primary !important;
+    color: white !important;
     font-family: $brand-font;
     text-transform: none;
-    font-size: 1em;
+    font-size: 1.2em;
     margin-top: 2em;
 }
 
@@ -417,7 +417,7 @@ a.next-section {
 	.ui-datepicker-unselectable .ui-state-default {
 		color: grey;
 		cursor: default;
-		background-color: white;
+        background-color: hsl(0, 0%, 29%);
 		border: 2px solid transparent;
 	}
 }

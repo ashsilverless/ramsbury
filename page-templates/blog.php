@@ -22,7 +22,7 @@ get_header();?>
 
 <!-- ******************* Content section ******************* -->
 
-<div class="bottom-border pt3 pb3">
+<div class="dark-block bottom-border pt3 pb3">
 
     <div class="container">
     
@@ -58,13 +58,15 @@ get_header();?>
                                         
                                         <div>
                                         
-                                        <h2 id="post-<?php the_ID(); ?>" class="heading heading__md heading__alt">
+                                        <a href="<?php the_permalink() ?>" rel="bookmark" title="Link to <?php the_title_attribute(); ?>">
+                                            <h2 id="post-<?php the_ID(); ?>" class="heading heading__lg heading__light">
                                 
-                                            <a href="<?php the_permalink() ?>" rel="bookmark" title="Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a>
+                                            <?php the_title(); ?>
                                         
                                         </h2>
+                                        </a>
                                      
-                                        <p class="heading heading__xs heading__body font200 mb1"><?php the_date() ?></p> 
+                                        <p class="heading heading__xs heading__body  heading__light font200 mb1"><?php the_date() ?></p> 
                                         <?php the_excerpt() ?>     
                                         
                                         <a href="<?php the_permalink() ?>" rel="bookmark" title="Link to <?php the_title_attribute(); ?>" class="button">Read More</a>     
@@ -109,13 +111,11 @@ get_header();?>
                      
                                         <a href="<?php the_permalink() ?>" rel="bookmark" title="Link to <?php the_title_attribute(); ?>" class="post-image" style="background-image: url(<?php echo $postImage['url']; ?>);"></a>         
                             
-                            <h2 id="post-<?php the_ID(); ?>" class="heading heading__sm heading__alt">
-                    
-                                <a href="<?php the_permalink() ?>" rel="bookmark" title="Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a>
-                            
-                            </h2>
+                            <a href="<?php the_permalink() ?>" rel="bookmark" title="Link to <?php the_title_attribute(); ?>">
+                                <h2 id="post-<?php the_ID(); ?>" class="heading heading__md heading__light"><?php the_title(); ?></h2>
+                            </a>
                          
-                            <p class="heading heading__xs heading__alt-color font200 mb1"><?php the_date() ?></p> 
+                            <p class="heading heading__xs heading__alt-color  heading__light font200 mb1"><?php the_date() ?></p> 
                             <?php the_excerpt() ?>     
                             
                             <a href="<?php the_permalink() ?>" rel="bookmark" title="Link to <?php the_title_attribute(); ?>" class="">Read More</a>     
@@ -135,7 +135,7 @@ get_header();?>
             
             <div class="col-4">
                 
-                <h3 class="heading heading__sm heading__alt">Browse By Date</h3> 
+                <h3 class="heading heading__sm heading__light heading__alt">Browse By Date</h3> 
                 
                 <div class="month-archives">
                     <?php wp_get_archives('type=monthly'); ?>

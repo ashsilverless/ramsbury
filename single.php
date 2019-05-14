@@ -16,7 +16,7 @@ get_header();
 
 <?php $heroImage = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full' ); ?>
 
-<div class="hero h50 mb3" style="background-image: url(<?php echo $heroImage[0]; ?>);">
+<div class="hero h50" style="background-image: url(<?php echo $heroImage[0]; ?>);">
 
     <div class="container">
     
@@ -24,7 +24,7 @@ get_header();
                 
             <div class="col-12 hero__content text-center">       
                 
-                <h1 class="heading heading__xl heading__light font800">
+                <h1 class="heading heading__xl heading__light">
                     
                     <?php if (get_field('hero_heading')):
                         the_field('hero_heading');
@@ -49,6 +49,8 @@ get_header();
 </div>
 
 <!-- ******************* Hero Content END ******************* -->
+
+<div class="dark-block pt3">
  
 <div class="container pb3">
 
@@ -77,5 +79,7 @@ get_header();
     <a href="/news" class="button mb3">Back To News</a>
         
 </div><!--c-->
+
+</div>
 
 <?php get_footer();

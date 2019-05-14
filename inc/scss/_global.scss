@@ -231,10 +231,9 @@ nav {
 	&:after {
         @include childOverlay;
         top:-100%;
-    		height: calc(100% + 10px);
-        background: hsla(0, 1%, 14%, 1);
+        background: hsla(0, 1%, 14%, 0.75);
+        transition: top 1s ease;
         transition: all 1s ease;
-        border-bottom: 10px solid white;
 	}  
 
     &.dark:after {
@@ -243,7 +242,7 @@ nav {
 	svg {
 		width:150px;
 		display: block;
-		margin: 0 0 1em;
+		margin: 0;
 		transition: all 1s ease;
 		
 		#head path,
@@ -325,7 +324,7 @@ nav.dark ul li a {
     top:2em;
     width:100%;
     text-align: center;
-    z-index: 10;
+    z-index: 100;
     
     .st2 {
         display: none;

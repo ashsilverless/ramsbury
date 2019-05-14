@@ -14,7 +14,7 @@ get_header();?>
 
 <!-- ******************* Tour Leader ******************* -->
 
-<div class="pt5">
+<div class="dark-block pt5">
 
     <div class="container">
     
@@ -60,7 +60,7 @@ get_header();?>
 
 <!-- ******************* Process Section ******************* -->
 
-       <h2 class="heading heading__lg text-center mt2 mb1">Our Process</h2>   
+       <h2 class="heading heading__lg heading__light text-center mt2 mb1">Our Process</h2>   
 
         <?php if( have_rows('process') ): 
             while ( have_rows('process') ) : the_row();?>
@@ -79,7 +79,13 @@ get_header();?>
                 <div class="content sticky">
                     <img src="<?php the_sub_field( 'icon' );?>"/>   
                     
-                    <h3 class="heading heading__sm heading__body font300 mb1"><?php the_sub_field( 'heading' );?></h3>               
+                    <h3 class="heading heading__sm heading__light heading__body font400 mb1"><?php the_sub_field( 'heading' );?>
+                    
+                        <?php if(get_sub_field('sub_heading')):?>
+                        <span><?php the_sub_field( 'sub_heading' );?></span>            
+                        <?php endif;?>
+                    
+                    </h3>   
                     
                     <?php the_sub_field( 'copy' );?>
                 </div>
@@ -91,13 +97,13 @@ get_header();?>
 
     </div><!--c-->
     
-</div><!--dark-->
+
 
 <!-- ******************* Process Section END ******************* -->
 
-<!-- ******************* Cycle Section ******************* 
+<!-- ******************* Cycle Section ******************* -->
 
-<div class="light-block pt5 pb5">
+<div class="pt5 pb5">
 
     <div class="container">
     
@@ -106,28 +112,30 @@ get_header();?>
             <?php if( have_rows('cycle_of_beer') ): 
                 while ( have_rows('cycle_of_beer') ) : the_row();?>
                     
-                <div class="col-8 offset-2">
+                <div class="col-8 offset-2 text-center">
                 
-                    <h2 class="heading heading__lg mb1 text-center"><?php the_sub_field( 'heading' );?></h2> 
+                    <h2 class="heading heading__lg heading__light mb1 text-center"><?php the_sub_field( 'heading' );?></h2> 
                     
                     <?php the_sub_field( 'copy' );?>                                       
                 
-                </div>col
+                </div>
 
                 <div class="col-12">
                         
-                    <img src="<?php the_sub_field( 'image' );?>" class="mt2"/>  
+                    <img src="<?php the_sub_field( 'image' );?>" class="mt5 mb3"/>  
     
-                </div>col
+                </div>
                 
             <?php endwhile; endif;?>    
             
-            </div>r
+            </div><!--r-->
             
-    </div><!--c
+    </div><!--c-->
 
-</div><!--light
+</div>
 
+
+</div><!--dark-->
 <!-- ******************* Cycle Section END******************* -->
 
 <!-- ******************* Map Section ******************* -->
