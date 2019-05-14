@@ -15,6 +15,10 @@
     border-radius: 0;
     letter-spacing: 1px;
     
+    &:hover {
+        background:hsl(0, 0%, 8%);
+    }
+    
     i {
         position: absolute;
         right: 0.25em;
@@ -67,6 +71,7 @@
     
     &__inline {
         display: inline;
+        padding:0.5em 3em;
     }
      
     &__video {
