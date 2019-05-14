@@ -6,6 +6,7 @@
     position: absolute;
 	right: 2em;
 	top: 2em;
+    z-index: 99999;   
     
     i {
         color: white;
@@ -15,6 +16,14 @@
 
 .dark .cart-button i {
     color: white;
+}
+
+.large-carousel.owl-carousel .owl-nav.disabled {
+  position: absolute;
+  display: block;
+  top: 50%;
+  width: 98%;
+  margin-top: -2em;
 }
 
 /*===========BODY==========*/
@@ -32,6 +41,10 @@
 
 .bottom-border {
     border-bottom: 10px solid white;
+}
+
+.top-border {
+    border-top: 10px solid white;
 }
 
 .inline-list {
@@ -60,6 +73,19 @@
     background: hsl(0, 0%, 96%);
     position: relative;
     z-index: 1;
+    
+    &.kegbeer .bottle-wrapper {
+    
+        &:after {
+            bottom: 8px;
+        }
+    
+        img {
+            height: calc(80vh - 11em);
+            min-height: calc(80vh - 11em);
+            max-height: calc(85vh - 11em);        
+        }
+    }
 }
 
 .product-nav {
@@ -67,6 +93,7 @@
     top:50%;
     left: 0;
     width:100%;
+    z-index: 99;
     
     .previous,
     .next {
@@ -138,10 +165,11 @@
 
 .product-card {
 	display: grid;
-	grid-template-rows: 20em 8em 2em;
+	grid-template-rows: 20em auto 2em;
 	grid-template-columns: 1fr;
 	justify-content: center;    
     align-items: flex-end;
+    margin-bottom: 3em;
     
     &__image {
         position: relative;
@@ -170,6 +198,7 @@
     
     &__content {
         text-align: center;
+        padding-top: 1em;
         
         .beer-title {
             font-size: 1em;
@@ -179,6 +208,14 @@
     a.button {
         text-align: center !important;
     }
+}
+
+.keg-beer .product-card__image {
+    height: 65%;
+}
+
+.small-beer .product-card__image {
+    height: 93%;
 }
 
 .bottle-wrapper {
@@ -219,8 +256,9 @@
     }
 }
 
-
-
+.accent {
+    width:40px;
+}
 
 .value select {
     width:auto;
@@ -368,7 +406,7 @@ html body.woocommerce #page button.single_add_to_cart_button.button.alt {
     #pint {
         content:'';
         position: absolute;
-        width: 1em;
+        width: 1.25em;
         top: 9%;
         left: 11%;
         z-index: 50;
@@ -476,6 +514,24 @@ html body.woocommerce #page button.single_add_to_cart_button.button.alt {
   transform: translateX(-50%) translateY(-50%);
   z-index: -1;
 }
+}
+
+.process {
+    
+    &__item {
+        
+        .content {
+            padding-left: 50px;
+                
+            img {
+                position: absolute;
+                top:0;
+                left: 0;
+                width:30px;
+            }
+        }
+    }
+    
 }
 
 /*===========FOOTER==========*/

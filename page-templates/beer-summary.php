@@ -8,37 +8,11 @@ get_header();?>
 
 <!-- ******************* Our Products Range ******************* -->
 
-<div class="container pt10">
+<div class="mt10">
 
-    <h2 class="heading heading__lg text-center mt1 mb1">Our Beers</h2>
+<?php get_template_part('template-parts/our', 'products');?>
 
-    <div class="row">
-
-	<?php
-		$args = array(
-			'post_type' => 'product',
-			'posts_per_page' => -1
-			);
-		$loop = new WP_Query( $args );
-		if ( $loop->have_posts() ) {
-			while ( $loop->have_posts() ) : $loop->the_post();
-				if ( $loop->post->ID != 1745 ):
-
-	            ?><div class="col-3 mb3">
-	                <?php get_template_part('template-parts/product', 'card');
-	?>
-	            </div><?php
-		        endif;
-			endwhile;
-		} else {
-			echo __( 'No products found' );
-		}
-		wp_reset_postdata();
-	?>
-
-    </div><!--r-->
-
-</div><!--c-->
+</div>
 
 <!-- ******************* Our Products Range END ******************* -->
 

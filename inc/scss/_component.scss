@@ -8,7 +8,7 @@
     padding: 0.5em 1em;
     text-align: left;
     font-family: $body-font;  
-    font-weight: 400;
+    font-weight: 200;
     color: $brand-white;
     vertical-align: middle;
     -webkit-appearance: none;
@@ -63,6 +63,10 @@
             right:0.75em;
         }
             
+    }
+    
+    &__inline {
+        display: inline;
     }
      
     &__video {
@@ -128,6 +132,9 @@
 .trigger-aboutus {
     color: $brand-primary !important;
     font-family: $brand-font;
+    text-transform: none;
+    font-size: 1em;
+    margin-top: 2em;
 }
 
 a.next-section {
@@ -141,7 +148,8 @@ a.next-section {
     letter-spacing: 1px;
     color: white;
     margin-bottom: 1em;
- 
+    z-index: 10;
+    
      &:before {
         position: absolute;
         content: '';
@@ -221,18 +229,18 @@ a.next-section {
 	height: 100%;
 }
 
-#map-contact {
+#map-contact,
+#brewery-map-contact {
 	width: 100%;
 	height: 100%;
 	
 	.marker {
-		background-color: transparent;
-		width: 40px;
-		height: 40px;
-		border: 10px solid white;
+		background-color: white;
+		width: 30px;
+		height: 30px;
+		border: 5px solid hsl(0, 0%, 20%);
 		border-radius: 50%;
 		cursor: pointer;
-		box-shadow: inset 1px 1px 5px 3px rgba(27, 27, 27, 0.32), 1px 1px 5px 3px rgba(27, 27, 27, 0.32);
 	}
 	
 	.mapboxgl-ctrl-bottom-left {
@@ -266,11 +274,12 @@ a.next-section {
 		        border: 1px solid white;
 		        color: white;
 		        font-size: 14px;
-			    text-transform: uppercase;
 			    padding: 5px;
 			    margin: 5px 0px;
 			    letter-spacing: 0.1em;
 			    cursor: pointer;
+			    font-family: $body-font;
+			    font-weight: 200;
 			}
 		}
 		
@@ -290,9 +299,8 @@ a.next-section {
 			}
 			
 			&.phone {
-				font-size: 1.3em;
-			    letter-spacing: 0.1em;
-			    margin: 1.5em 0em;
+				font-size: 1.2em;
+			    margin: 0.5em 0em;
 			}
 		}
 	}
@@ -325,7 +333,6 @@ a.next-section {
 		text-align: center;
 		
 		&:before {
-			color: $brand-white;
 		    content: '\f054';
 		    margin-left: 3px;
 		    font-family: "Font Awesome 5 Free";
@@ -359,7 +366,6 @@ a.next-section {
 	.ui-datepicker-title {
 		text-align: center;
 		text-transform: uppercase;
-		color: $brand-white;
 		font-size: 1.5em;
 		letter-spacing: 4px;
 		text-indent: 4px;
@@ -374,7 +380,6 @@ a.next-section {
 			thead tr th span {
 				margin-bottom: 10px;
 				display: block;
-				color: $brand-light-grey;;
 				text-transform: uppercase;
 				font-weight: normal;
 			}

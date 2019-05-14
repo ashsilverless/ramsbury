@@ -24,7 +24,18 @@ get_header(); ?>
 
 <!-- ******************* Hero Product ******************* -->
 
-<div class="product-hero bottom-border">
+<div class="product-hero bottom-border
+<?php 
+    global $post;
+    $terms = get_the_terms( $post->ID, 'product_cat' );
+    foreach ($terms as $term) {
+        $product_cat_id = $term->name;
+    
+    $raw = strtolower($product_cat_id);
+    $modified = str_replace(' ', '', $raw);
+    echo $modified." ";
+    }
+?>">
 
     <div class="container">
     
@@ -38,37 +49,7 @@ get_header(); ?>
 
 <!-- ******************* Our Products Range ******************* -->
 
-<div class="container pt3">
-
-    <h2 class="heading heading__lg text-center mb1">Our Range</h2>
-
-    <div class="row">
-
-	<?php
-		$args = array(
-			'post_type' => 'product',
-			'posts_per_page' => -1
-			);
-		$loop = new WP_Query( $args );
-		if ( $loop->have_posts() ) {
-			while ( $loop->have_posts() ) : $loop->the_post();
-				if( $loop->post->ID != 1745):
-
-            ?><div class="col-3 mb3">
-                <?php get_template_part('template-parts/product', 'card');
-?>
-            </div><?php
-	            endif;
-			endwhile;
-		} else {
-			echo __( 'No products found' );
-		}
-		wp_reset_postdata();
-	?>
-
-    </div><!--r-->
-
-</div><!--c-->
+<?php get_template_part('template-parts/our', 'products');?>
 
 <!-- ******************* Our Products Range END ******************* -->
 

@@ -198,11 +198,13 @@ add_action( 'admin_menu', 'remove_menus' );
 
 /**= Allow SVG Upload =**/
 
-function cc_mime_types($mimes) {
-  $mimes['svg'] = 'image/svg+xml';
-  return $mimes;
+function add_file_types_to_uploads($file_types){
+$new_filetypes = array();
+$new_filetypes['svg'] = 'image/svg+xml';
+$file_types = array_merge($file_types, $new_filetypes );
+return $file_types;
 }
-add_filter('upload_mimes', 'cc_mime_types');
+add_action('upload_mimes', 'add_file_types_to_uploads');
 
 /**= Set WooCommerce Theme Support =**/
 
@@ -334,3 +336,6 @@ function add_to_cart() {
 }
 
 /**= Functions Calendar END =**/
+
+
+

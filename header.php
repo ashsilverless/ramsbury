@@ -68,4 +68,4 @@
 	
 	<?php endif; ?>
 
-	<main><!--closes in footer.php-->
+<main><!--closes in footer.php-->

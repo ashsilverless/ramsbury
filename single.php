@@ -22,7 +22,7 @@ get_header();
     
         <div class="row">
                 
-            <div class="col-12 wrapper-hero__content text-center">       
+            <div class="col-12 hero__content text-center">       
                 
                 <h1 class="heading heading__xl heading__light font800">
                     

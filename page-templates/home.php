@@ -16,7 +16,7 @@ get_header();?>
 
 <div id="home-our-beers" class="text-center pt5 pb5">
 
-<h2 class="heading heading__xl mb1">Our Beers</h2>
+<h2 class="heading heading__xl">Our Beers</h2>
 
 <?php get_template_part('template-parts/small', 'carousel');?>
 
@@ -32,7 +32,7 @@ get_header();?>
         
         <div class="col-8 offset-2 pb3">
 
-            <h3 class="heading heading__lg mt1"><?php the_field('heading');?></h3>
+            <h3 class="heading heading__lg heading__seperator mt1"><span><?php the_field('heading');?></span></h3>
 
             <div class="expanding-copy">
 

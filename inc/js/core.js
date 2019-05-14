@@ -193,7 +193,7 @@ $(function() {
 					
 					var quantity = parseInt($("#quantity-booking").val());
 					if(!quantity) {
-						$(".tour-error").text("Please provide 'Number in party'");
+						$(".tour-error").text("Please provide number of visitors'");
 						return false;
 					}
 					
@@ -325,13 +325,13 @@ $(function() {
 		if($("#map-contact").length > 0 && JSON.parse($("#map-contact").attr("points"))) {
 		    var points = JSON.parse($("#map-contact").attr("points"));
 		    
-	        mapboxgl.accessToken = 'pk.eyJ1IjoiYW5nZWxsYXNpbHZlcmxlc3MiLCJhIjoiY2p1OWpqejNpMjhzaTQ0bnI4OHV1bWxmZiJ9.vley8saF98a3rzT-AsE-YQ';
+	        mapboxgl.accessToken = 'pk.eyJ1Ijoic2lsdmVybGVzcyIsImEiOiJjaXNibDlmM2gwMDB2Mm9tazV5YWRmZTVoIn0.ilTX0t72N3P3XbzGFhUKcg';
 	        
 			var map = new mapboxgl.Map({
 			    container:  'map-contact',
-			    style:      'mapbox://styles/mapbox/navigation-guidance-day-v2',
+			    style:      'mapbox://styles/silverless/cjvnw465y0bl91cmionu5nqmo',
 			    center:     [-1.729931, 51.420942],
-			    zoom:       15,
+			    zoom:       13,
 			    scrollZoom: false
 			});
 			
@@ -449,6 +449,135 @@ $(function() {
 		
     });
 
+    $(document).ready(function() {
+			
+		if($("#brewery-map-contact").length > 0 && JSON.parse($("#brewery-map-contact").attr("points"))) {
+		    var points = JSON.parse($("#brewery-map-contact").attr("points"));
+		    
+	        mapboxgl.accessToken = 'pk.eyJ1Ijoic2lsdmVybGVzcyIsImEiOiJjaXNibDlmM2gwMDB2Mm9tazV5YWRmZTVoIn0.ilTX0t72N3P3XbzGFhUKcg';
+	        
+			var map = new mapboxgl.Map({
+			    container:  'brewery-map-contact',
+			    style:      'mapbox://styles/silverless/cjvnw465y0bl91cmionu5nqmo',
+			    center:     [-1.65569, 51.45109],
+			    zoom:       12,
+			    scrollZoom: false
+			});
+			
+			map.addControl(new mapboxgl.NavigationControl(), 'bottom-right');
+			
+			var geocoder = new MapboxGeocoder({
+				accessToken: mapboxgl.accessToken,
+				marker: {
+					color: 'grey'
+				},
+				countries: 'gb',
+				mapboxgl: mapboxgl,
+				flyTo: false
+			});
+			
+			map.addControl(geocoder, 'bottom-left');
+			
+			var geojson = {
+				type: 'FeatureCollection',
+				features: points
+			};
+			
+			var coorPoints = [];
+			
+			geojson.features.forEach(function(marker) {
+	
+				var el = document.createElement('div');
+				el.className = 'marker';
+				
+				new mapboxgl.Marker(el)
+					.setLngLat(marker.geometry.coordinates)
+					.setPopup(new mapboxgl.Popup({ closeOnClick: true })
+					.setHTML(
+				    	'<div class="name">Ramsbury Brewery & Distillery</div>' +
+				    	'<div class="address">' + marker.properties.address  + '</div>' +
+				    	'<div class="phone">'   + marker.properties.phone    + '</div>'))
+					.addTo(map);
+				
+				el.addEventListener('click', function(e){
+					position = marker.geometry.coordinates[1] + 0.0030;
+					map.flyTo({
+					    center: [marker.geometry.coordinates[0], position],
+					    zoom: 13
+				    });
+				});
+				
+				coorPoints.push(new mapboxgl.LngLat(marker.geometry.coordinates[0], marker.geometry.coordinates[1]));
+			});
+			
+			geocoder.on("result", function(e) {
+				var distance = [];
+				var searchPoint = new mapboxgl.LngLat(e.result.geometry.coordinates[0], e.result.geometry.coordinates[1]);
+				
+				coorPoints.forEach(function(markerPoint) {
+					distance.push({
+						'point': markerPoint,
+						'distance': distanceBetweenPoints(searchPoint, markerPoint)
+					});
+				});
+				
+				var minDistance = distance.reduce(function(prev, curr) {
+				    return prev.distance < curr.distance ? prev : curr;
+				});
+				
+				var bounds = new mapboxgl.LngLatBounds();
+	
+				bounds.extend(minDistance.point);
+				bounds.extend(searchPoint);
+				
+				map.fitBounds(bounds, { padding: 100 });
+			});
+			
+			$(window).bind('mousewheel DOMMouseScroll', function(event) {
+			    if(event.ctrlKey == true) {
+			        map['scrollZoom'].enable();
+			    }
+			    else {
+			        map['scrollZoom'].disable();
+			    }
+			});
+			
+			var popup = new mapboxgl.Popup({offset: popupOffsets, className: 'my-class'})
+			
+			function distanceBetweenPoints(point1, point2) {
+				var R = 6371e3; // metres
+				var φ1 = point1.lat.toRadians();
+				var φ2 = point2.lat.toRadians();
+				var Δφ = (point2.lat-point1.lat).toRadians();
+				var Δλ = (point2.lng-point1.lng).toRadians();
+				
+				var a = Math.sin(Δφ/2) * Math.sin(Δφ/2) +
+				        Math.cos(φ1) * Math.cos(φ2) *
+				        Math.sin(Δλ/2) * Math.sin(Δλ/2);
+				var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+				
+				var d = R * c;
+				return d;
+			}
+			
+			function getMiddlePoint(point1, point2) {
+				var lat = (point1.lat + point2.lat) / 2;
+				var lng = (point1.lng + point2.lng) / 2;
+				return [lng, lat];
+			}
+			
+			Number.prototype.toRadians = function() {
+				return this * Math.PI / 180;
+			};
+		}
+		
+    });
+
+
+
+
+
+
 /* LOAD VIDEO HOME */
 	
 	$(document).ready(function() {
@@ -477,8 +606,7 @@ $(function() {
 
     $('.large-carousel').owlCarousel({
         loop:true,
-        margin:10,
-        nav:true,
+        nav:false,
     	    navClass: ['owl-prev', 'owl-next'],
         dots:false,
         responsive:{
@@ -496,8 +624,11 @@ $(function() {
 
     $('.small-carousel').owlCarousel({
         loop:true,
-        margin:10,
-        nav:true,
+        autoplay:true,
+        autoplaySpeed: 9000,
+        autoplayTimeout:5000,
+        autoplayHoverPause:true,
+        nav:false,
     	    navClass: ['owl-prev', 'owl-next'],
         responsive:{
             0:{
@@ -588,77 +719,6 @@ $(function() {
       	$('.toggle.active').removeClass("active"); 
         $(this).addClass("active");   
     });
-
-// ========== Filtering controller (mixitup)
-
-if($('#mixitup-camps').length) {
-
-var campsMixer = mixitup('#mixitup-camps', {
-    load: {
-        filter: 'all'
-    },
-    selectors: {
-        control: '.mixitup-control'
-    },
-    pagination: {
-        limit: 6,
-        maintainActivePage: false,
-        loop: true,
-        hidePageListIfSinglePage: true
-    },
-    callbacks: {
-        onMixEnd: function() {
-            jQuery(window).trigger('resize').trigger('scroll');
-        }
-    }
-});
-}
-
-if($('#mixitup-camps-villas').length) {
-
-    var campsVillasMixer = mixitup('#mixitup-camps-villas', {
-        load: {
-            filter: 'all'
-        },
-        selectors: {
-            control: '.mixitup-control'
-        },
-        pagination: {
-            limit: 18,
-            maintainActivePage: false,
-            loop: true,
-            hidePageListIfSinglePage: true
-        },
-        callbacks: {
-            onMixEnd: function() {
-                jQuery(window).trigger('resize').trigger('scroll');
-            }
-        }
-    });
-}
-
-if($('#mixitup-posts-from-past').length) {
-
-    var postMixer = mixitup('#mixitup-posts-from-past', {
-        load: {
-            filter: 'all'
-        },
-        selectors: {
-            control: '.mixitup-control'
-        },
-        pagination: {
-            limit: 6,
-            maintainActivePage: false,
-            loop: true,
-            hidePageListIfSinglePage: true
-        },
-        callbacks: {
-            onMixEnd: function() {
-                jQuery(window).trigger('resize').trigger('scroll');
-            }
-        }
-    });
-}
 
 // ==========Add AJAX functions to quantity buttons on product pages
 

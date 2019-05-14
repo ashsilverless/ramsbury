@@ -6,11 +6,11 @@
     
 <div class="toggle mb2">
 
-  <div class="toggle__question heading__caps" role="tab">    
+  <div class="toggle__question" role="tab">    
 	  
-      <p class="headingSupporting headingSupporting__sm">
+      <p class="headingSupporting font700">
 	      
-        <span class="headingSupporting__lightWeight">Q<?php echo $i; ?></span>
+        <span class="headingSupporting font200">Q<?php echo $i; ?></span>
         
         <?php the_sub_field('question'); ?>
         

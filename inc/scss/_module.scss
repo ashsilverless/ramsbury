@@ -11,8 +11,20 @@
     z-index: 50; 
     border-bottom: 10px solid white;
     
+    &:before {
+        position: absolute;
+        content: '';
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background: hsla(0, 0%, 0%, 0.29);
+        z-index: 1;    
+    }
+    
     &__content {
         position: relative;
+        z-index: 10;
         
         h3 {
             position: relative;
@@ -23,6 +35,10 @@
     &__carousel {
         display: block;
         padding:0;
+    }
+    
+    &.h50 {
+        padding-bottom: 3em;
     }
 }
 
@@ -211,6 +227,14 @@
 
     .product-card {
         grid-template-rows: 20em 3em;
+        
+        &.keg-beer .bottle-wrapper {
+            height:68%;
+        }
+        
+        &.small-beer .bottle-wrapper {
+            height:88%;
+        }
     }
     
     h2 {
@@ -282,13 +306,77 @@
 }
 
 .large-carousel {
+    position: relative;
     height:auto;
     padding:3em 0;
     border-bottom:10px solid white;
+
+.owl-nav.disabled {
+        position: absolute;
+        display: block;
+        top:50%;
+        width:98%;
+        margin-top: -2em;
+        
+        button {
+            z-index: 2;
+            position: absolute;
+            font-size: 4em !important;
+            color: hsl(0, 0%, 100%) !important;
+            transition:all 0.5 ease;
+            
+            &:hover {
+                filter:brightness(40%);
+            }
+
+            span {
+                display: none;
+            }
+
+            &:before {
+                @include backgroundContain
+                content:'';
+                position: absolute;
+                width:50px;
+                height:50px;
+                background:url(inc/img/arrow-shape.svg);
+                transform: rotate(90deg);
+                top: 50%;
+                left: 10px;
+                margin-top: -25px;  
+                filter:brightness(60%);
+                z-index: 5;
+            }
+
+            &.owl-next {
+                right: 50px;
+
+                &:before {
+                    right:30px;
+                    transform: rotate(270deg);
+                }
+            }
+            &.owl-prev {
+                left: 0;
+
+                &:before {
+                    left:15px;
+                }
+            }
+            &:focus {
+                -webkit-appearance: none;
+                outline:none;
+            }
+        }
+    }  
+
+    
     &__item {
         @include gridCenter;
         grid-template-columns: 1fr 1fr;
         grid-column-gap: 3em;
+        
+    
         
         .bottle {
             height: 50vh;
@@ -311,44 +399,50 @@
 }
 
 .gallery {
-    display: grid;
-    grid-template-columns: auto auto auto;
-    grid-template-rows: auto auto auto;
-    margin-bottom: 5em;
+    display: flex;
+    flex-flow: row wrap;
+    margin-left: 4px;
+    width: 100%;
 
     a {
         @include backgroundCover;
-        position: relative;
-        display: block;
-        min-height: 20em;
-        transition:all 0.3s ease;
-
+        flex: auto;
+        height: 15em;
+        min-width: 200px;
+        margin: 0; /* Some gutter */   
+        box-shadow: inset 0 0 0px 5px white;
+        transition: transform 0.5s ease;
+        
         &:hover {
-            transform: scale3d(1.03, 1.03, 1);
             position: relative;
-            z-index: 500;
-            box-shadow: 0 10px 5px 5px hsla(0, 0%, 0%, 0.2);
+            z-index: 50;
+            transform:scale3d(1.05, 1.05, 1);
         }
         
-        &:nth-of-type(5n+1){
-            grid-column: span 2;
+        &:nth-of-type(1n+1) {
+          width: 60%;
         }
         
-        &:nth-of-type(5n+2){
-            grid-column: span 1;           
-        }        
+        &:nth-of-type(2n+1) {
+          width: 38%;
+        }
         
-        &:nth-of-type(5n+3){
-            grid-column: span 3;                        
-        }        
-
-        &:nth-of-type(5n+4){
-            grid-column: span 1;                        
-        }      
-
-        &:nth-of-type(5n+5){
-            grid-column: span 2;                        
-        }                    
+        &:nth-of-type(3n+1) {
+          width: 20%;
+        }
+        
+        &:nth-of-type(4n+1) {
+          width: 54%;
+        }    
+        
+        &:nth-of-type(5n+1) {
+          width: 24%;
+        }          
+        
+        &:nth-of-type(6n+1) {
+          width: 19%;
+        }  
+                
     }
 }
 
@@ -794,6 +888,9 @@ article.news {
 /* * * TOUR BOOKING * * */
 
 .tour-booking {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 2em;
 	text-align: center;
 	padding: 5em 10em;
 	border-bottom: 10px solid white;
@@ -803,19 +900,19 @@ article.news {
 	}
 		
 	.wrapper-info {
-		display: flex;
-		flex-wrap: wrap;
-		align-items: start;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: start;
 	
 		.pick-info {
-			padding: 1em;
-			flex: 50%;
+            grid-column: 1/3;
+            padding: 1em;
+            display: grid;
+            grid-template-columns: 50% 50%;
 			
 			.input-tour {
-				flex: 50%;
-				text-align: left;
-				display: flex;
-				flex-wrap: wrap;
+                grid-column: 1/2;
+                text-align: left;
 				
 				&:not(:last-child) {
 					padding-bottom: 1rem;
@@ -824,6 +921,13 @@ article.news {
 				&:last-child {
 					padding-top: 0.5rem;
 				}
+				
+                &.quantity {
+                    grid-column: 1/2;
+                    grid-row: 2/3;
+                    display: grid;
+                    grid-template-columns: 20% 60% 20%;
+                }
 				
 				span {
 					flex-grow: 1;
@@ -849,7 +953,7 @@ article.news {
 						content: "\f078";
 						position: absolute;
 						height: 100%;
-						background: #848484;
+						background: hsl(0, 0%, 20%);
 						top: 0;
 						right: 0;
 						z-index: -1;
@@ -924,7 +1028,7 @@ article.news {
 				
 				.plus-custom, .minus-custom {
 					cursor: pointer;
-					background: #848484;
+					background: hsl(0, 0%, 20%);
 					padding: 0 1em;
 					display: flex;
 					justify-content: center;
@@ -935,40 +1039,42 @@ article.news {
 			}
 			
 			.summary {
+    			    grid-column: 1/3;
 				color: $brand-white;
 				height: 100%;
 				background-color: #848484;
 				text-align: left;
-				text-transform: uppercase;
-				letter-spacing: 0.2em;
+				letter-spacing: 0.12em;
 				padding: 1em 1em 0 2em;
 				font-size: 1rem;
 				
 				p {
 					font-size: 1rem;
+					
+					span {
+    					font-weight: 700;
+					}
 				}
 			}
 			
 			.tour-total {
 				color: $brand-white;
 				text-align: left;
-				text-transform: uppercase;
-				letter-spacing: 0.2em;
-				padding: 0.5em 1em 0 2em;
+				letter-spacing: 0.12em;
 				font-size: 1rem;
 			}
 		}
 	}
-	
+		
 	.spots-remaining {
-		text-align: left;
-		color: $brand-white;
+    	grid-row:1/3;
+        text-align: center;
 	}
 	
 	.tour-error {
 		display: block;
 		text-align: center;
-		color: $brand-white;
+		color: red;
 		width: 100%;
 	}
 }

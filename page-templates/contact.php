@@ -6,9 +6,9 @@
  */
 get_header();?>
 
-<div class="dark-block pt10 pb3">
+<div class="bottom-border pt10 pb3">
 
-<h1 class="heading heading__xl heading__light text-center">Contact Us</h1>
+<h1 class="heading heading__xl text-center pt1">Contact Us</h1>
 
 <div class="container">
     
@@ -16,17 +16,17 @@ get_header();?>
         
         <div class="col-5">
             
-            <p class="heading heading__alt heading__caps heading__light mt2"><?php the_field('footer_heading', 'option');?></p>      
+            <p class="heading heading__body font700 mt1"><?php the_field('footer_heading', 'option');?></p>      
             
-            <h2 class="heading heading__sm contact-subtitle">Shop</h2>
+            <!--<h2 class="heading heading__md heading__light">Shop</h2>-->
             <p><?php the_field('shop_address', 'option');?></p>             
             <p><?php the_field('shop_telephone', 'option');?></p>  
             <p><?php the_field('shop_email', 'option');?></p>  
-            
+            <!--
             <h2 class="heading heading__sm mt2 contact-subtitle">Estate Office</h2>
             <p><?php the_field('estate_address', 'option');?></p>             
             <p><?php the_field('estate_telephone', 'option');?></p>  
-            <p><?php the_field('estate_email', 'option');?></p>              
+            <p><?php the_field('estate_email', 'option');?></p>     -->         
 
             <div class="socials mt1">
                     
@@ -48,7 +48,19 @@ get_header();?>
         
     </div><!--r-->
 
-<h2 class="heading heading__lg heading__light mt2">Frequently Asked Questions</h2>
+</div><!--c-->
+
+<!-- ******************* Map Section ******************* -->
+
+<div style="height:50vh;" class="top-border mt3">
+    <?php get_template_part("template-parts/brewery", "map"); ?>
+</div>
+
+<!-- ******************* Map Section END ******************* -->
+
+<div class="container">
+
+<h2 class="heading heading__lg mt2 mb1">Frequently Asked Questions</h2>
 
 <?php get_template_part('template-parts/toggle');?>
     
@@ -56,14 +68,5 @@ get_header();?>
 
 
 </div>
-
-
-<!-- ******************* Map Section ******************* -->
-
-<div style="height:50vh;">
-    <?php get_template_part("template-parts/map"); ?>
-</div>
-
-<!-- ******************* Map Section END ******************* -->
 
 <?php get_footer();?>
