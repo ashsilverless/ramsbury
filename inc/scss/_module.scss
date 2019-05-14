@@ -1016,10 +1016,11 @@ article.news {
 					letter-spacing: 0.1em;
 					color: $brand-white;
 					outline: none;
-					text-transform: lowercase;
+					text-transform: none;
 					cursor: pointer;
 					transition: background-color 0.3s ease;
 					font-family: $body-font;
+					font-weight: 200;
 					
 					&:hover {
 						background-color: #e08a15;
