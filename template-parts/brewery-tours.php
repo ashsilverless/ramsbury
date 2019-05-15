@@ -22,7 +22,7 @@
                 
                 <p class="mb2"><?php  the_field('brewery_copy', 'options');?></p>
             </div>
-            <div>
+            <div class="action">
                 <a href="" class="button"><?php  the_field('brewery_button_text', 'options');?></a>        
             
             </div>
@@ -52,7 +52,7 @@
                 
                 <p class="mb2"><?php  the_field('tour_copy', 'options');?></p>
                    </div>
-                   <div>
+                   <div class="action">
                 <a href="" class="button"><?php  the_field('tour_button_text', 'options');?></a>  
                    </div>      
             

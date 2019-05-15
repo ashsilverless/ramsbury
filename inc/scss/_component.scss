@@ -14,6 +14,7 @@
     -webkit-appearance: none;
     border-radius: 0;
     letter-spacing: 1px;
+    transition: all 0.5s ease;
     
     &:hover {
         background:hsl(0, 0%, 8%);
@@ -81,6 +82,11 @@
         background: transparent;
         border:none;
         
+        
+        &:hover {
+            background:transparent;
+        }
+        
         span {
            font-size: 0.25em;
            font-style: normal; 
@@ -126,12 +132,11 @@
  }
   
 .trigger-home {
-	font-family: $brand-font;
-	background-color: $brand-dark;
-	color: $brand-white !important;
-	padding: 0.5rem 4rem;
-	font-size: 1rem;
-	margin-top: 3rem;
+    padding: 0.5rem 4rem;
+    font-size: 1rem;
+    margin-top: 2rem;
+    text-transform: none;
+    font-weight: 200;
 }
 
 .trigger-aboutus {
