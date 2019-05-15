@@ -38,6 +38,11 @@ $height: (0, 25, 50, 75, 100); // Amount string.
     }
 }
 
+.h-auto {
+    height:auto; /*Required for CSS Grid elements*/
+    padding-bottom: 3em;
+}
+
 /* Typography */
 
 $weight: (100, 200, 300, 400, 500, 600, 700, 800, 900); // Amount string.

@@ -9,9 +9,3 @@ while ( $my_query->have_posts() ) : $my_query->the_post(); ?>
 
 <?php endwhile; ?>
  
-<hr class="sidebar"/>
-
-<h3 class="heading heading__sm heading__light heading__alt">Browse By Date</h3> 
- <div class="month-archives">
-	<?php wp_get_archives('type=monthly'); ?>
- </div>
