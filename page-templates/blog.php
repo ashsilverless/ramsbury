@@ -52,9 +52,7 @@ get_header();?>
                              
                                     <div class="post-summary__item featured">
                                  
-                                        <a href="<?php the_permalink() ?>" rel="bookmark" title="Link to <?php the_title_attribute(); ?>" class="post-image">
-                                            <img src="<?php echo $postImage['url']; ?>"/>
-                                        </a>         
+                            <a href="<?php the_permalink() ?>" rel="bookmark" title="Link to <?php the_title_attribute(); ?>" class="post-image" style="background-image: url(<?php echo $postImage['url']; ?>);"></a>         
                                         
                                         <div>
                                         
@@ -109,7 +107,7 @@ get_header();?>
                  
                         <div class="post-summary__item">
                      
-                                        <a href="<?php the_permalink() ?>" rel="bookmark" title="Link to <?php the_title_attribute(); ?>" class="post-image" style="background-image: url(<?php echo $postImage['url']; ?>);"></a>         
+                            <a href="<?php the_permalink() ?>" rel="bookmark" title="Link to <?php the_title_attribute(); ?>" class="post-image" style="background-image: url(<?php echo $postImage['url']; ?>);"></a>         
                             
                             <a href="<?php the_permalink() ?>" rel="bookmark" title="Link to <?php the_title_attribute(); ?>">
                                 <h2 id="post-<?php the_ID(); ?>" class="heading heading__md heading__light"><?php the_title(); ?></h2>

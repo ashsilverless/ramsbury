@@ -763,21 +763,22 @@ article.news {
     &__item {
         position: relative;
         display: grid;
-        grid-template-columns: 30% 68%;
+        grid-template-columns: 40% 60%;
         grid-template-rows: repeat(4, min-content);
         grid-column-gap: 2%;
-        border-bottom: 3px solid $brand-light-grey;
-        padding-bottom: 1em;
-        margin-bottom: 1em;
+        border-bottom: 1px solid $brand-light-grey;
+        padding-bottom: 2em;
+        margin-bottom: 2em;
         
         &:last-of-type {
             border:none;
         }
         
         .post-image {
-            @include backgroundContain;
+            @include backgroundCover;
             grid-row-start:1;
             grid-row-end: 5;
+            height: 100%;
             } 
         
         .heading {
