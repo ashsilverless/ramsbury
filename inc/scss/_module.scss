@@ -406,13 +406,14 @@
     display: flex;
     flex-flow: row wrap;
     margin-left: 4px;
+    margin-top:-5px;
     width: 100%;
 
     a {
         @include backgroundCover;
         flex: auto;
-        height: 20em;
-        min-width: 200px;
+        height: 15em;
+        min-width: 15%;
         margin: 0; /* Some gutter */   
         box-shadow: inset 0 0 0px 5px white;
         transition: transform 0.5s ease;
@@ -424,27 +425,27 @@
         }
         
         &:nth-of-type(1n+1) {
-          width: 60%;
+          width: 9%;
         }
         
         &:nth-of-type(2n+1) {
-          width: 38%;
+          width: 21%;
         }
         
         &:nth-of-type(3n+1) {
-          width: 20%;
+          width: 12%;
         }
         
         &:nth-of-type(4n+1) {
-          width: 54%;
+          width: 22%;
         }    
         
         &:nth-of-type(5n+1) {
-          width: 24%;
+          width: 14%;
         }          
         
         &:nth-of-type(6n+1) {
-          width: 19%;
+          width: 11%;
         }  
                 
     }
@@ -767,8 +768,8 @@ article.news {
         grid-template-rows: repeat(4, min-content);
         grid-column-gap: 2%;
         border-bottom: 1px solid $brand-light-grey;
-        padding-bottom: 2em;
-        margin-bottom: 2em;
+        padding-bottom: 3em;
+        margin-bottom: 3em;
         
         &:last-of-type {
             border:none;
@@ -800,7 +801,7 @@ article.news {
         }  
         
         a {
-            color: white;
+            color: white; 
         }  
     }
 }
@@ -877,8 +878,11 @@ article.news {
 }
 
 .mapboxgl-popup-content {
+    position: relative;
     background: $brand-secondary;
     color: hsl(0, 0%, 100%);
+    border-radius: 0;
+    box-shadow: 0 1px 25px rgba(0, 0, 0, 0.65);
 }
 
 .mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip {
@@ -894,6 +898,29 @@ article.news {
 	text-transform: uppercase;
 }
 
+#brewery-map-contact .mapboxgl-ctrl-bottom-left {
+    display: none;
+}
+
+#map-contact .mapboxgl-ctrl-bottom-left:before {
+    content:'Add your location here';
+    position: absolute;
+    top:-1.5em;
+    left:0.5em;
+    width: 300%;
+    font-family: $brand-font;
+    font-size: 3em;
+    transform: translateY(50px);
+    opacity: 0;
+    transition:all 2s ease-out;
+    transition-delay: 1s;
+}
+
+.loaded #map-contact .mapboxgl-ctrl-bottom-left:before{
+    transform: translateY(0);
+    opacity: 1;    
+}
+
 /* * * TOUR BOOKING * * */
 
 .tour-booking {
@@ -901,8 +928,7 @@ article.news {
     grid-template-columns: 1fr 1fr;
     grid-gap: 2em;
 	text-align: center;
-	padding: 5em 10em;
-	border-bottom: 10px solid white;
+	padding: 5em 0;
 	
 	.tour-description {
 		text-align: justify;
@@ -910,12 +936,10 @@ article.news {
 		
 	.wrapper-info {
         display: grid;
-        grid-template-columns: 1fr 1fr;
         align-items: start;
 	
 		.pick-info {
             grid-column: 1/3;
-            padding: 1em;
             display: grid;
             grid-template-columns: 50% 50%;
 			
@@ -924,18 +948,18 @@ article.news {
                 text-align: left;
 				
 				&:not(:last-child) {
-					padding-bottom: 1rem;
+					padding-bottom: 2px;
 				}
 				
 				&:last-child {
-					padding-top: 0.5rem;
+					
 				}
 				
                 &.quantity {
                     grid-column: 1/2;
                     grid-row: 2/3;
                     display: grid;
-                    grid-template-columns: 20% 60% 20%;
+                    grid-template-columns: 60% 20% 20%;
                 }
 				
 				span {
@@ -957,20 +981,22 @@ article.news {
 					}
 					
 					&:after {
-						font-family: "Font Awesome 5 Free";
-						font-weight: 900;
-						content: "\f078";
-						position: absolute;
-						height: 100%;
-						background: hsl(0, 0%, 52%);
-						top: 0;
-						right: 0;
-						z-index: -1;
-						text-align: center;
-						font-size: 1em;
-						line-height: 50px;
-						color: $brand-white;
-						padding: 0 1em;
+                        font-family: "Font Awesome 5 Free";
+                        font-weight: 900;
+                        content: "\f078";
+                        position: absolute;
+                        height: 100%;
+                        background: hsl(0, 0%, 52%);
+                        top: 0;
+                        right: 0;
+                        z-index: -1;
+                        text-align: center;
+                        font-size: 1em;
+                        line-height: 50px;
+                        color: $brand-white;
+                        padding: 0 1em;
+                        width: 20%;
+                        border-left: 2px solid hsl(0, 0%, 20%);
 					}
 				}
 				
@@ -988,13 +1014,13 @@ article.news {
 					-moz-appearance: none;
 					border-radius: 0;
 					border: none;
-					padding: 0.7rem 1.5rem;
+					padding: 0.75rem 1rem;
 					font-weight: 100;
 					font-size: 1em;
 				}
 				
 				input {
-					text-align: center;
+					text-align: left;
 					flex-grow: 1;
 					background-color: $brand-white;
 					padding: 0.7rem 1.5rem;
@@ -1030,6 +1056,7 @@ article.news {
 					transition: background-color 0.3s ease;
 					font-family: $body-font;
 					font-weight: 200;
+					margin-top: 4px;
 					
 					&:hover {
 						background-color: hsl(0, 0%, 8%);
@@ -1045,18 +1072,20 @@ article.news {
 					align-items: center;
 					color: $brand-white;
 					height: auto;
+					border-left: 2px solid hsl(0, 0%, 20%);
 				}
 			}
 			
 			.summary {
-    			    grid-column: 1/3;
+    			    grid-column: 1/2;
 				color: $brand-white;
 				height: 100%;
 				background-color: #848484;
 				text-align: left;
 				letter-spacing: 0.12em;
-				padding: 1em 1em 0 2em;
+				padding: 1em;
 				font-size: 1rem;
+				margin-top: 2px;
 				
 				p {
 					font-size: 1rem;
@@ -1087,4 +1116,12 @@ article.news {
 		color: red;
 		width: 100%;
 	}
+}
+
+.emphasis-block {
+    padding: 1em;
+    background: hsl(0, 1%, 15%);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }

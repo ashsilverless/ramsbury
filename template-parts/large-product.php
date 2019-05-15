@@ -37,7 +37,7 @@
        
                     <p class="heading heading__body heading__xs font400 mb2"><?php the_field('abv');?>% ABV</p>
 
-<div class="expanding-copy mb2">
+<div class="expanding-copy">
             
                 <div class="expanding-copy__lead">
                 
@@ -47,11 +47,11 @@
             
                 <?php if( get_field('ingredients') ): ?>
                 
-                <a class="trigger-expand" style="color: <?php echo $productColor;?>;">Read More</a>    
+                <a class="trigger-expand product">Read More</a>    
                 
                 <?php endif; ?>
                 
-                <div class="expanding-copy__more mb1">
+                <div class="expanding-copy__more">
             
                     <?php 
                         if( have_rows('ingredients') ): ?>
@@ -90,7 +90,7 @@
                 
                 <?php if( get_field('ingredients') ): ?>
                 
-                <a class="trigger-collapse hide mb2" style="color: <?php echo $productColor;?>;">Read Less</a>    
+                <a class="trigger-collapse product hide" style="color: <?php echo $productColor;?>;">Read Less</a>    
                 
                 <?php endif; ?>
                 

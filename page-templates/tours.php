@@ -29,16 +29,17 @@ get_header();?>
         </div>
 
         <div class="col-6">
-             
+             <div class="emphasis-block">
             <h3 class="heading heading__lg heading__light">Group Tours</h3>     
             <p><?php the_field('group_tours');?></p>   
-        
+             </div>
         </div>
         
         <div class="col-6">
+            <div class="emphasis-block">
             <h3 class="heading heading__lg heading__light">Private Tours</h3>                   
             <p><?php the_field('private_tours');?></p>   
-        
+            </div>
         </div>
         
         
@@ -46,8 +47,12 @@ get_header();?>
          
 </div><!--c-->
 
+<div class="container">
+
 <div id="book">
     <?php get_template_part('template-parts/tour-booking');?>
+</div>
+
 </div>
 
 </div>

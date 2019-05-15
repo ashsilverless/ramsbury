@@ -44,7 +44,7 @@ get_header();?>
                
             </div><!--col-->            
 
-            <div class="col-8 offset-2 text-justify">
+            <div class="col-8 offset-2 text-center">
                 
                <!--<h2 class="heading heading__lg mb1"> <?php the_sub_field('heading');?></h2>-->                
 

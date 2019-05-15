@@ -116,7 +116,7 @@ get_header();?>
                             <p class="heading heading__xs heading__alt-color  heading__light font200 mb1"><?php the_date() ?></p> 
                             <?php the_excerpt() ?>     
                             
-                            <a href="<?php the_permalink() ?>" rel="bookmark" title="Link to <?php the_title_attribute(); ?>" class="">Read More</a>     
+                            <a href="<?php the_permalink() ?>" rel="bookmark" title="Link to <?php the_title_attribute(); ?>" class="button">Read More</a>          
                   
                         </div>
             

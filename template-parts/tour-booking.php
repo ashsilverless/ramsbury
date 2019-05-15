@@ -2,7 +2,7 @@
 
 	<div id="tour-datepicker" class="calendar"></div>
 		
-	<div class="wrapper-info mt1">
+	<div class="wrapper-info">
 		
 		<div class="pick-info">
 			
@@ -21,12 +21,12 @@
 			<div class="spots-remaining"></div>
 			
 			<div class="input-tour quantity">
-				
+
+				<input id="quantity-booking" type="number" step="1" min="1" class="qty" placeholder="Visitors"></input>
+								
 				<div class="minus-custom">
 					<i class="fas fa-minus"></i>
 				</div>
-				
-				<input id="quantity-booking" type="number" step="1" min="1" class="qty" placeholder="Visitors"></input>
 				
 				<div class="plus-custom">
 					<i class="fas fa-plus"></i>

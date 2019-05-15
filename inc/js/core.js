@@ -3,6 +3,7 @@
 //@prepros-prepend mixitup-pagination.js
 //@prepros-prepend jquery.magnific-popup.js
 //@prepros-prepend owl.carousel.min.js
+//@prepros-prepend vivus.min.js
 
 jQuery(document).ready(function( $ ) {
 
@@ -12,7 +13,7 @@ jQuery(document).ready(function( $ ) {
         $(this).addClass("loaded");
 
         next();
-    });
+    }); 
 
     $(document).ready(function( $ ) {
       $( ".toggle" ).first().addClass( "active" );
