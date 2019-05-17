@@ -14,19 +14,27 @@ get_header();?>
 
 <!-- ******************* Tour Section ******************* -->
 
-<div class="dark-block">
+<div class="">
 
 <div class="container">
-    
-    <div class="row">
-    
-        <div class="col-10 offset-1 text-center pt3 pb3 mb3">
+
+        <div class="col-10 offset-1 text-center pt3 mb3">
                 
             <?php the_field('intro_text');?>   
         
-        <a href="#book" class="button button__inline">Book Now</a>
-        
         </div>
+
+<div id="book">
+    <?php get_template_part('template-parts/tour-booking');?>
+</div>
+
+</div>
+
+<div class="container mb5">
+    
+    <div class="row">
+    
+
 
         <div class="col-6">
              <div class="emphasis-block">
@@ -47,13 +55,7 @@ get_header();?>
          
 </div><!--c-->
 
-<div class="container">
 
-<div id="book">
-    <?php get_template_part('template-parts/tour-booking');?>
-</div>
-
-</div>
 
 </div>
 

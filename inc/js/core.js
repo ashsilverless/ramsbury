@@ -3,13 +3,12 @@
 //@prepros-prepend mixitup-pagination.js
 //@prepros-prepend jquery.magnific-popup.js
 //@prepros-prepend owl.carousel.min.js
-//@prepros-prepend vivus.min.js
 
 jQuery(document).ready(function( $ ) {
 
 /* ADD CLASS ON LOAD*/
 
-    $("html").delay(100).queue(function(next) {
+    $("html").delay(1500).queue(function(next) {
         $(this).addClass("loaded");
 
         next();
@@ -37,7 +36,7 @@ $(function() {
     $(document).ready(function( $ ) {
 		var scroll = $(window).scrollTop();
 		
-		if (scroll >= 50) {
+		if (scroll >= 10) {
 			header.addClass("dark");
 		} else {
 			header.removeClass("dark");
@@ -461,7 +460,7 @@ $(function() {
 			    container:  'brewery-map-contact',
 			    style:      'mapbox://styles/silverless/cjvnw465y0bl91cmionu5nqmo',
 			    center:     [-1.65569, 51.45109],
-			    zoom:       12,
+			    zoom:       11,
 			    scrollZoom: false
 			});
 			
@@ -493,7 +492,7 @@ $(function() {
 				
 				new mapboxgl.Marker(el)
 					.setLngLat(marker.geometry.coordinates)
-					.setPopup(new mapboxgl.Popup({ closeOnClick: true })
+					.setPopup(new mapboxgl.Popup({ offset: 25 })
 					.setHTML(
 				    	'<div class="name">Ramsbury Brewery & Distillery</div>' +
 				    	'<div class="address">' + marker.properties.address  + '</div>' +
@@ -661,32 +660,25 @@ $(function() {
         }
     })
 
+    $('.about-carousel').owlCarousel({
+        loop:false,
+        nav:false,
+    	    navClass: ['owl-prev', 'owl-next'],
+        dots:false,
+        responsive:{
+            0:{
+                items:1
+            },
+            600:{
+                items:1
+            },
+            1000:{
+                items:1
+            }
+        }
+    });
+
 /* CLASS AND FOCUS ON CLICK */
-
-    $('.menu-trigger').click(function() {
-        $('.hamburger').toggleClass('is-active');
-        $(".nav-menu").toggleClass("menu-open");
-    });
-
-    $('.multi-panel__trigger').click(function() {
-        $(".multi-panel__trigger.active").removeClass("active");
-        $(this).addClass('active');
-    });
-
-    $('.menu-item a').click(function() {
-        $(".nav-wrapper").removeClass("menu-open");
-        $(".nav-wrapper__trigger.is-active").removeClass("is-active");
-    });
-
-    $(".openTrigger").click(function(event) {
-      $('.content__hidden').addClass("show");
-      $(this).addClass("hide");
-    });
-
-    $(".closeTrigger").click(function(event) {
-      $('.content__hidden').removeClass("show");
-      $('.openTrigger').removeClass("hide");
-    });
 
     $(".trigger-copy-expand").click(function(event) {
       $('.collapsed-content').addClass("expand");
@@ -699,7 +691,6 @@ $(function() {
         $(this).hide();
         $('.trigger-copy-expand').show();     
     });
-
 
     $(".trigger-expand").click(function(event) {
 	    $(this).closest('.expanding-copy').find('.trigger-expand').hide()
@@ -721,6 +712,11 @@ $(function() {
         $(this).addClass("active");   
     });
 
+    $(".search-trigger").click(function() {
+        $('#searchform').addClass("expand");
+        $(this).hide();
+    });
+    
 // ==========Add AJAX functions to quantity buttons on product pages
 
 $(document).on('click', '.plus', function(e) { // replace '.quantity' with document (without single quote)

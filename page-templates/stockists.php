@@ -8,7 +8,7 @@ get_header();?>
 
 <!-- ******************* Map Section ******************* -->
 
-<div style="height:100vh;">
+<div style="height:75vh;">
     <?php get_template_part("template-parts/map"); ?>
 </div>
 
@@ -16,7 +16,7 @@ get_header();?>
 
 <!-- ******************* Slider Section ******************* -->
 
-<?php get_template_part('template-parts/large', 'carousel');?>
+<?php get_template_part('template-parts/find', 'cta');?>
 
 <!-- ******************* Slider Section END ******************* -->
 

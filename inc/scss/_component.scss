@@ -98,6 +98,7 @@
             position: relative;
             right: 0;
             top: 0;
+            font-size: 1em;
         }
     }
     
@@ -247,6 +248,25 @@ a.next-section {
 	border-bottom: 10px solid white;
 	width: 100%;
 	height: 100%;
+	
+	.heading {
+    	position: absolute;
+    	width: 100%;
+    	margin-top: 1em;
+    	text-align: center;
+    	z-index: 10;
+    	color: white;
+    	text-shadow: 0 0 20px black;
+    	
+        	svg {
+            	position: absolute;
+            	height:1em;
+            	width:1em;
+            	bottom: -1em;
+            	left:48%;
+            	fill:white;
+        	}
+	}
 }
 
 #map-contact,
@@ -343,7 +363,7 @@ a.next-section {
 	
 	.ui-datepicker-prev, .ui-datepicker-next {
         height: 3em;
-        background: hsl(0, 0%, 52%);
+        background: white;
         border-radius: 0;
         width: 4em;
         line-height: 3em;
@@ -437,7 +457,7 @@ a.next-section {
 	.ui-datepicker-unselectable .ui-state-default {
 		color: grey;
 		cursor: default;
-        background-color: hsl(0, 0%, 29%);
+        background-color: white;
 		border: 2px solid transparent;
 	}
 }

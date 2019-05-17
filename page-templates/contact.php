@@ -6,7 +6,7 @@
  */
 get_header();?>
 
-<div class="dark-block bottom-border pt10 pb3">
+<div class="dark-block bottom-border pt10">
 
 <h1 class="heading heading__xl heading__light text-center pt1">Contact Us</h1>
 
@@ -50,6 +50,8 @@ get_header();?>
 
 </div><!--c-->
 
+
+
 <!-- ******************* Map Section ******************* -->
 
 <div style="height:50vh;" class="top-border mt3">
@@ -57,10 +59,10 @@ get_header();?>
 </div>
 
 <!-- ******************* Map Section END ******************* -->
+</div><!--dark-->
+<div class="container mb5">
 
-<div class="container">
-
-<h2 class="heading heading__lg heading__light mt2 mb1">Frequently Asked Questions</h2>
+<h2 class="heading heading__lg mt2 mb1">Frequently Asked Questions</h2>
 
 <?php get_template_part('template-parts/toggle');?>
     

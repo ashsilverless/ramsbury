@@ -15,8 +15,57 @@
 }
 
 .dark .cart-button i {
-    color: white;
+    color: $brand-dark-grey;
 }
+
+.search-trigger {
+    position: absolute;
+    right: 3.5em;
+    top: 1.5em;
+    font-size: 1.5em;
+    color: hsl(0, 0%, 100%);   
+    z-index: 5000; 
+}
+
+#searchform {
+    position: absolute;
+    right: 5em;
+    top: 1.75em;
+    text-align: right;
+    width: 0;
+    overflow: hidden;
+    transition: width 1s ease;
+    
+    input {
+        border: none;
+        -webkit-appearance: none;
+        padding: 0.25em 1em;
+    }
+    
+    #searchsubmit {
+        padding: 0.25em 1em;
+        background: $brand-dark-grey;
+        color: white;
+    }
+          
+    > div {
+        white-space: nowrap;
+    }
+    
+    &.expand {
+        width:20em;
+        z-index: 5000;
+    }
+}
+
+.dark i {
+    color: $brand-dark-grey;
+}
+
+.dark #searchform input {
+    background: hsl(0, 0%, 96%);
+}
+
 
 .large-carousel.owl-carousel .owl-nav.disabled {
   position: absolute;
@@ -165,7 +214,7 @@
 
 .product-card {
 	display: grid;
-	grid-template-rows: 20em auto 2em;
+	grid-template-rows: 18em auto /*2em*/;
 	grid-template-columns: 1fr;
 	justify-content: center;    
     align-items: flex-end;
@@ -551,6 +600,10 @@ html body.woocommerce #page button.single_add_to_cart_button.button.alt {
     }
 }
 
+.cycle-image {
+    filter:brightness(20%);
+}
+
 /*===========FOOTER==========*/
 
 .details {
@@ -569,7 +622,7 @@ html body.woocommerce #page button.single_add_to_cart_button.button.alt {
     &:before {
         @include childOverlay;
         @include backgroundCover;
-        background-image:url(inc/img/contours-bg.png);     
+        /*background-image:url(inc/img/contours-bg.png);     */
         filter: brightness(20%);   
         z-index: -1;
     }
@@ -592,8 +645,30 @@ html body.woocommerce #page button.single_add_to_cart_button.button.alt {
     }
 }
 
+.search-card {
+    display: grid;
+    margin-bottom: 1em;
+    
+    .content {
+        display: grid;
+        padding: 1em;
+        background: white;
+        
+        a.read-more {
+            display: inline-grid;
+            align-self: flex-end;
+            padding: 0.5em 2em;
+            background: hsl(0, 0%, 20%);
+            color: white;
+        }
+    }
 
+}
 
+.pages {
+    margin: 1em 0 2em;
+    font-weight: 400;
+}
 
 
 

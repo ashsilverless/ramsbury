@@ -37,7 +37,8 @@
     <div id="page" class="site-wrapper">
     
         <nav id="nav">
-    	            
+    	            <?php get_search_form(); ?>
+    	            <i class="search-trigger fas fa-search"></i>
 	            <a href="/cart" class="cart-button"><i class="fas fa-shopping-basket"></i></a>	            
 	                <div class="brand">
 	            

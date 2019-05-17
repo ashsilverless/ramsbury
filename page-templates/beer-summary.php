@@ -24,7 +24,7 @@ get_header();?>
 
 <!-- ******************* Brewsery and Tours CTA ******************* -->
 
-<?php get_template_part('template-parts/brewery', 'tours');?>
+<!--Removed-->
 
 <!-- ******************* Brewsery and Tours CTA END******************* -->
 

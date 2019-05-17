@@ -50,7 +50,7 @@ get_header();
 
 <!-- ******************* Hero Content END ******************* -->
 
-<div class="dark-block pt3">
+<div class="pt3">
  
 <div class="container pb3">
 
@@ -70,7 +70,9 @@ get_header();
         
         <div class="col-4">
         
-            <?php get_template_part('template-parts/blog', 'sidebar');?>
+            Share Icons
+            <Br/>
+            BOOKING CTA
           
         </div>
     

@@ -40,8 +40,7 @@
                     <?php while ( have_rows('button') ) : the_row(); ?>
 	                    
 		                <a href="#" type="button" class="button button__video modal-toggle" data-context="one">
-		                    <i class="fab fa-youtube"></i>
-		                    <span><?php the_sub_field( 'button_text' );?></span>		                
+		                    <?php get_template_part( 'template-parts/play', 'button' ); ?>	                
 		                </a>
 
 					<?php endwhile; ?>

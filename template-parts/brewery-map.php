@@ -32,5 +32,10 @@
 ?>
 
 <div class="map-wrapper">
+    
+    <h3 class="heading heading__lg">Find Us Here
+        <?php get_template_part("template-parts/down", "arrow"); ?>
+    </h3>
+    
 	<div id='brewery-map-contact' points='<?php echo json_encode($points);?>'></div>
 </div>

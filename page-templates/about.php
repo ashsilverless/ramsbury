@@ -14,7 +14,7 @@ get_header();?>
 
 <!-- ******************* Tour Leader ******************* -->
 
-<div class="dark-block pt5">
+<div class="pt5">
 
     <div class="container">
     
@@ -60,7 +60,9 @@ get_header();?>
 
 <!-- ******************* Process Section ******************* -->
 
-       <h2 class="heading heading__lg heading__light text-center mt2 mb1">Our Process</h2>   
+       <h2 class="heading heading__lg text-center mt2">Our Process</h2>   
+
+        <div class="about-carousel owl-carousel owl-theme"> 		
 
         <?php if( have_rows('process') ): 
             while ( have_rows('process') ) : the_row();?>
@@ -69,17 +71,17 @@ get_header();?>
 
         <div class="row process__item mb3">
             
-            <div class="col-6">
+            <div class="col-4 offset-1">
             
             <img src="<?php the_sub_field( 'image' );?>"/>
             
             </div><!--col-->  
 
             <div class="col-6">
-                <div class="content sticky">
+                <div class="content">
                     <img src="<?php the_sub_field( 'icon' );?>"/>   
                     
-                    <h3 class="heading heading__sm heading__light heading__body font400 mb1"><?php the_sub_field( 'heading' );?>
+                    <h3 class="heading heading__sm heading__body font400 mb1"><?php the_sub_field( 'heading' );?>
                     
                         <?php if(get_sub_field('sub_heading')):?>
                         <span><?php the_sub_field( 'sub_heading' );?></span>            
@@ -95,6 +97,8 @@ get_header();?>
 
         <?php endwhile; endif;?>
 
+        </div><!--about carousel-->
+
     </div><!--c-->
     
 
@@ -103,7 +107,7 @@ get_header();?>
 
 <!-- ******************* Cycle Section ******************* -->
 
-<div class="pt5 pb5">
+<div class="mt3 pb5">
 
     <div class="container">
     
@@ -114,7 +118,7 @@ get_header();?>
                     
                 <div class="col-8 offset-2 text-center">
                 
-                    <h2 class="heading heading__lg heading__light mb1 text-center"><?php the_sub_field( 'heading' );?></h2> 
+                    <h2 class="heading heading__lg mb1 text-center"><?php the_sub_field( 'heading' );?></h2> 
                     
                     <?php the_sub_field( 'copy' );?>                                       
                 
@@ -122,7 +126,7 @@ get_header();?>
 
                 <div class="col-12">
                         
-                    <img src="<?php the_sub_field( 'image' );?>" class="mt5 mb3"/>  
+                    <img src="<?php the_sub_field( 'image' );?>" class="cycle-image mt5 mb3"/>  
     
                 </div>
                 
@@ -140,7 +144,7 @@ get_header();?>
 
 <!-- ******************* Map Section ******************* -->
 
-<div style="height:50vh;" class="top-border">
+<div style="height:75vh;" class="top-border">
     <?php get_template_part("template-parts/brewery", "map"); ?>
 </div>
 

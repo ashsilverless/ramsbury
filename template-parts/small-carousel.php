@@ -3,6 +3,7 @@
 	<?php
 		$args = array(
 			'post_type' => 'product',
+			'product_cat' => 'bottled-beer',
 			'posts_per_page' => -1
 			);
         $loop = new WP_Query( $args );

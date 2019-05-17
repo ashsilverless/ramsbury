@@ -6,7 +6,7 @@
     display: grid;
     grid-template-rows: 100%;
     justify-content: center;
-    align-items: flex-end;
+    align-items: center;
     height: 100vh;
     z-index: 50; 
     border-bottom: 10px solid white;
@@ -30,6 +30,12 @@
             position: relative;
             margin:0.5em 0 1em;
         }
+        
+        svg {
+            width: 2em;
+            height: 2em;
+            fill:white;
+        }
     }
     
     &__carousel {
@@ -37,7 +43,8 @@
         padding:0;
     }
     
-    &.h50 {
+    &.h25 {
+        align-items: flex-end;
         padding-bottom: 3em;
     }
 }
@@ -986,17 +993,17 @@ article.news {
                         content: "\f078";
                         position: absolute;
                         height: 100%;
-                        background: hsl(0, 0%, 52%);
+                        background: white;
                         top: 0;
                         right: 0;
                         z-index: -1;
                         text-align: center;
                         font-size: 1em;
                         line-height: 50px;
-                        color: $brand-white;
+                        color: $brand-dark-grey;
                         padding: 0 1em;
                         width: 20%;
-                        border-left: 2px solid hsl(0, 0%, 20%);
+                        border-left: 2px solid hsl(0, 0%, 96%);
 					}
 				}
 				
@@ -1065,14 +1072,14 @@ article.news {
 				
 				.plus-custom, .minus-custom {
 					cursor: pointer;
-					background: hsl(0, 0%, 52%);
+					background: white;
 					padding: 0 1em;
 					display: flex;
 					justify-content: center;
 					align-items: center;
-					color: $brand-white;
+					color: $brand-dark-grey;
 					height: auto;
-					border-left: 2px solid hsl(0, 0%, 20%);
+					border-left: 2px solid hsl(0, 0%, 96%);
 				}
 			}
 			
@@ -1124,4 +1131,5 @@ article.news {
     display: flex;
     flex-direction: column;
     height: 100%;
+    color: white;
 }
