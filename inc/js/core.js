@@ -578,11 +578,19 @@ $(function() {
 
 
 
-/* LOAD VIDEO HOME */
+/* PLAY AND PAUSE VIDEO HOME */
 	
 	$(document).ready(function() {
 		
-		$(".modal-toggle").on("click", function() {
+		$(".modal-toggle.play-video").on("click", function() {
+			$('.modal .video')[0].currentTime = 0;
+			$('.modal .video')[0].play();
+			$('.modal').toggleClass('is-visible');
+			$('html').toggleClass('no-scroll');
+		});
+		
+		$(".modal-toggle.pause-video").on("click", function() {
+			$('.modal .video')[0].pause();
 			$('.modal').toggleClass('is-visible');
 			$('html').toggleClass('no-scroll');
 		});

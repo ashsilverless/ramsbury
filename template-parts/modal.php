@@ -6,7 +6,7 @@
 		
 		<div class="modal-header">
 			
-			<button class="modal-close modal-toggle"><i class="fas fa-times"></i></button>
+			<button class="modal-close modal-toggle pause-video"><i class="fas fa-times"></i></button>
 			
 		</div>
 	
@@ -14,7 +14,7 @@
 			
 			<div class="modal-content">
 				
-				<video autoplay controls class="video">
+				<video controls class="video">
         
 					<source src="<?php the_field('video_file');?>" type="video/mp4">
 				

@@ -39,7 +39,7 @@
                     
                     <?php while ( have_rows('button') ) : the_row(); ?>
 	                    
-		                <a href="#" type="button" class="button button__video modal-toggle" data-context="one">
+		                <a href="#" type="button" class="button button__video modal-toggle play-video" data-context="one">
 		                    <?php get_template_part( 'template-parts/play', 'button' ); ?>	                
 		                </a>
 
