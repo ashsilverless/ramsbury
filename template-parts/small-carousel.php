@@ -1,4 +1,4 @@
-<div class="small-carousel owl-carousel owl-theme mt2"> 
+<div class="small-carousel owl-carousel owl-theme mt4"> 
     
 	<?php
 		$args = array(

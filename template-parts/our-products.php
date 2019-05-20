@@ -44,7 +44,7 @@
 		if ( $loop->have_posts() ) {
 			while ( $loop->have_posts() ) : $loop->the_post(); ?>
 			
-			<div class="col-3 mb3">
+			<div class="col-3 mb3 text-center">
                 <?php get_template_part('template-parts/product', 'card');
 ?>
             </div><?php
