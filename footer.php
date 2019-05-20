@@ -54,9 +54,9 @@
                     
                     &copy; Ramsbury Brewery <?php echo date ('Y');?> | 
                     
-                    <a href="">Terms & Conditions</a> | 
+                    <a href="/terms-conditions">Terms & Conditions</a> | 
                     
-                    <a href="">Privacy Policy</a>
+                    <a href="/privacy">Privacy Policy</a>
                         
                 </div>
         

@@ -18,7 +18,7 @@
                 <p class="mb2"><?php  the_field('bell_copy', 'options');?></p>
             </div>
             <div class="action">
-                <a href="<?php  the_field('bell_target', 'options');?>" class="button"><?php  the_field('bell_button_text', 'options');?></a>        
+                <a href="<?php  the_field('bell_target', 'options');?>" class="button" target="_blank"><?php  the_field('bell_button_text', 'options');?></a>        
             
             </div>
             
@@ -43,7 +43,7 @@
                 <p class="mb2"><?php  the_field('welly_copy', 'options');?></p>
                    </div>
                    <div class="action">
-                <a href="" class="button"><?php  the_field('welly_button_text', 'options');?></a>  
+                <a href="<?php  the_field('welly_target', 'options');?>" class="button" target="_blank"><?php  the_field('welly_button_text', 'options');?></a>  
                    </div>      
 
             </div>  

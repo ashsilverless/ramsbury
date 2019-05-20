@@ -1,14 +1,14 @@
 <?php while ( have_posts() ) : the_post();?>
-
+<?php $excluded_terms = '126'; ?>
 <div class="product-nav">
     <?php if(get_previous_post()) {?>
     <div class="previous">
-        <?php previous_post_link('%link'); ?>
+        <?php previous_post_link('%link', '%title', false, $excluded_terms); ?>
     </div>
    <?php }
     if(get_next_post()) {?>
     <div class="next">
-        <?php next_post_link('%link'); ?> 
+        <?php next_post_link('%link', '%title', false, $excluded_terms); ?> 
     </div>
    <?php }?>    
 </div>               

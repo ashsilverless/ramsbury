@@ -4,7 +4,7 @@
     
         <h2 class="heading heading__xl"><?php  the_field('find_headline', 'options');?></h2>
         
-        <a href="" class="button">Search Stockists</a>        
+        <a href="/stockists" class="button">Search Stockists</a>        
     
      </div>
 
