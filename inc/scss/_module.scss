@@ -316,13 +316,14 @@
     }  
 }
 
-.large-carousel {
+.large-carousel,
+.about-carousel {
     position: relative;
     height:auto;
     padding:3em 0;
     border-bottom:10px solid white;
 
-.owl-nav.disabled {
+&.owl-carousel .owl-nav.disabled {
         position: absolute;
         display: block;
         top:50%;
@@ -407,6 +408,10 @@
             }
         }
     }
+}
+
+.about-carousel {
+    border:none;
 }
 
 .gallery {

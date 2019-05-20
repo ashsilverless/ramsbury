@@ -67,7 +67,8 @@
 }
 
 
-.large-carousel.owl-carousel .owl-nav.disabled {
+.large-carousel.owl-carousel .owl-nav.disabled,
+about-carousel.owl-carousel .owl-nav.disabled {
   position: absolute;
   display: block;
   top: 50%;

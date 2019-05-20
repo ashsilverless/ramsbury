@@ -60,7 +60,7 @@ get_header();?>
 
 <!-- ******************* Process Section ******************* -->
 
-       <h2 class="heading heading__lg text-center mt2">Our Process</h2>   
+       <h2 class="heading heading__lg text-center mt2 mt1">Our Process</h2>   
 
         <div class="about-carousel owl-carousel owl-theme"> 		
 
