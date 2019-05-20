@@ -147,7 +147,9 @@
     -moz-appearance: textfield;
 }
 
-.woocommerce .quantity .qty {
+.woocommerce .quantity .qty,
+.woocommerce .quantity .minus,
+.woocommerce .quantity .plus {
     width: 3em;
     float: left;
     text-align: center;
@@ -530,6 +532,11 @@ input#billing_address_1::placeholder {
 .woocommerce table.shop_table td,
 th.product-total {
   text-align: right;
+}
+
+.woocommerce table.shop_table.cart td,
+th.product-total {
+  text-align: left;
 }
 
 .woocommerce table td.product-name,

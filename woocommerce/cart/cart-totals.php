@@ -28,7 +28,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<table cellspacing="0" class="shop_table shop_table_responsive">
 
 		<tr class="cart-subtotal">
-			<th><p class="heading heading__sm heading__alt-color font300 text-right"><?php _e( 'Subtotal', 'woocommerce' ); ?></p></th>
+			<th><p class="heading heading__sm heading__alt-color font300 text-left"><?php _e( 'Subtotal', 'woocommerce' ); ?></p></th>
 			<td data-title="<?php esc_attr_e( 'Subtotal', 'woocommerce' ); ?>"><?php wc_cart_totals_subtotal_html(); ?></td>
 		</tr>
 
