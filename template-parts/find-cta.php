@@ -3,11 +3,11 @@
         
         <div class="col-6">
             
-            <?php $bellCTAImage = get_field('brewery_image', 'options');?>
+            <?php $bellCTAImage = get_field('bell_image', 'options');?>
             
             <div class="banner">
             
-            <div class="inline-cta" style="<?php echo $bellCTAImage['url']; ?>">
+            <div class="inline-cta" style="background:url(<?php echo $bellCTAImage['url']; ?>);">
             
                 <?php get_template_part('template-parts/ramsbury', 'logo');?>    
             
@@ -18,7 +18,7 @@
                 <p class="mb2"><?php  the_field('bell_copy', 'options');?></p>
             </div>
             <div class="action">
-                <a href="" class="button"><?php  the_field('bell_button_text', 'options');?></a>        
+                <a href="<?php  the_field('bell_target', 'options');?>" class="button"><?php  the_field('bell_button_text', 'options');?></a>        
             
             </div>
             
@@ -28,11 +28,11 @@
 
         <div class="col-6">
 
-            <?php $wellyCTAImage = get_field('tour_image', 'options');?>
+            <?php $wellyCTAImage = get_field('welly_image', 'options');?>
             
             <div class="banner">
             
-            <div class="inline-cta" style="<?php echo $wellyCTAImage['url']; ?>">
+            <div class="inline-cta" style="background:url(<?php echo $wellyCTAImage['url']; ?>);">
 
                 <?php get_template_part('template-parts/ramsbury', 'logo');?>    
             
