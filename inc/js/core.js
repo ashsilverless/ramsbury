@@ -331,7 +331,7 @@ $(function() {
 			    container:  'map-contact',
 			    style:      'mapbox://styles/silverless/cjvnw465y0bl91cmionu5nqmo',
 			    center:     [-1.729931, 51.420942],
-			    zoom:       13,
+			    zoom:       11, 
 			    scrollZoom: false
 			});
 			
