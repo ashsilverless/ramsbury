@@ -306,7 +306,10 @@ nav {
 
 .loaded .current-menu-item:before {
     transform: scaleX(1);
-    filter: brightness(500%);
+}
+
+.loaded .dark .current-menu-item:before{
+   filter: brightness(500%); 
 }
 
 .dark svg {
