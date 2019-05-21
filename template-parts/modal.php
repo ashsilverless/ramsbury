@@ -6,7 +6,7 @@
 		
 		<div class="modal-header">
 			
-			<button class="modal-close modal-toggle"><i class="fas fa-times"></i></button>
+			<button class="modal-close modal-toggle pause-video"><i class="fas fa-times"></i></button>
 			
 		</div>
 	
