@@ -2,8 +2,6 @@
 
     <!-- ******************* Standard Gallery  ******************* -->
     
-    <div class="row"><!--Gallery Block -->
-    
         <div class="col-lg-12">
     
         <?php
@@ -79,9 +77,7 @@
                 <?php endforeach; endif; ?>
                         
             <?php endwhile; endif;?>
-    
-            </div>
-    
+        
         </div><!--filter-gallery-->
     
     <!-- ******************* Filtered Gallery END ******************* -->
