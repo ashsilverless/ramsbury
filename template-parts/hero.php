@@ -15,7 +15,7 @@
     <?php 
         if( get_field('hero_type') == 'video'): ?>
     
-        <video autoplay muted loop class="fullscreen-video">
+        <video autoplay muted class="fullscreen-video">
         
             <source src="<?php the_field('hero_video');?>" type="video/mp4">
         
