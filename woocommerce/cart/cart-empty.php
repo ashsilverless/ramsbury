@@ -23,8 +23,8 @@ defined( 'ABSPATH' ) || exit;?>
 
 <?php if ( wc_get_page_id( 'shop' ) > 0 ) : ?>
 	<p class="return-to-shop">
-		<a class="button wc-backward" href="<?php echo home_url(); ?>">
-			<?php esc_html_e( 'Return to Home', 'woocommerce' ); ?>
+		<a class="button wc-backward" href="<?php echo home_url(); ?>/our-beers/">
+			<?php esc_html_e( 'See Our Beers', 'woocommerce' ); ?>
 		</a>
 	</p>
 <?php endif; ?>
