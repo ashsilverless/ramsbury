@@ -14,7 +14,7 @@
 			
 			<div class="modal-content">
 				
-				<video autoplay controls class="video">
+				<video controls class="video">
         
 					<source src="<?php the_field('video_file');?>" type="video/mp4">
 				
