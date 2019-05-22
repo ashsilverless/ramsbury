@@ -13,22 +13,18 @@
             </video>
             
             <div class="inline-cta">
-            
-                <?php get_template_part('template-parts/ramsbury', 'logo');?>    
-            
-            <div class="content">
-            
+                        <div class="content">
                 <h2 class="heading heading__lg heading__light"><?php  the_field('brewery_headline', 'options');?></h2>
                 
                 <p class="mb2"><?php  the_field('brewery_copy', 'options');?></p>
-            </div>
-            <div class="action">
+
                 <a href="<?php  the_field('brewery_target', 'options');?>" class="button" target="_blank"><?php  the_field('brewery_button_text', 'options');?></a>        
             
-            </div>
-            
-            </div>            
+                        </div>
+            </div>   
+                     
           </div>
+          
         </div><!--col-->
 
         <div class="col-6">
@@ -43,19 +39,15 @@
             </video>
 
             <div class="inline-cta">
-
-                <?php get_template_part('template-parts/ramsbury', 'logo');?>    
             
             <div class="content">
-            
                 <h2 class="heading heading__lg heading__light"><?php  the_field('tour_headline', 'options');?></h2>
                 
                 <p class="mb2"><?php  the_field('tour_copy', 'options');?></p>
-                   </div>
-                   <div class="action">
+
+
                 <a href="<?php  the_field('tour_target', 'options');?>" class="button" target="_blank"><?php  the_field('tour_button_text', 'options');?></a>  
-                   </div>      
-            
+            </div>
          
             
             </div>  

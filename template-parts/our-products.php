@@ -32,7 +32,7 @@
 
     <div class="row">
 
-    <h2 class="heading heading__sm heading__seperator mt1 mb0"><span>Keg Beers</span></h2>
+    <h2 class="heading heading__sm heading__seperator mt1 mb0"><span>Draft Beers</span></h2>
 
 	<?php
 		$args = array(

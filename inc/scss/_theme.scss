@@ -202,9 +202,9 @@ about-carousel.owl-carousel .owl-nav.disabled {
         text-align: right;
         
         img {
-            height: calc(90vh - 11em);
-            min-height: calc(90vh - 11em);
-            max-height: calc(100vh - 11em);
+            height: calc(80vh - 11em);
+            min-height: calc(80vh - 11em);
+            max-height: calc(90vh - 11em);
         }
     }
     
@@ -601,6 +601,10 @@ html body.woocommerce #page button.single_add_to_cart_button.button.alt {
 }
 
 .cycle-image {
+    max-width: 80%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;    
     filter:brightness(20%);
 }
 

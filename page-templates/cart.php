@@ -16,7 +16,7 @@ get_header();?>
 
 <?php $heroImage = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full' ); ?>
 
-<div class="hero mb3 h50" style="background-image: url(<?php echo $heroImage[0]; ?>);">
+<div class="hero mb3 h75" style="background-image: url(<?php echo $heroImage[0]; ?>);">
 
     <div class="container">
     

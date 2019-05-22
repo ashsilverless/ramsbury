@@ -24,6 +24,7 @@
     
     &__content {
         position: relative;
+        text-align: center;
         z-index: 10;
         
         h3 {
@@ -134,7 +135,7 @@
     @include backgroundCover;
     position: relative;
     display: grid;
-    grid-template-rows:1fr auto auto;
+    grid-template-rows:1fr;
     align-content: center;
     justify-content: center;
     height: 30em;
@@ -170,6 +171,7 @@
     }
     
     .content {
+        align-self: center;
         z-index: 10;
     }
     

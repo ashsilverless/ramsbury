@@ -6,6 +6,12 @@
  */
 get_header();?>
 
+<!-- ******************* Hero Section ******************* -->
+
+<?php get_template_part('template-parts/hero');?>
+
+<!-- ******************* Hero END ******************* -->
+
 <!-- ******************* Map Section ******************* -->
 
 <div style="height:75vh;">

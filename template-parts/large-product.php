@@ -27,13 +27,13 @@
     
     <div class="product-wrapper__details">
 
-                    <h2 class="heading heading__xl"><?php the_field('strapline');?></h2>
+                    <h2 class="heading heading__xl"><?php the_title();?></h2>
 
        <div class="mb2">
        <?php get_template_part('template-parts/accent');?>
        </div>
 
-<h2 class="heading heading__sm heading__alt heading__caps"><?php the_title();?></h2>
+<h2 class="heading heading__sm heading__alt heading__caps"><?php the_field('strapline');?></h2>
        
                     <p class="heading heading__body heading__xs font400 mb2"><?php the_field('abv');?>% ABV</p>
 
