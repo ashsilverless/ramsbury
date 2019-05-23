@@ -1,5 +1,5 @@
 <?php $points = array();
-		$json_string = file_get_contents ('https://api.postcodes.io/postcodes/'.get_field('map_marker', 'options'));
+		$json_string = file_get_contents ('https://api.postcodes.io/postcodes/'.preg_replace('/\s/', '', get_field('map_marker', 'options')));
 		
 		$json_array = json_decode ($json_string, true);
 		

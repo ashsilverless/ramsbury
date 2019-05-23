@@ -542,8 +542,6 @@ $(function() {
 			    }
 			});
 			
-			var popup = new mapboxgl.Popup({offset: popupOffsets, className: 'my-class'})
-			
 			function distanceBetweenPoints(point1, point2) {
 				var R = 6371e3; // metres
 				var φ1 = point1.lat.toRadians();
