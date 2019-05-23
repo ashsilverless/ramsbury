@@ -595,7 +595,6 @@ $(function() {
 		
 	});
 
-
 // ========== Controller for lightbox elements
 
     $(document).ready(function() {
@@ -721,6 +720,24 @@ $(function() {
     $(".search-trigger").click(function() {
         $('#searchform').addClass("expand");
         $(this).hide();
+    });
+    
+    $(".hamburger-menu").click(function() {
+	    var header = $("nav");
+	    header.addClass("dark");
+		$(".mainMenu").slideToggle();
+		header.toggleClass("nav-collapse");
+		
+		var scroll = $(window).scrollTop();
+		
+		if(!header.hasClass("nav-collapse")) { 
+			if (scroll >= 10) {
+				header.addClass("dark");
+			} else {
+				header.removeClass("dark");
+			}
+		}
+	    
     });
     
 // ==========Add AJAX functions to quantity buttons on product pages

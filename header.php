@@ -37,24 +37,33 @@
     <div id="page" class="site-wrapper">
     
         <nav id="nav">
-    	            <?php get_search_form(); ?>
-    	            <i class="search-trigger fas fa-search"></i>
-	            <a href="/cart" class="cart-button"><i class="fas fa-shopping-basket"></i></a>	            
-	                <div class="brand">
-	            
-	                    <a href="<?php echo home_url(); ?>" alt="<?php wp_title(''); ?>" title="<?php wp_title(''); ?>">
-	                    
-	                    <?php get_template_part('template-parts/ramsbury', 'logo');?>
-	                    
-	                    </a>
-	            
-	                </div>                    
-	            
-	                <?php
-	                    wp_nav_menu( array(
-	                    'theme_location' => 'main-menu',
-	                    'container_class' => 'mainMenu' ) );
-	                ?>
+    	    <?php get_search_form(); ?>
+    	    
+    	    <div class="menu-actions">
+	    	    
+	    	    <i class="search-trigger fas fa-search"></i>
+	    	    
+		        <a href="/cart" class="cart-button"><i class="fas fa-shopping-basket"></i></a>	  
+		        
+		        <i class="hamburger-menu fas fa-bars"></i>
+		        
+    	    </div>
+	                      
+            <div class="brand">
+        
+                <a href="<?php echo home_url(); ?>" alt="<?php wp_title(''); ?>" title="<?php wp_title(''); ?>">
+                
+                <?php get_template_part('template-parts/ramsbury', 'logo');?>
+                
+                </a>
+        
+            </div>                    
+        
+            <?php
+                wp_nav_menu( array(
+                'theme_location' => 'main-menu',
+                'container_class' => 'mainMenu' ) );
+            ?>
 	    
 	    </nav>
     

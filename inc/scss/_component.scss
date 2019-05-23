@@ -144,7 +144,7 @@
   
 .trigger-home {
     padding: 0.5rem 4rem;
-    font-size: 1rem;
+    font-size: 1.2em;
     margin-top: 2rem;
     text-transform: none;
     font-weight: 200;
@@ -176,9 +176,9 @@ a.next-section {
         content: '';
         bottom: -1em;
         left: 50%;
-        margin-left: -25px;
-        width:50px;
-        height:50px;
+        transform: translateX(-50%);
+        width: 3.5em;
+        height: 3.5em;
         background:url(inc/img/arrow-shape.svg);
         background-size: contain;
         background-repeat: no-repeat;
