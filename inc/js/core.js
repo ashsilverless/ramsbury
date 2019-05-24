@@ -630,8 +630,6 @@ $(function() {
     $('.small-carousel').owlCarousel({
         loop:true,
         autoplay:false,
-        autoplaySpeed: 9000,
-        autoplayTimeout:5000,
         autoplayHoverPause:true,
         nav:false,
     	    navClass: ['owl-prev', 'owl-next'],
@@ -650,7 +648,6 @@ $(function() {
 
     $('.testimonial-slider').owlCarousel({
         autoplay:false,
-        autoplayTimeout:10000,
         loop:true,
         margin:10,
         nav: false,
