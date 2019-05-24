@@ -372,10 +372,20 @@ nav {
 }
 
 .product-hero.kegbeer .bottle-wrapper img {
-	height: 50vh;
+	height: auto;
+	width:50%;
 	min-height: unset;
 	max-height: unset;
 }
+
+form.cart {
+    width: auto;
+}
+
+html body.woocommerce #page button.single_add_to_cart_button.button.alt,
+.locally {
+  width: 100%;
+  }
 
 .product-nav {
 	top: 25%;
@@ -390,7 +400,9 @@ nav {
     margin-top:10em;
 	grid-template-columns: 100%;
 	grid-row-gap: 4em;
-	
+    width: 100%;
+    margin-left: 0;	
+    
 	.product-wrapper__image {
 		text-align: center;
 		
@@ -411,6 +423,10 @@ nav {
 			right: 10%;
 		}
 	}
+}
+
+.kegbeer .product-nav {
+    top:5em;
 }
 
 .product-wrapper__details {
