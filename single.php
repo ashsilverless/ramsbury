@@ -73,10 +73,10 @@ get_header();
             BOOKING CTA
           
         </div>
+
+        <a href="/news" class="button mb3">Back To News</a>
     
     </div>
-
-    <a href="/news" class="button mb3">Back To News</a>
         
 </div><!--c-->
 
