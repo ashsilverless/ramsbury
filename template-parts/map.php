@@ -4,7 +4,7 @@
 	
 	while ( have_rows('location', 'option') ) : the_row();
 	
-		$json_string = file_get_contents ('https://api.postcodes.io/postcodes/'.get_sub_field('postcode'));
+		$json_string = file_get_contents ('https://api.postcodes.io/postcodes/'. preg_replace('/\s/', '', get_sub_field('postcode')));
 		
 		$json_array = json_decode ($json_string, true);
 		

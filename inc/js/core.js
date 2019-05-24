@@ -542,8 +542,6 @@ $(function() {
 			    }
 			});
 			
-			var popup = new mapboxgl.Popup({offset: popupOffsets, className: 'my-class'})
-			
 			function distanceBetweenPoints(point1, point2) {
 				var R = 6371e3; // metres
 				var φ1 = point1.lat.toRadians();
@@ -596,7 +594,6 @@ $(function() {
 		});
 		
 	});
-
 
 // ========== Controller for lightbox elements
 
@@ -723,6 +720,24 @@ $(function() {
     $(".search-trigger").click(function() {
         $('#searchform').addClass("expand");
         $(this).hide();
+    });
+    
+    $(".hamburger-menu").click(function() {
+	    var header = $("nav");
+	    header.addClass("dark");
+		$(".mainMenu").slideToggle();
+		header.toggleClass("nav-collapse");
+		
+		var scroll = $(window).scrollTop();
+		
+		if(!header.hasClass("nav-collapse")) { 
+			if (scroll >= 10) {
+				header.addClass("dark");
+			} else {
+				header.removeClass("dark");
+			}
+		}
+	    
     });
     
 // ==========Add AJAX functions to quantity buttons on product pages

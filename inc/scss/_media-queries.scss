@@ -107,6 +107,50 @@ body {
       }    
 }
 
+nav {
+	min-height: 5em;
+	
+	
+	.hamburger-menu {
+		display: inline-block;
+	}
+	
+	#searchform {
+		right: 9em;
+	}
+	
+	.brand {
+		display: block;
+		left: 1.5em;
+		top: 1.5em;
+		width: auto;
+		
+		svg {
+			height: 50px;
+		}
+	}
+	
+	.mainMenu {
+		display: none;
+		
+		ul {
+			display: block;
+			margin-top: 10em;
+			
+			li {
+				display: block;
+				padding-bottom: 1em;
+				font-size: 1.5em;
+				
+				&:before {
+					bottom: -0.8em;
+				}
+			}
+		}
+	}
+}
+
+
 @keyframes example {
   from {
     transform: translateX(-100px);  
@@ -120,6 +164,34 @@ body {
 
 
 /*---CONTENT---*/
+
+.tour-booking {
+	
+	.wrapper-info .pick-info {
+		grid-template-columns: 100%;
+	}
+	
+	.spots-remaining {
+		grid-row: unset;
+		padding: 1em;
+	}
+}
+
+.gallery a:nth-of-type(n) {
+    width: 25%;
+}
+
+.large-carousel .large-carousel__item {
+	grid-template-columns: 40% 60%;
+	
+	.bottle {
+		height: 40vh;
+	}
+	
+	.content p {
+		width: 80%;
+	}
+}
 
 /*---FOOTER---*/
   
@@ -150,6 +222,15 @@ body {
 }
 
 /*---CONTENT---*/
+
+.tour-booking {
+	grid-template-columns: 100%;
+	padding: 2em;
+}
+
+.gallery a:nth-of-type(n) {
+    width: 33.33%;
+}
   
 /*---FOOTER---*/
 
@@ -179,10 +260,6 @@ nav {
     padding-top: 1em;
 }
 
-nav .brand {
-    display: none;
-}
-
 .telephone {
     margin-top: 3px;
 }
@@ -198,6 +275,29 @@ body .hamburger-inner span {
 
 .nav-wrapper__menu ul li a {
     font-size: 3em;
+}
+
+nav {
+	min-height: 7em;
+
+	.menu-actions {
+		font-size: 2em;
+		
+		& > * {
+			padding-left: 0.8em;
+		}
+	}
+
+	.brand {
+		svg {
+			height: 40px;
+		}
+	}
+	
+	#searchform {
+		top: 3em;
+		right: 9.5em;
+	}
 }
 
 /*---CONTENT---*/
@@ -226,7 +326,324 @@ body .hamburger-inner span {
 	left: 55%;
 }
 
+.small-carousel button:before {
+	width: 40px !important;
+	height: 40px !important;
+}
 
+#page .button {
+	font-size: 1.2em;
+}
+
+.row {
+	margin-left: 0;
+	margin-right: 0;
+	
+	.col-3 {
+		flex: 0 0 50%;
+		max-width: 50%;
+	}
+	
+	.col-6 {
+		flex: 0 0 100%;
+		max-width: 100%;
+	}
+	
+	.col-8 {
+		flex: 0 0 90%;
+		max-width: 90%;
+		margin-left: 5%;
+	}
+}
+
+.product-hero.kegbeer .bottle-wrapper img {
+	height: 50vh;
+	min-height: unset;
+	max-height: unset;
+}
+
+.product-nav {
+	top: 25%;
+	width: 98%;
+	
+	.next:before, .previous:before {
+		width: 20px;
+	}
+}
+
+.product-wrapper {
+	grid-template-columns: 100%;
+	grid-row-gap: 4em;
+	
+	.product-wrapper__image {
+		text-align: center;
+		
+		img {
+			height: 50vh;
+			min-height: unset;
+			max-height: unset;
+		}
+		
+		.bottle-wrapper:before {
+			width: 50%;
+			right: 0%;
+		}
+		
+		.bottle-wrapper:after {
+			width: 50%;
+			bottom: 7px;
+			right: 10%;
+		}
+	}
+}
+
+.product-wrapper__details {
+	
+	.heading, .mb2 {
+		text-align: center;
+	}
+	
+	.expanding-copy {
+		padding: 0 2em;
+		text-align: justify;
+	}
+	
+	.product-type-variable {
+		margin: 0 2em;
+		
+		.value {
+			text-align: center;
+			
+			span {
+				width: 100% !important;
+			}
+		}
+		
+		.single_add_to_cart_button, .locally {
+			width: 100% !important;
+		}
+		
+		.reset_variations {
+			display: inline-block !important;
+			float: unset !important;
+		}
+		
+		.woocommerce-variation {
+			text-align: center;
+			display: block;
+			padding: 0.5em 0;
+		}
+		
+		.quantity {
+			margin-left: 35% !important;
+		}
+	}
+}
+
+.process__item {
+	.col-4 {
+		flex: 90%;
+		max-width: 90%;
+		margin: 0 0 2em 0;
+		margin-left: 5%;
+	}
+	
+	.content {
+		width: 90%;
+		margin-left: 5%;
+		text-align: justify;
+		padding-left: 30px;
+		
+		img {
+			position: absolute;
+			width: 20px;
+			left: 20px;
+		}
+		
+		h3 {
+			display: block;
+			margin-bottom: 1em;
+		}
+	}
+}
+
+.about-carousel {
+	
+	.owl-nav {
+		top: 40% !important;
+	}
+	
+	.owl-stage-outer {
+		
+		&:before, &:after {
+			display: none;
+		}
+	}
+	
+	button.owl-prev, button.owl-next {
+		
+		&.owl-next {
+			right: 25px !important;
+		}
+		
+		&.owl-prev {
+			left: -15px !important;
+		}
+		
+		&:before {
+			width: 20px !important;
+		}
+		
+	}
+}
+
+.cycle-image {
+	max-width: 100%;
+	margin-bottom: 0;
+}
+
+.gallery a:nth-of-type(n) {
+    width: 50%;
+    height: 17em;
+}
+
+.large-carousel {
+	padding-bottom: 0;
+
+	.large-carousel__item {
+		grid-template-columns: 100%;
+		padding: 2em 2em 0 2em;
+		text-align: center;
+		
+		.bottle {
+			justify-self: center;
+			height: auto;
+			margin-bottom: 1em;
+			
+			img {
+				height: 20em;
+			}
+		}
+		
+		.content {
+			padding: 2em;
+			
+			p {
+				width: 100%;
+			}
+		}
+	}
+
+	.owl-nav button:before {
+		width: 20px !important;
+		height: 20px !important;
+	}
+
+	.owl-stage-outer:before, .owl-stage-outer:after {
+		display: none;
+	}
+}
+
+#map-contact .mapboxgl-ctrl-bottom-left:before {
+	font-size: 2em;
+}
+
+body.page-template-contact {
+	.col-5 {
+	    flex: 100%;
+	    max-width: 100%;
+	    text-align: center;
+	}
+	
+	.col-7 {
+	    flex: 100%;
+	    max-width: 100%;
+	    margin-top: 4em;
+	}
+	
+	main > .container {
+		padding-left: 30px;
+		padding-right: 30px;
+	}
+}
+
+body.page-template-blog {
+
+	.col-12, .col-8, .col-4 {
+		flex: 100% !important;
+		max-width: 100% !important;
+		margin-left: 0 !important;
+	}
+	
+	.post-summary__item {
+		display: block;
+		
+		.post-image {
+			height: 30vh;
+			width: 100%;
+		}
+		
+		h2 {
+			font-size: 2em;
+			padding-top: 0.5em;
+		}
+	}
+}
+
+body.search {
+	.col-4.search-card {
+	    flex: 100%;
+	    max-width: 100%;
+	}
+}
+
+.woocommerce-cart-form {
+	
+	.product-quantity {
+		height: 4em;
+		
+		.quantity {
+			float: right;
+			margin-top: -0.6em;
+		}
+	}
+	
+	.coupon {
+		width: 100%;
+		grid-template-columns: auto auto;
+		
+		&:before {
+			display: none !important;
+		}
+		
+		button {
+			width: 100% !important;
+		}
+	}
+}
+
+.cart-collaterals {
+	margin-bottom: 2em;
+}
+
+.woocommerce-billing-fields__field-wrapper, .woocommerce-shipping-fields__field-wrapper {
+	display: block !important;
+	
+	.form-row-first, .form-row-last {
+		width: 50% !important;
+	}
+}
+
+.woocommerce-checkout-review-order {
+	grid-template-columns: 100%;
+}
+
+.woocommerce ul.order_details li {
+	display: block;
+	width: 100%;
+	border-right: none;
+	padding-bottom: 1em;
+}
 
 /*---FOOTER---*/
   

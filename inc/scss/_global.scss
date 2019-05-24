@@ -23,6 +23,14 @@ body {
     color: hsl(69, 2%, 31%);
 }
 
+h2, .h2 {
+	font-size: 2.5em;
+}
+
+h3, .h3 {
+	font-size: 2em;
+}
+
 .page-border {
     content:'';
     position: fixed;

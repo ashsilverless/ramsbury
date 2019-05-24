@@ -2,35 +2,38 @@
 
 /*===========HEADER==========*/
 
-.cart-button {
-    position: absolute;
-	right: 2em;
-	top: 2em;
-    z-index: 99999;   
+.menu-actions {
+	position: absolute;
+    right: 1.2em;
+    top: 1.2em;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    z-index: 99999;
+    font-size: 1.5em;
     
     i {
-        color: white;
-        font-size: 1.5em;
+	    color: white;
     }
+    
+    & > * {
+	    padding-left: 1.5em;
+		transition: $fastEffect;
+    }
+}
+
+.hamburger-menu {
+	display: none;
 }
 
 .dark .cart-button i {
     color: $brand-dark-grey;
 }
 
-.search-trigger {
-    position: absolute;
-    right: 3.5em;
-    top: 1.5em;
-    font-size: 1.5em;
-    color: hsl(0, 0%, 100%);   
-    z-index: 5000; 
-}
-
 #searchform {
     position: absolute;
     right: 5em;
-    top: 1.75em;
+    top: 2em;
     text-align: right;
     width: 0;
     overflow: hidden;
