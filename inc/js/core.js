@@ -629,7 +629,7 @@ $(function() {
 
     $('.small-carousel').owlCarousel({
         loop:true,
-        autoplay:true,
+        autoplay:false,
         autoplaySpeed: 9000,
         autoplayTimeout:5000,
         autoplayHoverPause:true,
@@ -649,7 +649,7 @@ $(function() {
     });
 
     $('.testimonial-slider').owlCarousel({
-        autoplay:true,
+        autoplay:false,
         autoplayTimeout:10000,
         loop:true,
         margin:10,

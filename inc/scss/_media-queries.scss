@@ -250,8 +250,12 @@ body {
   
 /*---GLOBALS---*/
 
-body {
-  font-size: 0.5em;
+.h100 {
+  height: 75vh;
+}
+
+.h75 {
+    height: 50vh;
 }
 
 /*---HEADER---*/
@@ -294,9 +298,14 @@ nav {
 		}
 	}
 	
-	#searchform {
-		top: 3em;
-		right: 9.5em;
+	#searchform.expand {
+		top: 7em;
+		right: 7%;
+		width: 84%;
+		
+		#s {
+    		width: 80%;
+		}
 	}
 }
 
@@ -645,7 +654,42 @@ body.search {
 	padding-bottom: 1em;
 }
 
+.modal .modal-wrapper .modal-header {
+  top: 6em;
+
+  .modal-close i {
+      font-size: 2.5em;
+  }
+}
+
+.small-carousel.owl-carousel .product-card.small-beer .bottle-wrapper {
+  height: 100%;
+}
+
+body.woocommerce #page .quantity .minus, 
+body.woocommerce #page .quantity .plus,
+.woocommerce .quantity .qty {
+  height: 3em;
+}
+
+.product-nav .next {
+  max-width: 11em;
+}
+
+.find-cta .content {
+  padding: 3em 5em;
+}
+
 /*---FOOTER---*/
-  
+
+.socket {
+    text-align: center;
+    
+    .text-right {
+        margin-top: 1em;
+        text-align: center !important;
+    }
+}
+
 }/*---end extra small mq---*/
 
