@@ -19,8 +19,10 @@
 
         <?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $loop->post->ID ), 'single-post-thumbnail' );?>
         
-        <div class="bottle-wrapper">    
+        <div class="bottle-wrapper">   
+            <figure> 
             <img src="<?php  echo $image[0]; ?>" data-id="<?php echo $loop->post->ID; ?>">
+            </figure>
         </div>
         
     </div><!--image-->

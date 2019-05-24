@@ -10,7 +10,9 @@
     <div class="product-card__image">
         
         <div class="bottle-wrapper">
+            <figure>
             <img src="<?php  echo $image[0]; ?>" data-id="<?php echo $loop->post->ID; ?>">
+            </figure>
         </div>
         
     </div>
