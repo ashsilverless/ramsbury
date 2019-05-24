@@ -69,9 +69,7 @@ get_header();
         </div>
         
         <div class="col-4">
-        
-            Share Icons
-            <Br/>
+
             BOOKING CTA
           
         </div>

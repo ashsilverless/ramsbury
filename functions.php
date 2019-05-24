@@ -386,3 +386,39 @@ function custom_excerpt_length( $length ) {
 	return 20;
 }
 add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
+
+function photojourney_social_sharing_buttons($content) {
+	global $post;
+	if(is_singular() || is_home()){
+	
+		// Get current page URL 
+		$photojourneyURL = urlencode(get_permalink());
+ 
+		// Get current page title
+		$photojourneyTitle = htmlspecialchars(urlencode(html_entity_decode(get_the_title(), ENT_COMPAT, 'UTF-8')), ENT_COMPAT, 'UTF-8');
+		// $photojourneyTitle = str_replace( ' ', '%20', get_the_title());
+		
+		// Get Post Thumbnail for pinterest
+		$photojourneyThumbnail = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
+ 
+		// Construct sharing URL without using any script
+		$twitterURL = 'https://twitter.com/intent/tweet?text='.$photojourneyTitle.'&amp;url='.$photojourneyURL.'&amp;via=Crunchify';
+		$facebookURL = 'https://www.facebook.com/sharer/sharer.php?u='.$photojourneyURL;
+ 
+		// Based on popular demand added Pinterest too
+		$pinterestURL = 'https://pinterest.com/pin/create/button/?url='.$photojourneyURL.'&amp;media='.$photojourneyThumbnail[0].'&amp;description='.$photojourneyTitle;
+ 
+		// Add sharing button at the end of page/page content
+		$content .= '<!-- Implement your own superfast social sharing buttons without any JavaScript loading. No plugin required. Detailed steps here: http://crunchify.me/1VIxAsz -->';
+		$content .= '<div class="contactSocials"><h5 class="heading heading__sm">Share This</h5>';
+		$content .= ' <a href="'. $twitterURL .'" target="_blank"><i class="fab fa-twitter"></i></a>';
+		$content .= '<a href="'.$facebookURL.'" target="_blank"><i class="fab fa-facebook-square"></i></a>';
+		$content .= '</div>';
+		
+		return $content;
+	}else{
+		// if not a post/page then don't include sharing button
+		return $content;
+	}
+};
+add_filter( 'the_content', 'photojourney_social_sharing_buttons');

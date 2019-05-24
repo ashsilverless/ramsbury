@@ -215,6 +215,14 @@ body {
   font-size: 0.65em;
 }
 
+.h100 {
+  height: 75vh;
+}
+
+.h75 {
+    height: 50vh;
+}
+
 /*---HEADER---*/
 
 .wrapper-hero {
@@ -230,6 +238,12 @@ body {
 
 .gallery a:nth-of-type(n) {
     width: 33.33%;
+}
+
+.product-wrapper {
+    width:calc(90% - 5em);
+    margin-top: 0;
+    margin-left:5em;
 }
   
 /*---FOOTER---*/
@@ -249,14 +263,6 @@ body {
   }*/
   
 /*---GLOBALS---*/
-
-.h100 {
-  height: 75vh;
-}
-
-.h75 {
-    height: 50vh;
-}
 
 /*---HEADER---*/
 
@@ -381,6 +387,7 @@ nav {
 }
 
 .product-wrapper {
+    margin-top:10em;
 	grid-template-columns: 100%;
 	grid-row-gap: 4em;
 	

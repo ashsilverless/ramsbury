@@ -274,7 +274,7 @@ about-carousel.owl-carousel .owl-nav.disabled {
 .bottle-wrapper {
     position: relative;
       
-    &:before {
+    /*&:before {
         content: '';
         position: absolute;
         width: 100%;
@@ -306,7 +306,7 @@ about-carousel.owl-carousel .owl-nav.disabled {
         filter: blur(2px);
         background: linear-gradient(to right, hsl(0, 0%, 0%) 0%, hsla(206, 70%, 70%, 0) 100%);
         opacity: 0.7; 
-    }
+    }*/
 }
 
 .accent {
