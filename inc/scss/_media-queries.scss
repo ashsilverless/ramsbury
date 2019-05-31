@@ -1,5 +1,42 @@
 /*! == MEDIA QUERIES == */
 
+.product-hero {
+    background: hsl(0, 0%, 96%);
+    position: relative;
+    z-index: 1;
+        
+    &.kegbeer .bottle-wrapper {
+    
+        &:after {
+            bottom: 8px;
+        }
+ 
+        &:before {
+            bottom:0;    
+        }       
+
+        img {
+            height: auto; 
+            min-height: 0;
+            max-height: 100%;        
+        }    
+    }
+}
+
+.kegbeer .product-wrapper {
+    align-items: center;
+}
+
+.test {
+    text-align: center;
+}
+
+.kegbeer figure:before,
+.kegbeer figure:after {
+    display: none;
+}
+
+
 /*===========LARGE (1200px)==========*/
 
 @media only screen and (max-width: 1200px) {
