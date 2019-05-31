@@ -10,6 +10,7 @@
     height: 100vh;
     z-index: 50; 
     border-bottom: 10px solid white;
+    overflow:hidden;
     
     &:before {
         position: absolute;
@@ -53,7 +54,8 @@
 .fullscreen-video {
     position: absolute;
     right: 0;
-    bottom: 0;
+    top: 0;
+    bottom:initial;
     min-width: 100%; 
     min-height: 100%;
 }
@@ -316,6 +318,13 @@
             }
         }
     }  
+}
+
+.keg-beer.product-card .bottle-wrapper img {
+    height: auto;
+    width: auto;
+    max-width: 100%;
+    max-height: 100%;
 }
 
 .large-carousel,
