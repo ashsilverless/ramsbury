@@ -132,12 +132,16 @@ about-carousel.owl-carousel .owl-nav.disabled {
         &:after {
             bottom: 8px;
         }
-    
+ 
+        &:before {
+            bottom:0;    
+        }       
+
         img {
-            height: auto;
+            height: auto; 
             min-height: 0;
             max-height: 100%;        
-        }
+        }    
     }
 }
 
