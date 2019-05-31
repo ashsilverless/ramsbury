@@ -134,11 +134,20 @@ about-carousel.owl-carousel .owl-nav.disabled {
         }
     
         img {
-            height: calc(80vh - 11em);
-            min-height: calc(80vh - 11em);
-            max-height: calc(85vh - 11em);        
+            height: auto;
+            min-height: 0;
+            max-height: 100%;        
         }
     }
+}
+
+.kegbeer .product-wrapper {
+    align-items: center;
+}
+
+.kegbeer figure:before,
+.kegbeer figure:after {
+    display: none;
 }
 
 .product-nav {
