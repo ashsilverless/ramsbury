@@ -126,7 +126,7 @@ about-carousel.owl-carousel .owl-nav.disabled {
     position: relative;
     z-index: 1;
         
-    &.kegbeer .bottle-wrapper {
+    &.draftbeer .bottle-wrapper {
     
         &:after {
             bottom: 8px;
@@ -144,7 +144,7 @@ about-carousel.owl-carousel .owl-nav.disabled {
     }
 }
 
-.kegbeer .product-wrapper {
+.draftbeer .product-wrapper {
     align-items: center;
 }
 
@@ -152,8 +152,8 @@ about-carousel.owl-carousel .owl-nav.disabled {
     text-align: center;
 }
 
-.kegbeer figure:before,
-.kegbeer figure:after {
+.draftbeer figure:before,
+.draftbeer figure:after {
     display: none;
 }
 
