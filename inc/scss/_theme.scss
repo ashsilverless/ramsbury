@@ -660,6 +660,20 @@ html body.woocommerce #page button.single_add_to_cart_button.button.alt {
     filter:brightness(20%);
 }
 
+.find-us .marker {
+    &:before {
+        content: 'Find Us Here';
+        position: absolute;
+        width: 10em;
+        font-size: 3em;
+        left: 50%;
+        top: -1.5em;
+        margin-left: -5em;
+        text-align: center;
+        font-family: $brand-font;
+    }
+}
+
 /*===========FOOTER==========*/
 
 .details {

@@ -1,6 +1,6 @@
 <div class="container pt3">
 
-    <h2 class="heading heading__lg text-center mb1">Our Range</h2>
+    <!--<h2 class="heading heading__lg text-center mb1">Our Range</h2>-->
 
     <div class="row">
 

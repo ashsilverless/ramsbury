@@ -6,9 +6,9 @@
  */
 get_header();?>
 
-<div class="dark-block bottom-border pt10">
+<div class="dark-block bottom-border pt15">
 
-<h1 class="heading heading__xl heading__light text-center pt1">Contact Us</h1>
+<!--<h1 class="heading heading__xl heading__light text-center pt1">Contact Us</h1>-->
 
 <div class="container">
     
@@ -54,7 +54,7 @@ get_header();?>
 
 <!-- ******************* Map Section ******************* -->
 
-<div style="height:50vh;" class="top-border mt3">
+<div style="height:50vh;" class="find-us top-border mt3">
     <?php get_template_part("template-parts/brewery", "map"); ?>
 </div>
 
