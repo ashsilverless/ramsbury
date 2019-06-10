@@ -133,7 +133,7 @@ get_header();?>
             
             <div class="col-4">
                 
-                BREWERY CTA IN HERE 
+                <!--BREWERY CTA IN HERE -->
                 
                 <!--<div class="month-archives">
                     <?php wp_get_archives('type=monthly'); ?>

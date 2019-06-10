@@ -70,7 +70,7 @@ get_header();
         
         <div class="col-4">
 
-            BOOKING CTA
+            <!--BOOKING CTA-->
           
         </div>
 
