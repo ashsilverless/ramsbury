@@ -22,7 +22,7 @@
 
             <div class="content">
     
-                <h2 class="heading heading__xl mb0"><?php the_field('strapline');?></h2>
+                <h2 class="heading heading__xl mb0"><?php the_title();?></h2>
     
                 <div class="mb1">    
 
@@ -32,7 +32,7 @@
                 
                 <p class="heading heading__body heading__xs font400 mb1"><?php the_field('abv');?>% ABV</p>
 
-                <h2 class="heading heading__sm heading__alt heading__caps"><?php the_title();?></h2>
+                <h2 class="heading heading__sm heading__alt heading__caps"><?php the_field('strapline');?></h2>
 
                 <p><?php the_field('description');?></p>
 
