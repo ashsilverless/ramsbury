@@ -714,6 +714,10 @@ body.woocommerce #page .quantity .plus,
   padding: 3em 5em;
 }
 
+.product-nav .next a, .product-nav .previous a {
+    display: none;
+}
+
 /*---FOOTER---*/
 
 .socket {
