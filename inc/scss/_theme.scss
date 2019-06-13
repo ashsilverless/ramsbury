@@ -492,7 +492,7 @@ html body.woocommerce #page button.single_add_to_cart_button.button.alt {
     
     &:after {
         @include childOverlay;
-        background-image: linear-gradient(hsl(0, 0%, 96%), transparent);        
+        background-image: linear-gradient(hsl(0, 0%, 96%), hsla(0, 0%, 96%, 0));        
         height: 25%;
     }
     

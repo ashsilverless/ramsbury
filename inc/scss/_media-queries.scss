@@ -346,6 +346,17 @@ nav {
 	height: 40px !important;
 }
 
+.small-carousel .owl-stage-outer {
+    &:before,
+    &:after { 
+        display: none;
+    }
+}
+
+.small-carousel.owl-carousel .product-card {
+  grid-template-rows: 30em 3em;
+}
+
 #page .button {
 	font-size: 1.2em;
 }
