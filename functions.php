@@ -52,7 +52,6 @@ add_action( 'wp_ajax_nopriv_available_hours', 'available_hours' );
 
 add_action( 'wp_ajax_nopriv_add_to_cart', 'add_to_cart' );
 
-
 /**= Add Menus =**/
 
 function sl_custom_menu() {
@@ -288,7 +287,7 @@ function add_content_after_addtocart() {
     $productColor = get_field('product_colour');?>
 
 <div class="locally">
-    <button class="button">Drink Locally<i class="fas fa-map-marked-alt"></i></button>
+    <a href="/stockists/" class="button">Drink Locally<i class="fas fa-map-marked-alt"></i></a>
 </div>
 
 <?php }
@@ -386,3 +385,5 @@ function custom_excerpt_length( $length ) {
 	return 20;
 }
 add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
+
+add_filter( 'woocommerce_show_variation_price', '__return_true' );

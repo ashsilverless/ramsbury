@@ -53,6 +53,9 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 		</div>
 
 		<div class="single_variation_wrap">
+    		
+    		<!--<p class="<?php echo esc_attr( apply_filters( 'woocommerce_product_price_class', 'price' ) );?>"><?php echo $product->get_price_html(); ?></p>-->
+    		
 			<?php
 				/**
 				 * Hook: woocommerce_before_single_variation.
