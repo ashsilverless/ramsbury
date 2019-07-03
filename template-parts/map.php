@@ -33,12 +33,12 @@
 					)
 				),
 				'properties' => array(
-					'name'       => get_sub_field('name'),
-					'address'    => get_sub_field('address'),
-					'postcode'   => get_sub_field('postcode'),
-					'phone'      => get_sub_field('phone'),
-					'website'    => $website,
-					'directions' => $directions
+					'name'       => str_replace('"', "&quot;", str_replace("'", "&apos;", get_sub_field('name'))),
+					'address'    => str_replace('"', "&quot;", str_replace("'", "&apos;", get_sub_field('address'))),
+					'postcode'   => str_replace('"', "&quot;", str_replace("'", "&apos;", get_sub_field('postcode'))),
+					'phone'      => str_replace('"', "&quot;", str_replace("'", "&apos;", get_sub_field('phone'))),
+					'website'    => str_replace('"', "&quot;", str_replace("'", "&apos;", $website)),
+					'directions' => str_replace('"', "&quot;", str_replace("'", "&apos;", $directions))
 				)
 			));
 	
