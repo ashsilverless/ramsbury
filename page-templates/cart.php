@@ -24,7 +24,7 @@ get_header();?>
                 
             <div class="col-12 hero__content text-center">       
                 
-                <h1 class="heading heading__xl heading__light font800">
+                <h1 class="heading heading__xl heading__light">
                     
                     <?php if (get_field('hero_heading')):
                         the_field('hero_heading');
