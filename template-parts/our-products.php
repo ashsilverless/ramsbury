@@ -4,7 +4,7 @@
 
     <div class="row">
 
-    <h2 class="heading  heading__sm heading__seperator mt1 mb2"><span>Bottled Beers</span></h2>
+    <h2 class="heading  heading__sm heading__seperator mt1 mb2"><span><?php the_field('first_heading');?></span></h2>
 
 	<?php
 		$args = array(
@@ -32,7 +32,7 @@
 
     <div class="row">
 
-    <h2 class="heading heading__sm heading__seperator mt1 mb0"><span>Draft Beers</span></h2>
+    <h2 class="heading heading__sm heading__seperator mt1 mb0"><span><?php the_field('second_heading');?></span></h2>
 
 	<?php
 		$args = array(
