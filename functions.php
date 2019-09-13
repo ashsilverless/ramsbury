@@ -188,12 +188,31 @@ function my_custom_fonts() {
  
 /**= Remove Default Menu Items =**/
  
-function remove_menus(){
+//function remove_menus(){
+//  remove_menu_page( 'edit-comments.php' );          //Comments  
+//}
+//add_action( 'admin_menu', 'remove_menus' );
 
-  remove_menu_page( 'edit-comments.php' );          //Comments
-  
+/**= Master Admin View Only =**/
+
+$user_id = get_current_user_id();
+if ($user_id == 1) {
+    //Leave all items accessible
+} else {
+
+    function remove_menus(){
+    	remove_menu_page( 'edit-comments.php' ); //Comments
+    	remove_menu_page( 'themes.php' ); //Appearance
+    	remove_menu_page( 'plugins.php' );  //Plugins
+    	remove_menu_page( 'users.php' ); //Users
+    	remove_menu_page( 'tools.php' ); //Tools
+    	remove_menu_page( 'options-general.php' ); //Settings
+    	remove_menu_page( 'edit.php?post_type=acf-field-group' ); //ACF
+    	remove_menu_page( 'edit.php?post_type=gl_js_maps' ); //Mapbox
+    }
+    add_action( 'admin_menu', 'remove_menus' );
+
 }
-add_action( 'admin_menu', 'remove_menus' );
 
 /**= Allow SVG Upload =**/
 
@@ -387,4 +406,21 @@ function custom_excerpt_length( $length ) {
 add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
 
 add_filter( 'woocommerce_show_variation_price', '__return_true' );
+
+function force_local_pickup_only($rates, $package) {
+foreach ($package['contents'] as $item) {
+$product = $item['data'];
+$shipping_class = $product->get_shipping_class();
+
+if ('local' === $shipping_class) {
+// The cart requires pickup
+return array(
+'local_pickup' => $rates['local_pickup'],
+);
+}
+}
+
+return $rates;
+}
+add_filter('woocommerce_package_rates', 'force_local_pickup_only', 10, 2);
 
