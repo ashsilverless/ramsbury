@@ -12,19 +12,19 @@ jQuery(document).ready(function( $ ) {
         $(this).addClass("loaded");
 
         next();
-    }); 
+    });
 
     $(document).ready(function( $ ) {
       $( ".toggle" ).first().addClass( "active" );
     });
 
 /* GET HEIGHT OF NAV*/
-    
+
     $(document).ready(function() {
         var element = document.getElementById('nav');
         var navHeight = element.offsetHeight;
         //Use height var to set padding of page content
-        $(".content.no-hero").css("padding-top", navHeight);   
+        $(".content.no-hero").css("padding-top", navHeight);
     });
 
 /* ADJUST NAV ON SCROLL*/
@@ -32,17 +32,17 @@ jQuery(document).ready(function( $ ) {
 $(function() {
     //caches a jQuery object containing the header element
     var header = $("nav");
-    
+
     $(document).ready(function( $ ) {
 		var scroll = $(window).scrollTop();
-		
+
 		if (scroll >= 10) {
 			header.addClass("dark");
 		} else {
 			header.removeClass("dark");
 		}
     });
-    
+
     $(window).scroll(function() {
         var scroll = $(window).scrollTop();
 
@@ -53,7 +53,7 @@ $(function() {
         }
     });
 });
- 
+
 //Smooth Scroll
 
     $('nav a, a.button, a.next-section').click(function(){
@@ -64,12 +64,12 @@ $(function() {
 	        return false;
 	    }
     });
-    
+
 /* Tour Booking Control */
-	
+
 	$(document).ready(function() {
 		if($("#tour-datepicker").length) {
-		
+
 			$.ajax({
 				'type' :     'POST',
 				'dataType':  'JSON',
@@ -87,9 +87,9 @@ $(function() {
 					dateFormat: 'yy-mm-dd',
 					beforeShowDay: function(date) {
 						var result = false;
-						
+
 						for(var i = 0; i < dates_all.length; i++) {
-							
+
 							if(dates_all[i].recurrence == "once") {
 								result = formatDate(date) == dates_all[i]["date"];
 							}
@@ -99,11 +99,11 @@ $(function() {
 							else if(dates_all[i].recurrence == "monthly") {
 								result = new Date(dates_all[i]["date"]).getDate() == date.getDate() && formatDate(date) >= dates_all[i]["date"];
 							}
-							
+
 							if(result)
 								return [result, ''];
 						}
-						
+
 						return [result, ''];
 					},
 					onSelect: function(date) {
@@ -128,32 +128,32 @@ $(function() {
 						});
 					}
 				});
-				
+
 				$("#tour-datepicker").find('a.ui-state-highlight').removeClass('ui-state-highlight');
 				$("#tour-datepicker").find('a.ui-state-active').removeClass('ui-state-active');
-				
+
 				$("#tour-datepicker").val("");
 				$("#tour-datepicker").show();
-				
+
 				$(".input-tour select").on("change", function() {
 					var date = $("#tour-datepicker").attr("date-booking");
 					if(!date) {
 						$(".tour-error").text("Please select a date");
 						return false;
 					}
-					
+
 					var time = $("#time-booking").find(":selected").val();
 					if(!time) {
 						$(".tour-error").text("Please select a time");
 						return false;
 					}
-					
+
 					var data = {
 						"action": "get_availability",
 						"date": date,
 						"time": time
 					};
-					
+
 					clearInfo(["number", "error", "total"]);
 					$.post(ajax_object.ajax_url, data, function(response) {
 						response = JSON.parse(response);
@@ -169,34 +169,34 @@ $(function() {
 						}
 					});
 				});
-				
+
 				$(".input-tour input#quantity-booking").on("input", function() {
 					quantityChange();
 				});
-				
+
 				$(".input-tour input#quantity-booking").on("change", function() {
 					quantityChange();
 				});
-				
+
 				$(".input-tour button.book-tour").on("click", function() {
 					var date = $("#tour-datepicker").attr("date-booking");
 					if(!date) {
 						$(".tour-error").text("Please select a date");
 						return false;
 					}
-					
+
 					var time = $("#time-booking").find(":selected").val();
 					if(!time) {
 						$(".tour-error").text("Please select a time");
 						return false;
 					}
-					
+
 					var quantity = parseInt($("#quantity-booking").val());
 					if(!quantity) {
 						$(".tour-error").text("Please provide number of visitors'");
 						return false;
 					}
-					
+
 					$.ajax({
 						type: 'POST',
 						dataType: 'JSON',
@@ -212,7 +212,7 @@ $(function() {
 						}
 					});
 				});
-				
+
 				$(".input-tour select").on("click", function() {
 					var date = $("#tour-datepicker").attr("date-booking");
 					if(!date) {
@@ -220,7 +220,7 @@ $(function() {
 						return false;
 					}
 				});
-				
+
 				$(".minus-custom").on("click", function() {
 					var value = $("#quantity-booking").val();
 					value = value ? value : 0;
@@ -228,7 +228,7 @@ $(function() {
 					$("#quantity-booking").val(value);
 					$("#quantity-booking").trigger("change");
 				});
-				
+
 				$(".plus-custom").on("click", function() {
 					var value = $("#quantity-booking").val();
 					value = value ? value : 0;
@@ -236,80 +236,80 @@ $(function() {
 					$("#quantity-booking").val(value);
 					$("#quantity-booking").trigger("change");
 				});
-				
+
 			}
-			
+
 			function getTotal(set) {
 				if(set) {
 					var number = Number($("input#quantity-booking").val());
 					var cost = $(".tour-total").attr("cost");
-					
+
 					if((cost || cost === "0") && Number.isInteger(number)) {
 						$(".tour-total span").html("&#163;&#160;" + (cost * number));
 					}
 				} else {
 					clearInfo("total");
 				}
-					
+
 			}
-			
+
 			function quantityChange() {
 				field = $("#quantity-booking");
-				
+
 				var min = parseInt($(field).attr("min"));
 				var max = parseInt($(field).attr("max"));
 				var val = parseInt($(field).val());
-				
+
 				val = val < 0 ? 0 : val;
-				
+
 				if(!val) {
 					$(field).val("");
 					$(".summary span.sum-number").text("");
-				} else { 
+				} else {
 			        if(val < min)
 			            val = min;
 			        else if(val > max)
 			            val = max;
-			            
+
 			        $(field).val("");
 					$(field).val(val);
-			        
-			        
+
+
 					$(".summary span.sum-number").text(val);
 					clearInfo(["error", "total"]);
-					
+
 					getTotal(true);
 				}
 			}
-			
+
 			function formatDate(date) {
 			    var d = new Date(date),
 			        month = '' + (d.getMonth() + 1),
 			        day   = '' + d.getDate(),
 			        year  = d.getFullYear();
-			
+
 			    if (month.length < 2) month = '0' + month;
 			    if (day.length   < 2) day   = '0' + day;
-			
+
 			    return [year, month, day].join('-');
 			}
-			
+
 			function clearInfo(info) {
 				if(!(info instanceof Array))
 					info = [info];
-					
+
 				if(info.includes("date"))
 					$(".summary span.sum-date").text("");
-					
+
 				if(info.includes("time"))
 					$(".summary span.sum-time").text("");
-					
+
 				if(info.includes("number"))
 					$(".summary span.sum-number").text("");
-				
+
 				if(info.includes("error"))
 					$(".tour-error").text("");
-				
+
 				if(info.includes("total"))
 					$(".tour-total span").text("");
 			}
@@ -317,26 +317,26 @@ $(function() {
 
 	});
 
-    
+
 /* LOAD MAP */
-    
+
     $(document).ready(function() {
-			
+
 		if($("#map-contact").length > 0 && JSON.parse($("#map-contact").attr("points"))) {
 		    var points = JSON.parse($("#map-contact").attr("points"));
-		    
+
 	        mapboxgl.accessToken = 'pk.eyJ1Ijoic2lsdmVybGVzcyIsImEiOiJjaXNibDlmM2gwMDB2Mm9tazV5YWRmZTVoIn0.ilTX0t72N3P3XbzGFhUKcg';
-	        
+
 			var map = new mapboxgl.Map({
 			    container:  'map-contact',
 			    style:      'mapbox://styles/silverless/cjvnw465y0bl91cmionu5nqmo',
 			    center:     [-1.729931, 51.420942],
-			    zoom:       11, 
+			    zoom:       11,
 			    scrollZoom: false
 			});
-			
+
 			map.addControl(new mapboxgl.NavigationControl(), 'bottom-right');
-			
+
 			var geocoder = new MapboxGeocoder({
 				accessToken: mapboxgl.accessToken,
 				marker: {
@@ -344,23 +344,24 @@ $(function() {
 				},
 				countries: 'gb',
 				mapboxgl: mapboxgl,
-				flyTo: false
+				flyTo: false,
+                zoom: 14
 			});
-			
+
 			map.addControl(geocoder, 'bottom-left');
-			
+
 			var geojson = {
 				type: 'FeatureCollection',
 				features: points
 			};
-			
+
 			var coorPoints = [];
-			
+
 			geojson.features.forEach(function(marker) {
-	
+
 				var el = document.createElement('div');
 				el.className = 'marker';
-				
+
 				new mapboxgl.Marker(el)
 					.setLngLat(marker.geometry.coordinates)
 					.setPopup(new mapboxgl.Popup({ offset: 25 })
@@ -370,47 +371,47 @@ $(function() {
 				    	'<div class="address">' + marker.properties.postcode + '</div>' +
 				    	'<div class="phone">'   + marker.properties.phone    + '</div>' +
 				    	'<div class="buttons-popup">' +
-					    	'<a target="_blank" href="https://www.google.com/maps/dir//' + 
+					    	'<a target="_blank" href="https://www.google.com/maps/dir//' +
 					    	marker.properties.directions + '/@' + marker.geometry.coordinates[1] + ',' + marker.geometry.coordinates[0] + ',15z' +
 					    	'">Get Directions</a>' +
 							'<a target="_blank" href="' + marker.properties.website + '">Visit Website</a>' +
 						'</div>'))
 					.addTo(map);
-				
+
 				el.addEventListener('click', function(e){
 					position = marker.geometry.coordinates[1] + 0.0030;
 					map.flyTo({
 					    center: [marker.geometry.coordinates[0], position],
-					    zoom: 15
+					    zoom: 13
 				    });
 				});
-				
+
 				coorPoints.push(new mapboxgl.LngLat(marker.geometry.coordinates[0], marker.geometry.coordinates[1]));
 			});
-			
+
 			geocoder.on("result", function(e) {
 				var distance = [];
 				var searchPoint = new mapboxgl.LngLat(e.result.geometry.coordinates[0], e.result.geometry.coordinates[1]);
-				
+
 				coorPoints.forEach(function(markerPoint) {
 					distance.push({
 						'point': markerPoint,
 						'distance': distanceBetweenPoints(searchPoint, markerPoint)
 					});
 				});
-				
+
 				var minDistance = distance.reduce(function(prev, curr) {
 				    return prev.distance < curr.distance ? prev : curr;
 				});
-				
+
 				var bounds = new mapboxgl.LngLatBounds();
-	
+
 				bounds.extend(minDistance.point);
 				bounds.extend(searchPoint);
-				
+
 				map.fitBounds(bounds, { padding: 100 });
 			});
-			
+
 			$(window).bind('mousewheel DOMMouseScroll', function(event) {
 			    if(event.ctrlKey == true) {
 			        map['scrollZoom'].enable();
@@ -419,43 +420,43 @@ $(function() {
 			        map['scrollZoom'].disable();
 			    }
 			});
-			
+
 			function distanceBetweenPoints(point1, point2) {
 				var R = 6371e3; // metres
 				var φ1 = point1.lat.toRadians();
 				var φ2 = point2.lat.toRadians();
 				var Δφ = (point2.lat-point1.lat).toRadians();
 				var Δλ = (point2.lng-point1.lng).toRadians();
-				
+
 				var a = Math.sin(Δφ/2) * Math.sin(Δφ/2) +
 				        Math.cos(φ1) * Math.cos(φ2) *
 				        Math.sin(Δλ/2) * Math.sin(Δλ/2);
 				var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-				
+
 				var d = R * c;
 				return d;
 			}
-			
+
 			function getMiddlePoint(point1, point2) {
 				var lat = (point1.lat + point2.lat) / 2;
 				var lng = (point1.lng + point2.lng) / 2;
 				return [lng, lat];
 			}
-			
+
 			Number.prototype.toRadians = function() {
 				return this * Math.PI / 180;
 			};
 		}
-		
+
     });
 
     $(document).ready(function() {
-			
+
 		if($("#brewery-map-contact").length > 0 && JSON.parse($("#brewery-map-contact").attr("points"))) {
 		    var points = JSON.parse($("#brewery-map-contact").attr("points"));
-		    
+
 	        mapboxgl.accessToken = 'pk.eyJ1Ijoic2lsdmVybGVzcyIsImEiOiJjaXNibDlmM2gwMDB2Mm9tazV5YWRmZTVoIn0.ilTX0t72N3P3XbzGFhUKcg';
-	        
+
 			var map = new mapboxgl.Map({
 			    container:  'brewery-map-contact',
 			    style:      'mapbox://styles/silverless/cjvnw465y0bl91cmionu5nqmo',
@@ -463,9 +464,9 @@ $(function() {
 			    zoom:       11,
 			    scrollZoom: false
 			});
-			
+
 			map.addControl(new mapboxgl.NavigationControl(), 'bottom-right');
-			
+
 			var geocoder = new MapboxGeocoder({
 				accessToken: mapboxgl.accessToken,
 				marker: {
@@ -475,21 +476,21 @@ $(function() {
 				mapboxgl: mapboxgl,
 				flyTo: false
 			});
-			
+
 			map.addControl(geocoder, 'bottom-left');
-			
+
 			var geojson = {
 				type: 'FeatureCollection',
 				features: points
 			};
-			
+
 			var coorPoints = [];
-			
+
 			geojson.features.forEach(function(marker) {
-	
+
 				var el = document.createElement('div');
 				el.className = 'marker';
-				
+
 				new mapboxgl.Marker(el)
 					.setLngLat(marker.geometry.coordinates)
 					.setPopup(new mapboxgl.Popup({ offset: 25 })
@@ -498,7 +499,7 @@ $(function() {
 				    	'<div class="address">' + marker.properties.address  + '</div>' +
 				    	'<div class="phone">'   + marker.properties.phone    + '</div>'))
 					.addTo(map);
-				
+
 				el.addEventListener('click', function(e){
 					position = marker.geometry.coordinates[1] + 0.0030;
 					map.flyTo({
@@ -506,33 +507,33 @@ $(function() {
 					    zoom: 13
 				    });
 				});
-				
+
 				coorPoints.push(new mapboxgl.LngLat(marker.geometry.coordinates[0], marker.geometry.coordinates[1]));
 			});
-			
+
 			geocoder.on("result", function(e) {
 				var distance = [];
 				var searchPoint = new mapboxgl.LngLat(e.result.geometry.coordinates[0], e.result.geometry.coordinates[1]);
-				
+
 				coorPoints.forEach(function(markerPoint) {
 					distance.push({
 						'point': markerPoint,
 						'distance': distanceBetweenPoints(searchPoint, markerPoint)
 					});
 				});
-				
+
 				var minDistance = distance.reduce(function(prev, curr) {
 				    return prev.distance < curr.distance ? prev : curr;
 				});
-				
+
 				var bounds = new mapboxgl.LngLatBounds();
-	
+
 				bounds.extend(minDistance.point);
 				bounds.extend(searchPoint);
-				
+
 				map.fitBounds(bounds, { padding: 100 });
 			});
-			
+
 			$(window).bind('mousewheel DOMMouseScroll', function(event) {
 			    if(event.ctrlKey == true) {
 			        map['scrollZoom'].enable();
@@ -541,58 +542,53 @@ $(function() {
 			        map['scrollZoom'].disable();
 			    }
 			});
-			
+
 			function distanceBetweenPoints(point1, point2) {
 				var R = 6371e3; // metres
 				var φ1 = point1.lat.toRadians();
 				var φ2 = point2.lat.toRadians();
 				var Δφ = (point2.lat-point1.lat).toRadians();
 				var Δλ = (point2.lng-point1.lng).toRadians();
-				
+
 				var a = Math.sin(Δφ/2) * Math.sin(Δφ/2) +
 				        Math.cos(φ1) * Math.cos(φ2) *
 				        Math.sin(Δλ/2) * Math.sin(Δλ/2);
 				var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-				
+
 				var d = R * c;
 				return d;
 			}
-			
+
 			function getMiddlePoint(point1, point2) {
 				var lat = (point1.lat + point2.lat) / 2;
 				var lng = (point1.lng + point2.lng) / 2;
 				return [lng, lat];
 			}
-			
+
 			Number.prototype.toRadians = function() {
 				return this * Math.PI / 180;
 			};
 		}
-		
+
     });
 
-
-
-
-
-
 /* PLAY AND PAUSE VIDEO HOME */
-	
+
 	$(document).ready(function() {
-		
+
 		$(".modal-toggle.play-video").on("click", function() {
 			$('.modal .video')[0].currentTime = 0;
 			$('.modal .video')[0].play();
 			$('.modal').toggleClass('is-visible');
 			$('html').toggleClass('no-scroll');
 		});
-		
+
 		$(".modal-toggle.pause-video").on("click", function() {
 			$('.modal .video')[0].pause();
 			$('.modal').toggleClass('is-visible');
 			$('html').toggleClass('no-scroll');
 		});
-		
+
 	});
 
 // ========== Controller for lightbox elements
@@ -606,7 +602,7 @@ $(function() {
             }
         });
     });
- 
+
 // GLOBAL OWL CAROUSEL SETTINGS
 
     $('.large-carousel').owlCarousel({
@@ -685,13 +681,13 @@ $(function() {
     $(".trigger-copy-expand").click(function(event) {
       $('.collapsed-content').addClass("expand");
       $(this).hide();
-       $('.trigger-copy-collapse').show();     
+       $('.trigger-copy-collapse').show();
     });
 
     $(".trigger-copy-collapse").click(function(event) {
         $('.collapsed-content').removeClass("expand");
         $(this).hide();
-        $('.trigger-copy-expand').show();     
+        $('.trigger-copy-expand').show();
     });
 
     $(".trigger-expand").click(function(event) {
@@ -709,34 +705,34 @@ $(function() {
 	    }, 500);
     });
 
-    $(".toggle").click(function() {   
-      	$('.toggle.active').removeClass("active"); 
-        $(this).addClass("active");   
+    $(".toggle").click(function() {
+      	$('.toggle.active').removeClass("active");
+        $(this).addClass("active");
     });
 
     $(".search-trigger").click(function() {
         $('#searchform').addClass("expand");
         $(this).hide();
     });
-    
+
     $(".hamburger-menu").click(function() {
 	    var header = $("nav");
 	    header.addClass("dark");
 		$(".mainMenu").slideToggle();
 		header.toggleClass("nav-collapse");
-		
+
 		var scroll = $(window).scrollTop();
-		
-		if(!header.hasClass("nav-collapse")) { 
+
+		if(!header.hasClass("nav-collapse")) {
 			if (scroll >= 10) {
 				header.addClass("dark");
 			} else {
 				header.removeClass("dark");
 			}
 		}
-	    
+
     });
-    
+
 // ==========Add AJAX functions to quantity buttons on product pages
 
 $(document).on('click', '.plus', function(e) { // replace '.quantity' with document (without single quote)

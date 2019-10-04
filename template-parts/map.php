@@ -1,28 +1,28 @@
 <?php if( have_rows('location', 'option') ):
-	
+
 	$points = array();
-	
+
 	while ( have_rows('location', 'option') ) : the_row();
-	
+
 		$json_string = file_get_contents ('https://api.postcodes.io/postcodes/'. preg_replace('/\s/', '', get_sub_field('postcode')));
-		
+
 		$json_array = json_decode ($json_string, true);
-		
-		
+
+
 		if($json_array["status"] == 200):
-		
+
 			$website = trim(get_sub_field('website'), '/');
 
 			if (!preg_match('#^http(s)?://#', $website)) {
 			    $website = 'http://' . $website;
 			}
-			
+
 			$full_direction = get_sub_field('name'). ' ' . get_sub_field('address'). ' ' . get_sub_field('postcode');
-			
+
 			$directions = str_replace(array(",",".","|",":"), " ", $full_direction);
 			$directions = explode(" ", $directions);
 			$directions = implode("+", $directions);
-			
+
 			array_push($points, array(
 				'type' => 'Feature',
 				'geometry' => array(
@@ -41,11 +41,11 @@
 					'directions' => str_replace('"', "&quot;", str_replace("'", "&apos;", $directions))
 				)
 			));
-	
+
 		endif;
-		
+
 	endwhile;
-		
+
 endif;?>
 
 <div class="map-wrapper">
