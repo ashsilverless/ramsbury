@@ -8,7 +8,7 @@
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
-    
+
 <head>
 
 <meta charset="UTF-8">
@@ -35,47 +35,47 @@
 <div class="page-border page-border__right-bottom"></div>
 
     <div id="page" class="site-wrapper">
-    
+
         <nav id="nav">
     	    <?php get_search_form(); ?>
-    	    
+
     	    <div class="menu-actions">
-	    	    
+
 	    	    <i class="search-trigger fas fa-search"></i>
-	    	    
-		        <a href="/cart" class="cart-button"><i class="fas fa-shopping-basket"></i></a>	  
-		        
+
+		        <a href="/cart" class="cart-button"><i class="fas fa-shopping-basket"></i></a>
+
 		        <i class="hamburger-menu fas fa-bars"></i>
-		        
+
     	    </div>
-	                      
+
             <div class="brand">
-        
+
                 <a href="<?php echo home_url(); ?>" alt="<?php wp_title(''); ?>" title="<?php wp_title(''); ?>">
-                
+
                 <?php get_template_part('template-parts/ramsbury', 'logo');?>
-                
+
                 </a>
-        
-            </div>                    
-        
+
+            </div>
+
             <?php
                 wp_nav_menu( array(
                 'theme_location' => 'main-menu',
                 'container_class' => 'mainMenu' ) );
             ?>
-	    
+
 	    </nav>
-    
-    
+
+
     <?php if(is_front_page()): ?>
-    
+
     <!-- Modal Video -->
-    
+
 	<?php get_template_part('template-parts/modal');?>
-	
+
 	<!-- Modal Video END -->
-	
+
 	<?php endif; ?>
 
 <main><!--closes in footer.php-->

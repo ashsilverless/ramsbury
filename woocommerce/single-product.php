@@ -25,12 +25,12 @@ get_header(); ?>
 <!-- ******************* Hero Product ******************* -->
 
 <div class="product-hero bottom-border
-<?php 
+<?php
     global $post;
     $terms = get_the_terms( $post->ID, 'product_cat' );
     foreach ($terms as $term) {
         $product_cat_id = $term->name;
-    
+
     $raw = strtolower($product_cat_id);
     $modified = str_replace(' ', '', $raw);
     echo $modified." ";
@@ -38,9 +38,9 @@ get_header(); ?>
 ?>">
 
     <div class="container">
-    
+
         <?php get_template_part('template-parts/large', 'product');?>
-    
+
     </div>
 
 </div>

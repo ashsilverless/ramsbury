@@ -31,6 +31,16 @@ if ( post_password_required() ) {
 ?>
 <div id="product-<?php the_ID(); ?>" <?php wc_product_class(); ?>>
 
+	<?php
+	global $post;
+	$terms = wp_get_post_terms( $post->ID, 'product_cat' );
+	foreach ( $terms as $term ) $categories[] = $term->slug;
+	if ( in_array( 'gifts', $categories ) ) {
+		$product = wc_get_product( $post->ID );
+		$price = $product->get_price_html();?>
+		<span class="price"><?php echo $price;?></span>
+	<?php } ?>
+
 	<div class="summary entry-summary">
 		<?php
 			/**
@@ -47,8 +57,9 @@ if ( post_password_required() ) {
 			 */
 			do_action( 'woocommerce_single_product_summary' );
 		?>
+
 	</div>
-	
+
 </div>
 
 <?php do_action( 'woocommerce_after_single_product' ); ?>

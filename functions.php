@@ -4,32 +4,32 @@
  *
  * @package ramsbury
  */
-/** == Ditch Junk == */ 
+/** == Ditch Junk == */
 
 remove_action('wp_head', 'print_emoji_detection_script', 7);
 
 remove_action('wp_print_styles', 'print_emoji_styles');
 
-/** = Enqueue scripts and styles = */ 
+/** = Enqueue scripts and styles = */
 
 function ramsbury_scripts() {
-	
+
 	wp_enqueue_style( 'ramsbury-style', get_stylesheet_uri() );
 
-	wp_enqueue_script( 'ramsbury-core-js', get_template_directory_uri() . '/inc/js/compiled.js', array('jquery', 'jquery-ui-datepicker'), true); 
-	
+	wp_enqueue_script( 'ramsbury-core-js', get_template_directory_uri() . '/inc/js/compiled.js', array('jquery', 'jquery-ui-datepicker'), true);
+
 	wp_enqueue_script( 'mapbox-gl', get_template_directory_uri() . '/inc/js/mapbox-gl.js', array(), true );
-	
+
 	wp_enqueue_script( 'mapbox-gl-geocoder', get_template_directory_uri() . '/inc/js/mapbox-gl-geocoder.min.js', array(), true );
-	
+
     wp_localize_script('ramsbury-core-js', 'ajax_object', array(
-		
+
 		'ajax_url' => admin_url( 'admin-ajax.php' ),
-		
+
 		'checkout_url' => get_permalink( wc_get_page_id( 'cart' ) )
-		
+
 	));
-	
+
 }
 
 add_action( 'wp_enqueue_scripts', 'ramsbury_scripts' );
@@ -67,10 +67,10 @@ add_action( 'init', 'sl_custom_menu' );
 /* Dashboard Config */
 
 add_action('wp_dashboard_setup', 'sl_dashboard_widget');
-  
+
 function sl_dashboard_widget() {
 global $wp_meta_boxes;
- 
+
 wp_add_dashboard_widget('custom_help_widget', 'Technical Support', 'custom_dashboard_help');
 }
 function custom_dashboard_help() {
@@ -144,9 +144,9 @@ function my_custom_fonts() {
 /**
  * ACF Options Pages.
  */
- 
+
  if( function_exists('acf_add_options_page') ) {
-	
+
 	acf_add_options_page(array(
 		'page_title' 	=> 'Theme Settings',
 		'menu_title'	=> 'Theme Settings',
@@ -154,7 +154,7 @@ function my_custom_fonts() {
 		'capability'	=> 'edit_posts',
 		'redirect'		=> false
 	));
-	
+
 	/*acf_add_options_sub_page(array(
 		'page_title' 	=> 'Header Settings',
 		'menu_title'	=> 'Header',
@@ -176,20 +176,20 @@ function my_custom_fonts() {
 		'capability'	=> 'edit_posts',
 		'redirect'		=> false
 	));
-	
+
 	acf_add_options_page(array(
 		'page_title' 	=> 'Map Locations',
 		'menu_title'	=> 'Map Locations',
 		'menu_slug' 	=> 'map-locations',
 		'capability'	=> 'edit_posts',
 		'redirect'		=> false
-	));	
+	));
 }
- 
+
 /**= Remove Default Menu Items =**/
- 
+
 //function remove_menus(){
-//  remove_menu_page( 'edit-comments.php' );          //Comments  
+//  remove_menu_page( 'edit-comments.php' );          //Comments
 //}
 //add_action( 'admin_menu', 'remove_menus' );
 
@@ -232,7 +232,7 @@ add_action( 'after_setup_theme', function() {
 
 /**= WooCommerce - Custom Customer Message in Checkout =**/
 
-function md_custom_woocommerce_checkout_fields( $fields ) 
+function md_custom_woocommerce_checkout_fields( $fields )
 {
     $fields['order']['order_comments']['placeholder'] = 'Pop any info you need us to know in here, please';
 
@@ -245,31 +245,31 @@ add_filter( 'woocommerce_checkout_fields', 'md_custom_woocommerce_checkout_field
 function ramsbury_social_sharing_buttons($content) {
 	global $post;
 	if(is_singular() || is_home()){
-	
-		// Get current page URL 
+
+		// Get current page URL
 		$ramsburyURL = urlencode(get_permalink());
- 
+
 		// Get current page title
 		$ramsburyTitle = htmlspecialchars(urlencode(html_entity_decode(get_the_title(), ENT_COMPAT, 'UTF-8')), ENT_COMPAT, 'UTF-8');
 		// $ramsburyTitle = str_replace( ' ', '%20', get_the_title());
-		
+
 		// Get Post Thumbnail for pinterest
 		$ramsburyThumbnail = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
- 
+
 		// Construct sharing URL without using any script
 		$twitterURL = 'https://twitter.com/intent/tweet?text='.$ramsburyTitle.'&amp;url='.$ramsburyURL.'&amp;via=Crunchify';
 		$facebookURL = 'https://www.facebook.com/sharer/sharer.php?u='.$ramsburyURL;
- 
+
 		// Based on popular demand added Pinterest too
 		$pinterestURL = 'https://pinterest.com/pin/create/button/?url='.$ramsburyURL.'&amp;media='.$ramsburyThumbnail[0].'&amp;description='.$ramsburyTitle;
- 
+
 		// Add sharing button at the end of page/page content
 		$content .= '<!-- Implement your own superfast social sharing buttons without any JavaScript loading. No plugin required. Detailed steps here: http://crunchify.me/1VIxAsz -->';
 		$content .= '<div class="contactSocials"><h5 class="heading heading__sm">SHARE </h5>';
 		$content .= ' <a href="'. $twitterURL .'" target="_blank"><i class="fab fa-twitter"></i></a>';
 		$content .= '<a href="'.$facebookURL.'" target="_blank"><i class="fab fa-facebook-square"></i></a>';
 		$content .= '</div>';
-		
+
 		return $content;
 	}else{
 		// if not a post/page then don't include sharing button
@@ -281,7 +281,7 @@ function ramsbury_social_sharing_buttons($content) {
 function jh_add_script_to_footer(){
     if( ! is_admin() ) { ?>
     <script>
-  
+
 jQuery(document).ready(function($){
 
 });
@@ -295,9 +295,9 @@ add_action( 'wp_footer', 'jh_add_script_to_footer' );
 add_filter( 'woocommerce_product_single_add_to_cart_text', 'add_to_cart_text' );
 function add_to_cart_text() {
 
-    $productColor = get_field('product_colour');?>    
+    $productColor = get_field('product_colour');?>
 
-    <i class="fas fa-shopping-basket"></i> Add To My Fridge
+    <i class="fas fa-shopping-basket"></i> Add To My Basket
 
 <?php }
 
@@ -324,31 +324,31 @@ function bt_upload_svg ( $existing_mimes = array() ) {
 /**= Functions Calendar =**/
 
 function availability_calendar() {
-	
+
 	require_once("functions-calendar.php");
-	
+
 	get_availability();
-	
+
 }
 
 function available_dates() {
-	
+
 	require_once("functions-calendar.php");
-	
+
 	get_available_dates();
 }
 
 function available_hours() {
-	
+
 	require_once("functions-calendar.php");
-	
+
 	get_hours();
 }
 
 function add_to_cart() {
-	
+
 	require_once("functions-calendar.php");
-	
+
 	add_product_to_cart();
 
 }
@@ -365,7 +365,7 @@ function add_to_cart() {
  */
 function cf_search_join( $join ) {
     global $wpdb;
-    if ( is_search() ) {    
+    if ( is_search() ) {
         $join .=' LEFT JOIN '.$wpdb->postmeta. ' ON '. $wpdb->posts . '.ID = ' . $wpdb->postmeta . '.post_id ';
     }
     return $join;
@@ -423,4 +423,3 @@ return array(
 return $rates;
 }
 add_filter('woocommerce_package_rates', 'force_local_pickup_only', 10, 2);
-
