@@ -1,9 +1,21 @@
-<div class="small-carousel owl-carousel owl-theme mt4"> 
-    
+<div class="small-carousel owl-carousel owl-theme mt4">
+
 	<?php
 		$args = array(
 			'post_type' => 'product',
-			'product_cat' => 'bottled-beer',
+            'tax_query' => array(
+                'relation' => 'OR',
+                array(
+                    'taxonomy' => 'product_cat',
+                    'field' => 'slug',
+                    'terms' => 'bottled-beer'
+                ),
+                array(
+                    'taxonomy' => 'product_cat',
+                    'field' => 'slug',
+                    'terms' => 'cans-beer	'
+                ),
+),
 			'posts_per_page' => -1
 			);
         $loop = new WP_Query( $args );
@@ -11,9 +23,9 @@
         while ( $loop->have_posts() ) : $loop->the_post();
         if( $loop->post->ID != 1745): ?>
 
-    <a href="<?php the_permalink();?>">		
-    	
-        <div class="product-card <?php if ( has_term( 'keg-beer', 'product_cat' ) ) {echo 'keg-beer';}?> <?php if ( has_term( 'small-beer', 'product_cat' ) ) {echo 'small-beer';}?>">
+    <a href="<?php the_permalink();?>">
+
+        <div class="product-card <?php if ( has_term( 'keg-beer', 'product_cat' ) ) {echo 'keg-beer';}?> <?php if ( has_term( 'small-beer', 'product_cat' ) ) {echo 'small-beer';}?> <?php if ( has_term( 'cans-beer', 'product_cat' ) ) {echo 'cans-beer';}?>">
 
         <?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $loop->post->ID ), 'single-post-thumbnail' );?>
 
@@ -34,4 +46,3 @@
 		wp_reset_postdata();?>
 
 </div>
-
