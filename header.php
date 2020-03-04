@@ -12,11 +12,9 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="description" content=" ">
-<meta name="keywords" content=" ">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>Ramsbury Brewery</title>
+<title>Ramsbury Brewery | Handcrafted from plough to pint</title>
 
 <link rel="stylesheet" href="https://use.typekit.net/dmz2ckm.css"><!--TYPEKIT INJECT-->
 
