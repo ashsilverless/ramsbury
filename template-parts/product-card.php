@@ -11,7 +11,7 @@
 
         <div class="bottle-wrapper">
             <figure>
-            <img src="<?php  echo $image[0]; ?>" data-id="<?php echo $loop->post->ID; ?>">
+            <img src="<?php  echo $image[0]; ?>" data-id="<?php echo $loop->post->ID; ?>" alt="<?php the_title();?>"/>
             </figure>
         </div>
 
@@ -27,7 +27,7 @@
 
        <h2 class="beer-title heading heading__alt heading__caps"><?php the_field('strapline');?></h2>
 
-        <p class="heading heading__body heading__xs font400 mb1 abv"><?php the_field('abv');?>% ABV</p> 
+        <p class="heading heading__body heading__xs font400 mb1 abv"><?php the_field('abv');?>% ABV</p>
 
     </div>
 

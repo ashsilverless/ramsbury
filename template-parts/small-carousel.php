@@ -31,7 +31,7 @@
 
             <div class="bottle-wrapper" style="width:100%;">
                 <figure>
-                <img src="<?php  echo $image[0]; ?>" data-id="<?php echo $loop->post->ID; ?>">
+                <img src="<?php  echo $image[0]; ?>" data-id="<?php echo $loop->post->ID; ?>" alt="<?php the_title();?>"/>
                 </figure>
             </div>
 
