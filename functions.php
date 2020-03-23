@@ -184,6 +184,14 @@ function my_custom_fonts() {
 		'capability'	=> 'edit_posts',
 		'redirect'		=> false
 	));
+
+	acf_add_options_page(array(
+		'page_title' 	=> 'Pop Up Message',
+		'menu_title'	=> 'Pop Up Message',
+		'menu_slug' 	=> 'popup-msg',
+		'capability'	=> 'edit_posts',
+		'redirect'		=> false
+	));
 }
 
 /**= Remove Default Menu Items =**/
