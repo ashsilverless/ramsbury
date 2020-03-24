@@ -5,7 +5,7 @@
  * @package ramsbury
  */
 get_header();?>
-<!--
+
 <?php if( get_field('pop_up_active', 'options') == 'active' ) { ?>
 <div class="pop-up">
 	<div id="popUpClose" class="pop-up__close"><i class="far fa-times-circle"></i></div>
@@ -15,7 +15,7 @@ get_header();?>
 <p class="heading heading__md mb0"><?php the_field('author_name', 'options');?></p>
 <p class="mt0"><?php the_field('author_appointment', 'options');?></p>
 </div>
-<?php };?>-->
+<?php };?>
 
 <!-- ******************* Hero Section ******************* -->
 
