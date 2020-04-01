@@ -22,7 +22,7 @@ defined( 'ABSPATH' ) || exit;
  *
  * @hooked wc_print_notices - 10
  */
-/*
+
 
 do_action( 'woocommerce_before_single_product' );
 
@@ -56,7 +56,7 @@ if ( post_password_required() ) {
 			 * @hooked woocommerce_template_single_meta - 40
 			 * @hooked woocommerce_template_single_sharing - 50
 			 * @hooked WC_Structured_Data::generate_product_data() - 60
-
+*/
 			do_action( 'woocommerce_single_product_summary' );
 		?>
 
@@ -64,4 +64,4 @@ if ( post_password_required() ) {
 
 </div>
 
-<?php do_action( 'woocommerce_after_single_product' ); ?>*/
+<?php do_action( 'woocommerce_after_single_product' ); ?>

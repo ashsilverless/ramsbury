@@ -36,7 +36,7 @@
 
                 <p><?php the_field('description');?></p>
 
-                <!--<a href="<?php the_permalink();?>" class="button button__inline">Buy Now</a>-->
+                <a href="<?php the_permalink();?>" class="button button__inline">Buy Now</a>
 
             </div>
 
